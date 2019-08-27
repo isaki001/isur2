@@ -1,0 +1,21 @@
+#!/bin/bash
+#PBS -l nodes=2:K20m
+#PBS -l walltime=00:05:00
+#PBS -A casa
+#PBS -q gpudbg 
+#PBS -N bem
+ 
+# cd to the directory where the  job was submitted
+PBS_O_WORKDIR=/u/home/isaki/isur2/
+cd $PBS_O_WORKDIR
+rm bem*
+rm out.txt 
+# Set up the environment
+
+##source /u/home/isaki/S/env.sh
+export PATH=/usr/local/cuda-8.0/bin:/dist/gcc-4.6.3/bin:/usr/mpi/gcc/openmpi-1.8.8/bin:/usr/local/bin:/bin:/usr/bin:$PATH
+export LD_LIBRARY_PATH=/usr/local/cuda-8.0/lib64:/dist/gcc-4.6.3/lib64:/usr/mpi/gcc/openmpi-1.8.8/lib:$LD_LIBRARY_PATH
+
+#Pick the executable
+EXECUTABLE=/u/home/isaki/isur2/app
+mpirun -np 2 $EXECUTABLE -hostfile $PBS_NODEFILE MV2_ENABLE_AFFINITY=0 > exp.out

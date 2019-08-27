@@ -1,0 +1,11 @@
+job.script: Command not found.
+job.script: Command not found.
+/home/nmaje001/Beam/Collision_Bunch/app: /usr/lib64/libstdc++.so.6: version `GLIBCXX_3.4.14' not found (required by /home/nmaje001/Beam/Collision_Bunch/app)
+[mpiexec@coreV3-23-k40-010] HYDU_parse_hostfile (utils/args/args.c:319): unable to open host file: /tmp/277617.1.gpu/machines
+[mpiexec@coreV3-23-k40-010] mfile_fn (ui/mpich/utils.c:336): error parsing hostfile
+[mpiexec@coreV3-23-k40-010] match_arg (utils/args/args.c:152): match handler returned error
+[mpiexec@coreV3-23-k40-010] HYDU_parse_array (utils/args/args.c:174): argument matching returned error
+[mpiexec@coreV3-23-k40-010] parse_args (ui/mpich/utils.c:1596): error parsing input array
+[mpiexec@coreV3-23-k40-010] HYD_uii_mpx_get_parameters (ui/mpich/utils.c:1648): unable to parse user arguments
+[mpiexec@coreV3-23-k40-010] main (ui/mpich/mpiexec.c:153): error parsing parameters
+error: executing task of job 277619 failed: failed sending task to execd@/cm/local/apps/sge/var/spool/coreV3-23-k40-001/active_jobs/277619.1/pe_

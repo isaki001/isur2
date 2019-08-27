@@ -1,0 +1,6 @@
+nvcc -x cu -D_GLIBCXX_USE_CXX11_ABI=0 -arch=sm_35 -I /cm/shared/apps/mpich/ge/gcc/64/3.1/include/ -std=c++11 -c Simulator.cu -o Simulator.o
+nvcc -x cu -D_GLIBCXX_USE_CXX11_ABI=0 -arch=sm_35 -I /cm/shared/apps/mpich/ge/gcc/64/3.1/include/ -std=c++11 --maxrregcount=48 -c GPUBeam/Collide.cu -o Collide.o
+nvcc -x c++ -D_GLIBCXX_USE_CXX11_ABI=0 -arch=sm_35 -I /cm/shared/apps/mpich/ge/gcc/64/3.1/include/ -std=c++11 -c Beam.cpp -o Beam.o
+nvcc -x c++ -D_GLIBCXX_USE_CXX11_ABI=0 -arch=sm_35 -I /cm/shared/apps/mpich/ge/gcc/64/3.1/include/ -std=c++11 -c InputProcessing.cpp -o InputProcessing.o
+nvcc -x c++ -D_GLIBCXX_USE_CXX11_ABI=0 -arch=sm_35 -I /cm/shared/apps/mpich/ge/gcc/64/3.1/include/ -std=c++11 -c util/Util.cpp -o Util.o
+nvcc -D_GLIBCXX_USE_CXX11_ABI=0 -arch=sm_35 -L /usr/local/lib/ -lmpi Beam.o InputProcessing.o Util.o Simulator.o Collide.o -o app

@@ -1,0 +1,10 @@
+rm: cannot remove `out.txt': No such file or directory
+rm: cannot remove `./output/beamspecs_e_0.out': No such file or directory
+rm: cannot remove `./output/beamspecs_e_1.out': No such file or directory
+rm: cannot remove `./output/beamspecs_e_2.out': No such file or directory
+rm: cannot remove `./output/beamspecs_p_0.out': No such file or directory
+rm: cannot remove `./output/beamspecs_p_1.out': No such file or directory
+rm: cannot remove `./output/beamspecs_p_2.out': No such file or directory
+rm: cannot remove `./output/beamspecs_p_3.out': No such file or directory
+rm: cannot remove `./output/luminosity.out': No such file or directory
+rm: cannot remove `./output/dump.IC_p.PID_0.Turn_0': No such file or directory

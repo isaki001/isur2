@@ -1,0 +1,175 @@
+Before QuadDebug Rank:0
+QuadDebug:0
+node id0 bufqcd12kmi nodemap[buf]0
+Beam input nu_pz:0.054
+beam Input's N:10
+this is what beamInput gets:eq_e.dat
+Num Devices: 1
+Device MPI RANK:0 GPU Rank:0, name:Tesla K20m
+Beam Initialized
+mapFilePath:input/eq_e.dat
+Map file name:eq_e.dat
+about to read map
+mapFilePath:input/eq_p.dat
+Map file name:eq_p.dat
+about to read map
+mapFilePath:input/map_e.dat
+Map file name:map_e.dat
+about to read map
+About to Dump Particles
+DP: Outputting dump in:output/dump.IC_e.PID_0.Turn_0
+mapFilePath:input/map_p.dat
+Map file name:map_p.dat
+about to read map
+DP: Outputting dump in:output/dump.IC_p.PID_0.Turn_0
+TrackingWithCollision
+Pre_Tracking took 85.6876 ms in qcd12kmi (Rank = 0)
+
+E ALLOCATION
+Bunch | GPU
+===========
+0:0
+1:0
+2:0
+===========
+P ALLOCATION
+Bunch | GPU
+===========
+0:0
+1:0
+2:0
+3:0
+===========
+gpu_alloc took 419.989 ms in qcd12kmi (Rank = 0)
+
+========================
+ind_col took 1339.12 ms in qcd12kmi (Rank = 0)
+
+Computerd Sig_x_p:0.000022
+Lc:3671978283632143825371136.000000
+sig_x_e:0.000022
+sig_x_p:0.000022
+sig_y_e:0.000004
+sig_y_p:0.000004
+Lum:19459746455116898448142874777223168.000000
+========================
+ind_col took 1270.59 ms in qcd12kmi (Rank = 0)
+
+Computerd Sig_x_p:0.000022
+Lc:3671978283632143825371136.000000
+sig_x_e:0.000022
+sig_x_p:0.000022
+sig_y_e:0.000004
+sig_y_p:0.000004
+Lum:19437039857900184104233532471115776.000000
+========================
+ind_col took 1291.14 ms in qcd12kmi (Rank = 0)
+
+Computerd Sig_x_p:0.000022
+Lc:3671978283632143825371136.000000
+sig_x_e:0.000022
+sig_x_p:0.000022
+sig_y_e:0.000004
+sig_y_p:0.000004
+Lum:19454611989886095816653414688882688.000000
+ind_col took 0.105536 ms in qcd12kmi (Rank = 0)
+
+========================
+ind_col took 1277.3 ms in qcd12kmi (Rank = 0)
+
+Computerd Sig_x_p:0.000022
+Lc:3671978283632143825371136.000000
+sig_x_e:0.000020
+sig_x_p:0.000022
+sig_y_e:0.000004
+sig_y_p:0.000004
+Lum:20787172813371264329683591539720192.000000
+========================
+ind_col took 1279.36 ms in qcd12kmi (Rank = 0)
+
+Computerd Sig_x_p:0.000021
+Lc:3671978283632143825371136.000000
+sig_x_e:0.000020
+sig_x_p:0.000021
+sig_y_e:0.000004
+sig_y_p:0.000004
+Lum:21171298286869218528028004131536896.000000
+========================
+ind_col took 1272.82 ms in qcd12kmi (Rank = 0)
+
+Computerd Sig_x_p:0.000021
+Lc:3671978283632143825371136.000000
+sig_x_e:0.000020
+sig_x_p:0.000021
+sig_y_e:0.000004
+sig_y_p:0.000004
+Lum:21184580678078993138379396059496448.000000
+ind_col took 0.097792 ms in qcd12kmi (Rank = 0)
+
+========================
+ind_col took 1279.69 ms in qcd12kmi (Rank = 0)
+
+Computerd Sig_x_p:0.000021
+Lc:3671978283632143825371136.000000
+sig_x_e:0.000017
+sig_x_p:0.000021
+sig_y_e:0.000004
+sig_y_p:0.000004
+Lum:23196918799224027995828343195828224.000000
+========================
+ind_col took 1279.08 ms in qcd12kmi (Rank = 0)
+
+Computerd Sig_x_p:0.000021
+Lc:3671978283632143825371136.000000
+sig_x_e:0.000017
+sig_x_p:0.000021
+sig_y_e:0.000004
+sig_y_p:0.000004
+Lum:23387386568729558974758677974614016.000000
+========================
+ind_col took 1282.43 ms in qcd12kmi (Rank = 0)
+
+Computerd Sig_x_p:0.000021
+Lc:3671978283632143825371136.000000
+sig_x_e:0.000017
+sig_x_p:0.000021
+sig_y_e:0.000004
+sig_y_p:0.000004
+Lum:23616482615414455169119838588108800.000000
+ind_col took 0.095136 ms in qcd12kmi (Rank = 0)
+
+========================
+ind_col took 1272.4 ms in qcd12kmi (Rank = 0)
+
+Computerd Sig_x_p:0.000021
+Lc:3671978283632143825371136.000000
+sig_x_e:0.000015
+sig_x_p:0.000021
+sig_y_e:0.000004
+sig_y_p:0.000004
+Lum:24896935168259068551851355502804992.000000
+========================
+ind_col took 1271.82 ms in qcd12kmi (Rank = 0)
+
+Computerd Sig_x_p:0.000021
+Lc:3671978283632143825371136.000000
+sig_x_e:0.000015
+sig_x_p:0.000021
+sig_y_e:0.000004
+sig_y_p:0.000004
+Lum:25118506392216772621383579534884864.000000
+========================
+ind_col took 1284.78 ms in qcd12kmi (Rank = 0)
+
+Computerd Sig_x_p:0.000021
+Lc:3671978283632143825371136.000000
+sig_x_e:0.000015
+sig_x_p:0.000021
+sig_y_e:0.000004
+sig_y_p:0.000004
+Lum:25425936316658467438922628864147456.000000
+ind_col took 0.09904 ms in qcd12kmi (Rank = 0)
+
+Total Time took 68397.1 ms in qcd12kmi (Rank = 0)
+
+Done simulation

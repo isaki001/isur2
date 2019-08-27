@@ -1,0 +1,77 @@
+#include <iostream>
+#include <sstream>
+#include <cstdlib>
+#include <cmath>
+
+#include "Util.h"
+
+
+
+int iy = 0;
+int iv[32]={0};
+int iset = 0;
+double gset = 0;
+  
+
+
+
+double
+Util::ran1(int &idum){
+  const int ia = 16807;
+  const long int im = 2147483647;
+  double am = 1.0/im;
+  const int iq = 127773, ir = 2836;
+  const int ntab = 32;
+  const int ndiv = 1 + (im-1)/ntab;
+  const double eps=1.2e-7;
+  double rnmx=1.0 - eps;
+  
+  int k = 0, j = 0;
+  if(idum <= 0 || iy == 0){
+    idum = MAX(-idum,1);
+    for(j = ntab+8; j >=1; j--){
+      k = idum/iq;
+      idum = ia * (idum - k*iq) - ir*k;
+      if (idum < 0) idum = idum + im;
+      if (j <= ntab) iv[j - 1] = idum;
+    }
+    iy = iv[0];
+  }
+  k = idum/iq;
+  idum = ia * (idum - k*iq) - ir * k;
+  if (idum < 0) idum = idum + im;
+  j = 1 + iy/ndiv;
+  iy = iv[j - 1];
+  iv[j - 1] = idum;
+  double retval= MIN((am*iy), rnmx);
+  return retval;
+}
+
+
+double
+Util::gasdev(int &idum){
+  double retval = 0;
+  if(iset == 0){
+    double rsq = 0, v1 = 0, v2 = 0;
+    do{
+      v1 = 2.0 * ran1(idum) - 1.0;
+      v2 = 2.0 * ran1(idum) - 1.0;
+      rsq = v1*v1 + v2*v2;
+    }while ((rsq >= 1.0) || (rsq == 0.0)); 
+    double fac = sqrt(-2.0 * log(rsq)/rsq);
+    gset = v1 * fac;
+    retval = v2 * fac;
+    iset = 1;
+  }else{
+    retval = gset;
+    iset = 0;
+  }
+  return retval;
+}
+
+
+double
+Util::gauss(double xbar, double sigma, double sigma_max, int &Nseed){
+  double retval = sigma*gasdev(Nseed);
+  return retval;
+}

@@ -1,0 +1,81 @@
+                                double XABS = cuCreal(z1);
+                                double YABS = cuCimag(z1);
+
+                                XABS = fabs(XABS);
+                                YABS = fabs(YABS);
+
+                                double QRHO;
+                                bool A;
+
+								int N;
+
+                                if ((XABS > 0.5e+154) || (YABS > 0.5e+154)) {
+                                        N = 0;
+                                }
+
+                                else {
+
+                                XABS    = XABS/6.3;
+                                YABS    = YABS/4.4;
+
+                                QRHO = XABS*XABS + YABS*YABS;
+
+                                A = (QRHO < ((double)0.085264));
+
+                                if(A) {
+                                        QRHO  = (1-0.85 * YABS ) * sqrt(QRHO);
+                                        N = cIDNINT_temp(6 + 72 * QRHO);
+                                }
+                                else  {
+                                            if (QRHO > 1.0){
+                                                QRHO = sqrt(QRHO);
+                                                N   = cIDNINT_temp(3 + (1442/(26*QRHO+77)));
+                                            }else{
+                                                QRHO = (1-YABS)*sqrt(1-QRHO);
+                                                N   = cIDNINT_temp(16 + 26 * QRHO);
+                                            }
+
+                                }
+
+                                }
+
+                                printf("pid is %d -- N is %d \n", pid, N);
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+                                XABS = cuCreal(z2);
+                                YABS = cuCimag(z2);
+
+                                XABS = fabs(XABS);
+                                YABS = fabs(YABS);
+
+                                if ((XABS > 0.5e+154) || (YABS > 0.5e+154)) {
+                                        N = 0;
+                                }
+
+                                else {
+
+                                XABS    = XABS/6.3;
+                                YABS    = YABS/4.4;
+
+                                QRHO = XABS*XABS + YABS*YABS;
+
+                                A = (QRHO < ((double)0.085264));
+
+                                if(A) {
+                                        QRHO  = (1-0.85 * YABS ) * sqrt(QRHO);
+                                        N = cIDNINT_temp(6 + 72 * QRHO);
+                                }
+                                else  {
+                                            if (QRHO > 1.0){
+                                                QRHO = sqrt(QRHO);
+                                                N   = cIDNINT_temp(3 + (1442/(26*QRHO+77)));
+                                            }else{
+                                                QRHO = (1-YABS)*sqrt(1-QRHO);
+                                                N   = cIDNINT_temp(16 + 26 * QRHO);
+                                            }
+
+                                }
+
+                                }
+
