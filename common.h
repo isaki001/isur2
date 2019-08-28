@@ -14,7 +14,7 @@
 
 #define NWARPS 4
 #define BLOCKDIMX_COL 128
-#define NSLICES 15
+#define NSLICES 35
 
 #include <string>
 

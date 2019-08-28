@@ -1,0 +1,80 @@
+Before QuadDebug Rank:0
+QuadDebug:0
+node id0 bufqcd12k0410 nodemap[buf]0
+Before QuadDebug Rank:1
+QuadDebug:0
+node id1 bufqcd12k0410 nodemap[buf]1
+Before QuadDebug Rank:2
+QuadDebug:0
+node id2 bufqcd12k0410 nodemap[buf]2
+Before QuadDebug Rank:3
+QuadDebug:0
+node id3 bufqcd12k0410 nodemap[buf]3
+Num Devices: 4
+Device MPI RANK:1 GPU Rank:1, name:Tesla K20Xm
+Max Block Size:-597404528
+Num Devices: 4
+Device MPI RANK:0 GPU Rank:0, name:Tesla K20Xm
+Max Block Size:-934755360
+Num Devices: 4
+Device MPI RANK:3 GPU Rank:3, name:Tesla K20Xm
+Max Block Size:373397296
+Num Devices: 4
+Device MPI RANK:2 GPU Rank:2, name:Tesla K20Xm
+Max Block Size:757657728
+DP: Outputting dump in:output/dump.IC_e.PID_0.Turn_0
+DP: Npart:1024000
+DP: Bunches:1
+Sim File:map_p.dat
+Sim File:map_p.dat
+Sim File:map_p.dat
+Pre_Tracking took 25.8268 ms in qcd12k0410 (Rank = 1)
+
+Pre_Tracking took 25.5516 ms in qcd12k0410 (Rank = 3)
+
+Pre_Tracking took 25.3256 ms in qcd12k0410 (Rank = 2)
+
+Sim File:map_p.dat
+DP: Outputting dump in:output/dump.IC_p.PID_0.Turn_0
+DP: Npart:1024000
+DP: Bunches:1
+Pre_Tracking took 24.9847 ms in qcd12k0410 (Rank = 0)
+
+gpu_alloc took 121.773 ms in qcd12k0410 (Rank = 0)
+
+gpu_alloc took 121.758 ms in qcd12k0410 (Rank = 1)
+
+gpu_alloc took 121.769 ms in qcd12k0410 (Rank = 2)
+
+gpu_alloc took 121.76 ms in qcd12k0410 (Rank = 3)
+
+ind_col took 0.137248 ms in qcd12k0410 (Rank = 1)
+
+ind_col took 0.121632 ms in qcd12k0410 (Rank = 2)
+
+ind_col took 0.134784 ms in qcd12k0410 (Rank = 3)
+
+Before Slice E:8000,128
+Before Sort E:8000,128
+Before Slice P:8000,128
+Before sort P:8000,128
+ind_col took 1283.61 ms in qcd12k0410 (Rank = 0)
+
+ind_col took 0.080544 ms in qcd12k0410 (Rank = 2)
+
+ind_col took 0.086016 ms in qcd12k0410 (Rank = 1)
+
+ind_col took 0.081568 ms in qcd12k0410 (Rank = 3)
+
+Before Slice E:8000,128
+Before Sort E:8000,128
+Before Slice P:8000,128
+Before sort P:8000,128
+ind_col took 1281.72 ms in qcd12k0410 (Rank = 0)
+
+Done simulation
+Done simulation
+Total Time took 17208.4 ms in qcd12k0410 (Rank = 0)
+
+Done simulation
+Done simulation

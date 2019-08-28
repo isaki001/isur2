@@ -1,12 +1,12 @@
 #!/bin/bash
-#PBS -l nodes=2:K20m
-#PBS -l walltime=00:05:00
+#PBS -l nodes=4:K20m
+#PBS -l walltime=4:15:00
 #PBS -A casa
-#PBS -q gpudbg 
+#PBS -q gpu
 #PBS -N bem
  
 # cd to the directory where the  job was submitted
-PBS_O_WORKDIR=/u/home/isaki/isur2/
+PBS_O_WORKDIR=/u/home/isurunh/simulations/GHOST
 cd $PBS_O_WORKDIR
 rm bem*
 rm out.txt 
@@ -17,5 +17,5 @@ export PATH=/usr/local/cuda-8.0/bin:/dist/gcc-4.6.3/bin:/usr/mpi/gcc/openmpi-1.8
 export LD_LIBRARY_PATH=/usr/local/cuda-8.0/lib64:/dist/gcc-4.6.3/lib64:/usr/mpi/gcc/openmpi-1.8.8/lib:$LD_LIBRARY_PATH
 
 #Pick the executable
-EXECUTABLE=/u/home/isaki/isur2/app
-mpirun -np 2 $EXECUTABLE -hostfile $PBS_NODEFILE MV2_ENABLE_AFFINITY=0 > exp.out
+EXECUTABLE=/u/home/isurunh/simulations/GHOST/app
+mpirun -npernode 4 $EXECUTABLE -hostfile $PBS_NODEFILE MV2_ENABLE_AFFINITY=0 > 50B-2GPUS.txt

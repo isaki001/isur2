@@ -413,95 +413,95 @@ else if(bParams->icGen==2){
 
 void Beam::genICs(BeamParams *bParams, PARTICLE_TYPE type)
 {
-  int iSeed = 300;
-  //std::cout<<"Number of bunchess are : "<<bParams->pbunches<<"\n";
-  int pbunches = bParams->pbunches;
-  int offset = 0;
-  std::stringstream ss;
-  int Npart = 0;
-  double p_0 = 0;
-  double xbar = 0.0, ybar = 0.0;
+	int iSeed = 300;
+	//std::cout<<"Number of bunchess are : "<<bParams->pbunches<<"\n";
+	int pbunches = bParams->pbunches;
+	int offset = 0;
+	std::stringstream ss;
+	int Npart = 0;
+	double p_0 = 0;
+	double xbar = 0.0, ybar = 0.0;
   
-  if(type == PROTON)
-  {
-    Npart = bParams->Npart_p;
-    p_0 = sqrt(pow((bParams->sig_x0_p/bParams->beta_x0_p), 2.0) + pow((bParams->sig_y0_p/bParams->beta_y0_p), 2.0));
-    int Nseed = iSeed;
-    double ga = bParams->gamma_p;
+	if(type == PROTON)
+	{
+		Npart = bParams->Npart_p;
+		p_0 = sqrt(pow((bParams->sig_x0_p/bParams->beta_x0_p), 2.0) + pow((bParams->sig_y0_p/bParams->beta_y0_p), 2.0));
+		int Nseed = iSeed;
+		double ga = bParams->gamma_p;
 		
-    for(int bunch = 0; bunch < pbunches; bunch++)
-    {
-      offset = bunch * (Npart * 8);
-      xbar = 0.0;
-      ybar = 0.0;
-      for(int i = 0; i < Npart; ++i)
-      {
-        x_p[offset + i]         = Util::gauss(0.0, bParams->sig_x0_p, 3.0, Nseed);
-        x_p[offset + Npart + i] = Util::gauss(0.0, bParams->sig_x0_p/bParams->beta_x0_p, 3.0,Nseed);
-        x_p[offset + 2 * Npart + i] = Util::gauss(0.0, bParams->sig_y0_p, 3.0, Nseed);
-        x_p[offset + 3 * Npart + i] = Util::gauss(0.0, bParams->sig_y0_p/bParams->beta_y0_p, 3.0, Nseed);
-        x_p[offset + 4 * Npart + i] = Util::gauss(0.0, bParams->sig_z0_p*(ga/(1.0+ga)) , 3.0,Nseed);
-        x_p[offset + 5 * Npart + i] = Util::gauss(0.0, (bParams->sig_dE0p/bParams->E_p)*(ga/(1.0+ga)), 3.0, Nseed);
+		for(int bunch = 0; bunch < pbunches; bunch++)
+		{
+			offset = bunch * (Npart * 8);
+			xbar = 0.0;
+			ybar = 0.0;
+			for(int i = 0; i < Npart; ++i)
+			{
+				x_p[offset + i]         = Util::gauss(0.0, bParams->sig_x0_p, 3.0, Nseed);
+				x_p[offset + Npart + i] = Util::gauss(0.0, bParams->sig_x0_p/bParams->beta_x0_p, 3.0,Nseed);
+				x_p[offset + 2 * Npart + i] = Util::gauss(0.0, bParams->sig_y0_p, 3.0, Nseed);
+				x_p[offset + 3 * Npart + i] = Util::gauss(0.0, bParams->sig_y0_p/bParams->beta_y0_p, 3.0, Nseed);
+				x_p[offset + 4 * Npart + i] = Util::gauss(0.0, bParams->sig_z0_p , 3.0,Nseed);
+				x_p[offset + 5 * Npart + i] = Util::gauss(0.0, (bParams->sig_dE0p), 3.0, Nseed);
 
-        xbar += x_p[offset + i];
-        ybar += x_p[offset + 2 * Npart + i];
+				xbar += x_p[offset + i];
+				ybar += x_p[offset + 2 * Npart + i];
 
-        xbar = xbar/Npart;
-        ybar = ybar/Npart;
-      }
-      for(int i = 0; i < Npart; ++i)
-        {
-          x_p[offset + i]         = x_p[offset + i] - xbar + bParams->off_x_p;
-          x_p[offset + 2 * Npart + i] = x_p[offset + 2 * Npart + i] - ybar + bParams->off_y_p;
-        }
-    }
-  }
-  else
-    {
-      Npart = bParams->Npart_e;
-      p_0 = sqrt(pow((bParams->sig_x0_e/bParams->beta_x0_e), 2.0) + pow((bParams->sig_y0_e/bParams->beta_y0_e), 2.0));
-      int Nseed = iSeed;
-      std::cout << std::setprecision(16);
-      std::cout << std::scientific;
-      double ga = bParams->gamma_e;
-      //cout<<"Populating the following x_e indices"<<endl;
-      for(int bunch = 0; bunch < bParams->ebunches; bunch++)
-        {
-          offset = bunch * (Npart * 8);
-          xbar = 0.0;
-          ybar = 0.0;
-          for(int i = 0; i < Npart; ++i)
-            {
-              x_e[offset + i]         = Util::gauss(0.0, bParams->sig_x0_e, 3.0, Nseed);
-              x_e[offset + Npart + i] = Util::gauss(0.0, bParams->sig_x0_e/bParams->beta_x0_e, 3.0,Nseed);
-              //if((offset + Npart + i)==10000)
-              {
-                //cout<<"HERE:"<<x_e[10000]<<endl;
-              }
-              x_e[offset + 2 * Npart + i] = Util::gauss(0.0, bParams->sig_y0_e, 3.0, Nseed);
-              x_e[offset + 3 * Npart + i] = Util::gauss(0.0, bParams->sig_y0_e/bParams->beta_y0_e, 3.0, Nseed);
-              x_e[offset + 4 * Npart + i] = Util::gauss(0.0, bParams->sig_z0_e , 3.0,Nseed);
-              x_e[offset + 5 * Npart + i] = Util::gauss(0.0, (bParams->sig_dE0e), 3.0, Nseed);
-              //cout<<offset + i<<endl;
-              //cout<<offset + Npart + i<<endl;
-              //cout<<offset + 2 * Npart + i<<endl;
-              //cout<<offset + 3 * Npart + i<<endl;
-              //cout<<offset + 4 * Npart + i<<endl;
-              //cout<<offset + 5 * Npart + i<<endl;
-              xbar += x_e[offset + i];
-              ybar += x_e[offset + 2 * Npart + i];
+				xbar = xbar/Npart;
+				ybar = ybar/Npart;
+			}
+			for(int i = 0; i < Npart; ++i)
+			{
+				x_p[offset + i]         = x_p[offset + i] - xbar + bParams->off_x_p;
+				x_p[offset + 2 * Npart + i] = x_p[offset + 2 * Npart + i] - ybar + bParams->off_y_p;
+			}
+		}
+	}
+	else
+	{
+		Npart = bParams->Npart_e;
+		p_0 = sqrt(pow((bParams->sig_x0_e/bParams->beta_x0_e), 2.0) + pow((bParams->sig_y0_e/bParams->beta_y0_e), 2.0));
+		int Nseed = iSeed;
+		std::cout << std::setprecision(16);
+		std::cout << std::scientific;
+		double ga = bParams->gamma_e;
+		//cout<<"Populating the following x_e indices"<<endl;
+		for(int bunch = 0; bunch < bParams->ebunches; bunch++)
+		{
+			offset = bunch * (Npart * 8);
+			xbar = 0.0;
+			ybar = 0.0;
+			for(int i = 0; i < Npart; ++i)
+			{
+				x_e[offset + i]         = Util::gauss(0.0, bParams->sig_x0_e, 3.0, Nseed);
+				x_e[offset + Npart + i] = Util::gauss(0.0, bParams->sig_x0_e/bParams->beta_x0_e, 3.0,Nseed);
+				//if((offset + Npart + i)==10000)
+				{
+					//cout<<"HERE:"<<x_e[10000]<<endl;
+				}
+				x_e[offset + 2 * Npart + i] = Util::gauss(0.0, bParams->sig_y0_e, 3.0, Nseed);
+				x_e[offset + 3 * Npart + i] = Util::gauss(0.0, bParams->sig_y0_e/bParams->beta_y0_e, 3.0, Nseed);
+				x_e[offset + 4 * Npart + i] = Util::gauss(0.0, bParams->sig_z0_e , 3.0,Nseed);
+				x_e[offset + 5 * Npart + i] = Util::gauss(0.0, (bParams->sig_dE0e), 3.0, Nseed);
+				//cout<<offset + i<<endl;
+				//cout<<offset + Npart + i<<endl;
+				//cout<<offset + 2 * Npart + i<<endl;
+				//cout<<offset + 3 * Npart + i<<endl;
+				//cout<<offset + 4 * Npart + i<<endl;
+				//cout<<offset + 5 * Npart + i<<endl;
+				xbar += x_e[offset + i];
+				ybar += x_e[offset + 2 * Npart + i];
 
-              xbar = xbar/Npart;
-              ybar = ybar/Npart;
-            }
+				xbar = xbar/Npart;
+				ybar = ybar/Npart;
+			}
 			
-          for(int i = 0; i < Npart; ++i)
-            {	
-              x_e[offset + i]         = x_e[offset + i] - xbar + bParams->off_x_e;
-              x_e[offset + 2 * Npart + i] = x_e[offset + 2 * Npart + i] - ybar + bParams->off_y_e;
-            }
-        }
-    }
+			for(int i = 0; i < Npart; ++i)
+			{	
+				x_e[offset + i]         = x_e[offset + i] - xbar + bParams->off_x_e;
+				x_e[offset + 2 * Npart + i] = x_e[offset + 2 * Npart + i] - ybar + bParams->off_y_e;
+			}
+		}
+	}
 	
 }
 

@@ -1,0 +1,3 @@
+num particles: 100000
+dumping luminosity
+outputting collide and postcollide after each collision step

@@ -977,106 +977,109 @@ sortbeam(double *d_x, double *d_xs, int *d_iS, int *d_iS_Inc, int *d_iS_ext, int
 
   if(pid < Npart)
   {
-    Slice_ID = d_x[6 * Npart + pid];
+        Slice_ID = d_x[6 * Npart + pid];
 
-    if(Slice_ID != -1)
-    {
-      x = d_x[pid];
-      px = d_x[Npart + pid];
-      y = d_x[2 * Npart + pid];
-      py = d_x[3 * Npart + pid];
-      z = d_x[4 * Npart + pid];
-      pz = d_x[5 * Npart + pid];
+        if(Slice_ID != -1)
+        {
+                x = d_x[pid];
+                px = d_x[Npart + pid];
+                y = d_x[2 * Npart + pid];
+                py = d_x[3 * Npart + pid];
+                z = d_x[4 * Npart + pid];
+                pz = d_x[5 * Npart + pid];
 
-      orig_idx = d_x[7 * Npart + pid];
+                orig_idx = d_x[7 * Npart + pid];
 
 
-      for(int i = Slice_ID - 1; i >= 0; i--)
-      {
-        base_index = base_index + (d_iS_ext[i]);
-      }
-    }
+                for(int i = Slice_ID - 1; i >= 0; i--)
+                {
+                        base_index = base_index + (d_iS_ext[i]);
+                }
+        }
 
-  }
+   }
 
    if(threadIdx.x == 0) {
 
-     for(int i=0; i < N; i++) {
-       block_count[i] = 0;
-     }
+        for(int i=0; i < N; i++) {
+
+                block_count[i] = 0;
+        }
    }
 
    __syncthreads();
 
    if(Slice_ID != -1 && pid < Npart) {
-     current_idx = atomicAdd(&block_count[Slice_ID], 1);
-   }
+        current_idx = atomicAdd(&block_count[Slice_ID], 1);
+        }
 
    __syncthreads();
 
    if(threadIdx.x == 0) {
 
-     for(int i = 0; i < N; i++) {
-       actual_index[i] = atomicAdd(&d_iS_Inc[i], block_count[i]);
-     }
+        for(int i = 0; i < N; i++) {
+
+                actual_index[i] = atomicAdd(&d_iS_Inc[i], block_count[i]);
+        }
+
    }
    __syncthreads();
 
     if(Slice_ID != -1 && pid < Npart) {
-      current_idx += actual_index[Slice_ID];
+        current_idx += actual_index[Slice_ID];
     }
 
     if(Slice_ID != -1 && pid < Npart){
-      d_xs[base_index + current_idx] = x;
-      d_xs[base_index + Npart_ext + current_idx] = px;
-      d_xs[base_index + (2 * Npart_ext) + current_idx] = y;
-      d_xs[base_index + (3 * Npart_ext) + current_idx] = py;
-      d_xs[base_index + (4 * Npart_ext) + current_idx] = z;
-      d_xs[base_index + (5 * Npart_ext) + current_idx] = pz;
-      d_xs[base_index + (6 * Npart_ext) + current_idx] = Slice_ID;
-      d_xs[base_index + (7 * Npart_ext) + current_idx] = orig_idx;
+        d_xs[base_index + current_idx] = x;
+        d_xs[base_index + Npart_ext + current_idx] = px;
+        d_xs[base_index + (2 * Npart_ext) + current_idx] = y;
+        d_xs[base_index + (3 * Npart_ext) + current_idx] = py;
+        d_xs[base_index + (4 * Npart_ext) + current_idx] = z;
+        d_xs[base_index + (5 * Npart_ext) + current_idx] = pz;
+        d_xs[base_index + (6 * Npart_ext) + current_idx] = Slice_ID;
+        d_xs[base_index + (7 * Npart_ext) + current_idx] = orig_idx;
 
-      for(int i = Slice_ID - 1; i >= 0; i--)
-      {
-        base_index_ms = base_index_ms + (d_iS_ext[i]);
-      }
-
-
-      for(int i = Slice_ID; i >= 0; i--)
-      {
-        S_Index = S_Index + i;
-      }
-
-      if(EorP == 1)
-      {
-        S_Index = S_Index + Slice_ID;
-
-        S = dS[S_Index];
-
-        d_xms[base_index_ms + current_idx] = x - S * px;
-        d_xms[base_index_ms + Npart_ext + current_idx] = y - S * py;
-        d_xms[base_index_ms + (2 * Npart_ext) + current_idx] = Slice_ID;
-
-        d_xsd[base_index_ms + current_idx] = (x - S * px) * (x - S * px);
-        d_xsd[base_index_ms + Npart_ext + current_idx] = (y - S * py) * (y - S * py);
-        d_xsd[base_index_ms + (2 * Npart_ext) + current_idx] = Slice_ID;
+        for(int i = Slice_ID - 1; i >= 0; i--)
+        {
+                base_index_ms = base_index_ms + (d_iS_ext[i]);
+        }
 
 
-      }
-      else
-      {
-        S = dS[S_Index];
+        for(int i = Slice_ID; i >= 0; i--)
+        {
+                S_Index = S_Index + i;
+        }
 
-        d_xms[base_index_ms + current_idx] = x + S * px;
-        d_xms[base_index_ms + Npart_ext + current_idx] = y + S * py;
-        d_xms[base_index_ms + (2 * Npart_ext) + current_idx] = Slice_ID;
+        if(EorP == 1)
+        {
+                S_Index = S_Index + Slice_ID;
 
-        d_xsd[base_index_ms + current_idx] = (x + S * px) * (x + S * px);
-        d_xsd[base_index_ms + Npart_ext + current_idx] = (y + S * py) * (y + S * py);
-        d_xsd[base_index_ms + (2 * Npart_ext) + current_idx] = Slice_ID;
+                S = dS[S_Index];
 
-      }
-    }
+                d_xms[base_index_ms + current_idx] = x - S * px;
+                d_xms[base_index_ms + Npart_ext + current_idx] = y - S * py;
+                d_xms[base_index_ms + (2 * Npart_ext) + current_idx] = Slice_ID;
+
+                d_xsd[base_index_ms + current_idx] = (x - S * px) * (x - S * px);
+                d_xsd[base_index_ms + Npart_ext + current_idx] = (y - S * py) * (y - S * py);
+                d_xsd[base_index_ms + (2 * Npart_ext) + current_idx] = Slice_ID;
+
+
+        }
+        else
+        {
+                S = dS[S_Index];
+
+                d_xms[base_index_ms + current_idx] = x + S * px;
+                d_xms[base_index_ms + Npart_ext + current_idx] = y + S * py;
+                d_xms[base_index_ms + (2 * Npart_ext) + current_idx] = Slice_ID;
+
+                d_xsd[base_index_ms + current_idx] = (x + S * px) * (x + S * px);
+                d_xsd[base_index_ms + Npart_ext + current_idx] = (y + S * py) * (y + S * py);
+                d_xsd[base_index_ms + (2 * Npart_ext) + current_idx] = Slice_ID;
+
+        }
+        }
 
 }
 
@@ -1131,167 +1134,166 @@ applyKickGPU_E(double *dx_es, double gamma_e, int Npart_e_ext, double *dxpbar_e,
         int eslice_id = dx_es[start_index + (6 * Npart_e_ext) + pid];
 
         if(eslice_id != -1){
-          double x = dx_es[start_index + pid];
-          double px = dx_es[start_index + Npart_e_ext + pid];
-          double y = dx_es[start_index + (2 * Npart_e_ext) + pid];
-          double py = dx_es[start_index + (3 * Npart_e_ext) + pid];
-          //printf("E x:%f \n px:%f\n y:%f\n y:%f\ py:%f\n", x, px, y, py);
+            double x = dx_es[start_index + pid];
+			double px = dx_es[start_index + Npart_e_ext + pid];
+			double y = dx_es[start_index + (2 * Npart_e_ext) + pid];
+			double py = dx_es[start_index + (3 * Npart_e_ext) + pid];
 
-          int pslice_id;
+			int pslice_id;
 
-          if(topTraingle == 1){
-            pslice_id = numKicks - 1 - eslice_id; // Only valid for top traingle
-          }
-          else{
-            pslice_id = ((N - 1) + Collision_Num) - eslice_id;
-          }
+			if(topTraingle == 1){
+                pslice_id = numKicks - 1 - eslice_id; // Only valid for top traingle
+			}
+			else{
+				pslice_id = ((N - 1) + Collision_Num) - eslice_id;
+			}
 
-          double s;
+			double s;
 
-          if(topTraingle == 1){
-            s = dS[eslice_id]; // Only valid for top traingle	
-          }
-          else{
-            s = dS[eslice_id - Collision_Num];
-          }
+            if(topTraingle == 1){
+                s = dS[eslice_id]; // Only valid for top traingle	
+			}
+			else{
+				s = dS[eslice_id - Collision_Num];
+			}
             
-          double xbar_p = dxbar_p[pslice_id];
-          double ybar_p = dybar_p[pslice_id];
+            double xbar_p = dxbar_p[pslice_id];
+			double ybar_p = dybar_p[pslice_id];
 
-          double x1 = x - s * px - (xbar_p);
-          double y1 = y - s * py - (ybar_p);
+            double x1 = x - s * px - (xbar_p);
+            double y1 = y - s * py - (ybar_p);
 
-          double sig_x_p = d_sig_x_p[pslice_id];
-          double sig_y_p = d_sig_y_p[pslice_id];
+            double sig_x_p = d_sig_x_p[pslice_id];
+            double sig_y_p = d_sig_y_p[pslice_id];
 
-          double eterm = exp(-0.50 * pow((x1/sig_x_p), 2.0) -0.50 * pow((y1/sig_y_p), 2.0));
+            double eterm = exp(-0.50 * pow((x1/sig_x_p), 2.0) -0.50 * pow((y1/sig_y_p), 2.0));
 
-          double sg_p = 0.0;
+			double sg_p = 0.0;
             
-          int iSp = d_iSp[pslice_id];
+            int iSp = d_iSp[pslice_id];
 
-          if(iSp > 1)
-            sg_p = 1.0/sqrt(2.0*(fabs(sig_x_p*sig_x_p - sig_y_p*sig_y_p)));
+			if(iSp > 1)
+                sg_p = 1.0/sqrt(2.0*(fabs(sig_x_p*sig_x_p - sig_y_p*sig_y_p)));
 
-          double sxy_p = 0.0;
-          double syx_p = 0.0;
+			double sxy_p = 0.0;
+			double syx_p = 0.0;
 
-          if(iSp > 1) {
-            if( sig_x_p != 0.0 && sig_y_p != 0.0){
-              sxy_p = sig_x_p/sig_y_p;
-              syx_p = sig_y_p/sig_x_p;
+            if(iSp > 1) {
+                if( sig_x_p != 0.0 && sig_y_p != 0.0){
+                    sxy_p = sig_x_p/sig_y_p;
+                    syx_p = sig_y_p/sig_x_p;
+			     }
             }
-          }
 
-          x1 = x1*sg_p;
-          y1 = y1*sg_p;
+            x1 = x1*sg_p;
+            y1 = y1*sg_p;
 
-          double x2 = syx_p*x1;
-          double y2 = sxy_p*y1;
+            double x2 = syx_p*x1;
+            double y2 = sxy_p*y1;
 
-          double Fx = 0.0, Fy = 0.0;
+            double Fx = 0.0, Fy = 0.0;
 
-          double fcnst_e = (iSp*Re/gamma_e)*(2.0*sqrt(PI)*sg_p)*(N_p/Npart_inbound_p);
-
-
-          cuDoubleComplex eye = make_cuDoubleComplex(0.0 , 1.0);
-          cuDoubleComplex z1, z2, w1, w2, fk;
+            double fcnst_e = (iSp*Re/gamma_e)*(2.0*sqrt(PI)*sg_p)*(N_p/Npart_inbound_p);
 
 
-          if(sig_x_p > sig_y_p){
-            z1 = make_cuDoubleComplex(x1 + cuCreal(eye) * fabs(y1), cuCimag(eye)* fabs(y1));
-            z2 = make_cuDoubleComplex(x2 + cuCreal(eye) * fabs(y2), cuCimag(eye)* fabs(y2));
+            cuDoubleComplex eye = make_cuDoubleComplex(0.0 , 1.0);
+            cuDoubleComplex z1, z2, w1, w2, fk;
 
-            w1 = WOFZ(cuCreal(z1), cuCimag(z1));
-            w2 = WOFZ(cuCreal(z2), cuCimag(z2));
 
-            cuDoubleComplex tempC = cuCsub(w1, make_cuDoubleComplex(eterm*cuCreal(w2), eterm*cuCimag(w2)));
-            fk = make_cuDoubleComplex(fcnst_e*cuCreal(tempC), fcnst_e*cuCimag(tempC));
+            if(sig_x_p > sig_y_p){
+                z1 = make_cuDoubleComplex(x1 + cuCreal(eye) * fabs(y1), cuCimag(eye)* fabs(y1));
+                z2 = make_cuDoubleComplex(x2 + cuCreal(eye) * fabs(y2), cuCimag(eye)* fabs(y2));
 
-            if (y1 > 0.0){
-              Fx = cuCimag(fk);
-              Fy = cuCreal(fk);
+                w1 = WOFZ(cuCreal(z1), cuCimag(z1));
+                w2 = WOFZ(cuCreal(z2), cuCimag(z2));
 
+                cuDoubleComplex tempC = cuCsub(w1, make_cuDoubleComplex(eterm*cuCreal(w2), eterm*cuCimag(w2)));
+                fk = make_cuDoubleComplex(fcnst_e*cuCreal(tempC), fcnst_e*cuCimag(tempC));
+
+                if (y1 > 0.0){
+                    Fx = cuCimag(fk);
+                    Fy = cuCreal(fk);
+
+                }
+                else{
+                    Fx = cuCimag(fk);
+                    Fy = -cuCreal(fk);
+                }
             }
+
             else{
-              Fx = cuCimag(fk);
-              Fy = -cuCreal(fk);
+                z1 = make_cuDoubleComplex(y1 + cuCreal(eye) * fabs(x1), cuCimag(eye)* fabs(x1));
+                z2 = make_cuDoubleComplex(y2 + cuCreal(eye) * fabs(x2), cuCimag(eye)* fabs(x2));
+
+                w1 = WOFZ(cuCreal(z1), cuCimag(z1));
+                w2 = WOFZ(cuCreal(z2), cuCimag(z2));
+
+                cuDoubleComplex tempC = cuCsub(w1, make_cuDoubleComplex(eterm*cuCreal(w2), eterm*cuCimag(w2)));
+                fk = make_cuDoubleComplex(fcnst_e*cuCreal(tempC), fcnst_e*cuCimag(tempC));
+
+                if (x1 < 0.0){
+                    Fx = -cuCreal(fk);
+                    Fy = cuCimag(fk);
+                }
+                else{
+                    Fx = cuCreal(fk);
+                    Fy = cuCimag(fk);
+                }
             }
-          }
 
-          else{
-            z1 = make_cuDoubleComplex(y1 + cuCreal(eye) * fabs(x1), cuCimag(eye)* fabs(x1));
-            z2 = make_cuDoubleComplex(y2 + cuCreal(eye) * fabs(x2), cuCimag(eye)* fabs(x2));
+            x = x - s * Fx;
+            px = px - Fx;
+            y = y - s * Fy;
+            py = py - Fy;
 
-            w1 = WOFZ(cuCreal(z1), cuCimag(z1));
-            w2 = WOFZ(cuCreal(z2), cuCimag(z2));
+            dx_es[start_index + pid] = x;
+            dx_es[start_index + Npart_e_ext + pid] = px;
+            dx_es[start_index + (2 * Npart_e_ext) + pid] = y;
+            dx_es[start_index + (3 * Npart_e_ext) + pid] = py;
 
-            cuDoubleComplex tempC = cuCsub(w1, make_cuDoubleComplex(eterm*cuCreal(w2), eterm*cuCimag(w2)));
-            fk = make_cuDoubleComplex(fcnst_e*cuCreal(tempC), fcnst_e*cuCimag(tempC));
+			double s_next = 0.0;
 
-            if (x1 < 0.0){
-              Fx = -cuCreal(fk);
-              Fy = cuCimag(fk);
+			if(topTraingle == 1){
+				if(numKicks == N){
+					s_next = dS[eslice_id + numKicks - 1];
+				}
+				else{
+					s_next = dS[eslice_id + numKicks]; // Only valid for top traingle
+				}
+			}
+			else{
+				s_next = dS[eslice_id - Collision_Num +  numKicks - 1];
+			}
+
+			double x_px = x - s_next * px;
+			double y_py = y - s_next * py;
+
+			double x_px_sq = x_px * x_px;
+			double y_py_sq = y_py * y_py;
+
+			for (int offset = 16; offset > 0; offset /= 2){
+                x_px += __shfl(x_px, threadIdx.x + offset);
+                x_px_sq += __shfl(x_px_sq, threadIdx.x + offset);
             }
-            else{
-              Fx = cuCreal(fk);
-              Fy = cuCimag(fk);
+
+            for (int offset = 16; offset > 0; offset /= 2){
+                y_py += __shfl(y_py, threadIdx.x + offset);
+                y_py_sq += __shfl(y_py_sq, threadIdx.x + offset);
             }
-          }
 
-          x = x - s * Fx;
-          px = px - Fx;
-          y = y - s * Fy;
-          py = py - Fy;
+            int warpId = threadIdx.x / 32;
 
-          dx_es[start_index + pid] = x;
-          dx_es[start_index + Npart_e_ext + pid] = px;
-          dx_es[start_index + (2 * Npart_e_ext) + pid] = y;
-          dx_es[start_index + (3 * Npart_e_ext) + pid] = py;
+            int leadThread = warpId * 32;
 
-          double s_next = 0.0;
+			if(threadIdx.x == leadThread){
+                l_mean_x[warpId] = x_px;
+                l_sd_x[warpId] = x_px_sq;
+			}
 
-          if(topTraingle == 1){
-            if(numKicks == N){
-              s_next = dS[eslice_id + numKicks - 1];
-            }
-            else{
-              s_next = dS[eslice_id + numKicks]; // Only valid for top traingle
-            }
-          }
-          else{
-            s_next = dS[eslice_id - Collision_Num +  numKicks - 1];
-          }
-
-          double x_px = x - s_next * px;
-          double y_py = y - s_next * py;
-
-          double x_px_sq = x_px * x_px;
-          double y_py_sq = y_py * y_py;
-
-          for (int offset = 16; offset > 0; offset /= 2){
-            x_px += __shfl(x_px, threadIdx.x + offset);
-            x_px_sq += __shfl(x_px_sq, threadIdx.x + offset);
-          }
-
-          for (int offset = 16; offset > 0; offset /= 2){
-            y_py += __shfl(y_py, threadIdx.x + offset);
-            y_py_sq += __shfl(y_py_sq, threadIdx.x + offset);
-          }
-
-          int warpId = threadIdx.x / 32;
-
-          int leadThread = warpId * 32;
-
-          if(threadIdx.x == leadThread){
-            l_mean_x[warpId] = x_px;
-            l_sd_x[warpId] = x_px_sq;
-          }
-
-          if(threadIdx.x == leadThread){
-            l_mean_y[warpId] = y_py;			
-            l_sd_y[warpId] = y_py_sq;
-          }
+            if(threadIdx.x == leadThread){
+                l_mean_y[warpId] = y_py;			
+                l_sd_y[warpId] = y_py_sq;
+			}
         }
 
         __syncthreads();
@@ -1574,360 +1576,341 @@ merge(double *d_x, double *dx_s, int Npart, int Npart_ext)
 
 void calculate_rms(int lum_turn, int ebunch_index, int pbunch_index, double *dx_es, double *dx_ps, int N, int *iSe, int *iSp, int *iSe_ext, int *iSp_ext, int Npart_e_ext, int Npart_p_ext, int timestamp) {
 
-  double *xbar_e, *ybar_e, *xbar_p, *ybar_p, *sig_x_e, *sig_y_e, *sig_x_p, *sig_y_p;
+    double *xbar_e, *ybar_e, *xbar_p, *ybar_p, *sig_x_e, *sig_y_e, *sig_x_p, *sig_y_p;
 
-  xbar_e = new double[N];
-  ybar_e = new double[N];
-  xbar_p = new double[N];
-  ybar_p = new double[N];
+    xbar_e = new double[N];
+    ybar_e = new double[N];
+    xbar_p = new double[N];
+    ybar_p = new double[N];
 
-  sig_x_e = new double[N];
-  sig_y_e = new double[N];
-  sig_x_p = new double[N];
-  sig_y_p = new double[N];
+    sig_x_e = new double[N];
+    sig_y_e = new double[N];
+    sig_x_p = new double[N];
+    sig_y_p = new double[N];
 
-  int base_index_ms_e = 0, base_index_ms_p = 0;
+    int base_index_ms_e = 0, base_index_ms_p = 0;
 
-  double xbar_e_total = 0, ybar_e_total = 0, xbar_p_total = 0, ybar_p_total = 0, sig_x_e_total = 0, sig_y_e_total = 0, sig_x_p_total = 0, sig_y_p_total = 0;
+    double xbar_e_total = 0, ybar_e_total = 0, xbar_p_total = 0, ybar_p_total = 0, sig_x_e_total = 0, sig_y_e_total = 0, sig_x_p_total = 0, sig_y_p_total = 0;
 
-  thrust::device_ptr<double> ptr;
+    thrust::device_ptr<double> ptr;
 
-  if(ebunch_index != -1){
+if(ebunch_index != -1){
     ptr = thrust::device_pointer_cast(dx_es);
 
-    for(int i = 0; i < N; i++){   
-      if(iSe[i] > 1){   
-        for(int j = i - 1; j >= 0; j--){   
-          base_index_ms_e = base_index_ms_e + iSe_ext[j];
-        }
+    for(int i = 0; i < N; i++)
+    {   
+        if(iSe[i] > 1)
+        {   
+            for(int j = i - 1; j >= 0; j--)
+            {   
+                base_index_ms_e = base_index_ms_e + iSe_ext[j];
+            }
             
             
-        xbar_e[i] = thrust::reduce(base_index_ms_e + ptr, 
-                                   base_index_ms_e + ptr + iSe[i], 
-                                   (double) 0, thrust::plus<double>())/iSe[i];
+            xbar_e[i] = thrust::reduce(base_index_ms_e + ptr, base_index_ms_e + ptr + iSe[i], (double) 0, thrust::plus<double>())/iSe[i];
+            ybar_e[i] = thrust::reduce(base_index_ms_e + ptr + 2 * Npart_e_ext, base_index_ms_e + ptr + 2 * Npart_e_ext + iSe[i], (double) 0, thrust::plus<double>())/iSe[i];
             
-        ybar_e[i] = thrust::reduce(base_index_ms_e + ptr + 2 * Npart_e_ext, 
-                                   base_index_ms_e + ptr + 2 * Npart_e_ext + iSe[i],
-                                   (double) 0, thrust::plus<double>())/iSe[i];
-        //printf("RMS: xbar_e:%f\n", xbar_e[i]);
-        //printf("RMS: ybar_e:%f\n", ybar_e[i]);
-        xbar_e_total += xbar_e[i];
-        ybar_e_total += ybar_e[i];
+            xbar_e_total += xbar_e[i];
+            ybar_e_total += ybar_e[i];
             
-        base_index_ms_e = 0;
+            base_index_ms_e = 0;
         
-      }
-      else{   
-        xbar_e[i] = 0;
-        ybar_e[i] = 0;
-      }
+        }
+        else
+        {   
+            xbar_e[i] = 0;
+            ybar_e[i] = 0;
+        }
     }
-  }
-  //printf("==========================\n");
+}
 
-  if(pbunch_index != -1){
+if(pbunch_index != -1){
     ptr = thrust::device_pointer_cast(dx_ps);
 
-    for(int i = 0; i < N; i++){   
-      if(iSp[i] > 1){   
-        for(int j = i - 1; j >= 0; j--){
-          base_index_ms_p = base_index_ms_p + iSp_ext[j];
+    for(int i = 0; i < N; i++)
+    {   
+        if(iSp[i] > 1)
+        {   
+            for(int j = i - 1; j >= 0; j--)
+            {
+                    base_index_ms_p = base_index_ms_p + iSp_ext[j];
+            }
+
+
+            xbar_p[i] = thrust::reduce(base_index_ms_p + ptr, base_index_ms_p + ptr + iSp[i], (double) 0, thrust::plus<double>())/iSp[i];
+            ybar_p[i] = thrust::reduce(base_index_ms_p + 2 * Npart_p_ext + ptr, base_index_ms_p +  2 * Npart_p_ext + ptr + iSp[i], (double) 0, thrust::plus<double>())/iSp[i];
+
+            xbar_p_total += xbar_p[i];
+            ybar_p_total += ybar_p[i];
+
+            base_index_ms_p = 0;
+
         }
-
-        xbar_p[i] = thrust::reduce(base_index_ms_p + ptr, 
-                                   base_index_ms_p + ptr + iSp[i], 
-                                   (double) 0, thrust::plus<double>())/iSp[i];
-        
-        ybar_p[i] = thrust::reduce(base_index_ms_p + 2 * Npart_p_ext + ptr, 
-                                   base_index_ms_p +  2 * Npart_p_ext + ptr + iSp[i],
-                                   (double) 0, thrust::plus<double>())/iSp[i];
-        //printf("RMS: xbar_p:%f\n", xbar_p[i]);
-        //printf("RMS: ybar_p:%f\n", ybar_p[i]);
-
-        xbar_p_total += xbar_p[i];
-        ybar_p_total += ybar_p[i];
-
-        base_index_ms_p = 0;
-
-      }
-      else{
-        xbar_p[i] = 0;
-        ybar_p[i] = 0;
-      }
+        else
+        {
+            xbar_p[i] = 0;
+            ybar_p[i] = 0;
+        }
     }
-  }
-  //printf("===================\n");
-  double *x_es_temp = new double[Npart_e_ext * (NCOL + 2)];
-  double *x_ps_temp = new double[Npart_p_ext * (NCOL + 2)];
+}
+    double *x_es_temp = new double[Npart_e_ext * (NCOL + 2)];
+    double *x_ps_temp = new double[Npart_p_ext * (NCOL + 2)];
 
-  double *x_es_temp_total = new double[Npart_e_ext * (NCOL + 2)];
-  double *x_ps_temp_total = new double[Npart_p_ext * (NCOL + 2)];
+    double *x_es_temp_total = new double[Npart_e_ext * (NCOL + 2)];
+    double *x_ps_temp_total = new double[Npart_p_ext * (NCOL + 2)];
 
-  if(ebunch_index != -1)
-    cudaMemcpy(x_es_temp, 
-               dx_es, 
-               sizeof(double) * Npart_e_ext * (NCOL + 2), 
-               cudaMemcpyDeviceToHost);
+if(ebunch_index != -1)
+    cudaMemcpy(x_es_temp, dx_es, sizeof(double) * Npart_e_ext * (NCOL + 2), cudaMemcpyDeviceToHost);
 
-  if(pbunch_index != -1)
-    cudaMemcpy(x_ps_temp, 
-               dx_ps, sizeof(double) * Npart_p_ext * (NCOL + 2), 
-               cudaMemcpyDeviceToHost);
-  double x,y;
-  int slice_id;
+if(pbunch_index != -1)
+    cudaMemcpy(x_ps_temp, dx_ps, sizeof(double) * Npart_p_ext * (NCOL + 2), cudaMemcpyDeviceToHost);
 
-  if(ebunch_index != -1){
-    for(int i = 0; i < Npart_e_ext; i++){
-      slice_id = x_es_temp[(6 * Npart_e_ext) + i];
+    double x,y;
+    int slice_id;
 
-      if(slice_id != -1){
-        x = x_es_temp[i];
-        y = x_es_temp[(2 * Npart_e_ext) + i];
+if(ebunch_index != -1){
+    for(int i = 0; i < Npart_e_ext; i++)
+    {
+        slice_id = x_es_temp[(6 * Npart_e_ext) + i];
 
-        x_es_temp[i] = (x - xbar_e[slice_id]) * (x - xbar_e[slice_id]);
-        x_es_temp[(2 * Npart_e_ext) + i] = (y - ybar_e[slice_id]) * (y - ybar_e[slice_id]);
+        if(slice_id != -1)
+        {
+            x = x_es_temp[i];
+            y = x_es_temp[(2 * Npart_e_ext) + i];
 
-        x_es_temp_total[i] = (x - xbar_e_total) * (x - xbar_e_total);
-        x_es_temp_total[(2 * Npart_e_ext) + i] = (y - ybar_e_total) * (y - ybar_e_total);
-      }
+            x_es_temp[i] = (x - xbar_e[slice_id]) * (x - xbar_e[slice_id]);
+            x_es_temp[(2 * Npart_e_ext) + i] = (y - ybar_e[slice_id]) * (y - ybar_e[slice_id]);
+
+            x_es_temp_total[i] = (x - xbar_e_total) * (x - xbar_e_total);
+            x_es_temp_total[(2 * Npart_e_ext) + i] = (y - ybar_e_total) * (y - ybar_e_total);
+        }
     }
-  }
+}
 
-  if(pbunch_index != -1){
-    for(int i = 0; i < Npart_p_ext; i++){
-      slice_id = x_ps_temp[(6 * Npart_p_ext) + i];
+if(pbunch_index != -1){
+    for(int i = 0; i < Npart_p_ext; i++)
+    {
+        slice_id = x_ps_temp[(6 * Npart_p_ext) + i];
 
-      if(slice_id != -1){
-        x = x_ps_temp[i];
-        y = x_ps_temp[(2 * Npart_p_ext) + i];
+        if(slice_id != -1)
+        {
+            x = x_ps_temp[i];
+            y = x_ps_temp[(2 * Npart_p_ext) + i];
 
-        x_ps_temp[i] = (x - xbar_p[slice_id]) * (x - xbar_p[slice_id]);
-        x_ps_temp[(2 * Npart_p_ext) + i] = (y - ybar_p[slice_id]) * (y - ybar_p[slice_id]);
+            x_ps_temp[i] = (x - xbar_p[slice_id]) * (x - xbar_p[slice_id]);
+            x_ps_temp[(2 * Npart_p_ext) + i] = (y - ybar_p[slice_id]) * (y - ybar_p[slice_id]);
 
-        x_ps_temp_total[i] = (x - xbar_p_total) * (x - xbar_p_total);
-        x_ps_temp_total[(2 * Npart_p_ext) + i] = (y - ybar_p_total) * (y - ybar_p_total);
-      }
+            x_ps_temp_total[i] = (x - xbar_p_total) * (x - xbar_p_total);
+            x_ps_temp_total[(2 * Npart_p_ext) + i] = (y - ybar_p_total) * (y - ybar_p_total);
+        }
     }
-  }
+}
 
-  double *dx_es_temp, *dx_ps_temp;
+    double *dx_es_temp, *dx_ps_temp;
 
-  cudaMalloc((void **)&dx_es_temp, sizeof(double) * Npart_e_ext * (NCOL + 2));
-  cudaMalloc((void **)&dx_ps_temp, sizeof(double) * Npart_p_ext * (NCOL + 2));
-  
-  if(ebunch_index != -1)
+    cudaMalloc((void **)&dx_es_temp, sizeof(double) * Npart_e_ext * (NCOL + 2));
+    cudaMalloc((void **)&dx_ps_temp, sizeof(double) * Npart_p_ext * (NCOL + 2));
+
+if(ebunch_index != -1)
     cudaMemcpy(dx_es_temp, x_es_temp, sizeof(double) * Npart_e_ext * (NCOL + 2), cudaMemcpyHostToDevice);
-  if(pbunch_index != -1)
+if(pbunch_index != -1)
     cudaMemcpy(dx_ps_temp, x_ps_temp, sizeof(double) * Npart_p_ext * (NCOL + 2), cudaMemcpyHostToDevice);
 
-  if(ebunch_index != -1){
+if(ebunch_index != -1){
     ptr = thrust::device_pointer_cast(dx_es_temp);
 
-    for(int i = 0; i < N; i++){
-      if(iSe[i] > 1){
-        for(int j = i - 1; j >= 0; j--){
-          base_index_ms_e = base_index_ms_e + iSe_ext[j];
+    for(int i = 0; i < N; i++)
+    {
+        if(iSe[i] > 1)
+        {
+            for(int j = i - 1; j >= 0; j--)
+            {
+                base_index_ms_e = base_index_ms_e + iSe_ext[j];
+            }
+
+
+            sig_x_e[i] = thrust::reduce(base_index_ms_e + ptr, base_index_ms_e + ptr + iSe[i], (double) 0, thrust::plus<double>());
+            sig_y_e[i] = thrust::reduce(base_index_ms_e + ptr + 2 * Npart_e_ext, base_index_ms_e + ptr + 2 * Npart_e_ext + iSe[i], (double) 0, thrust::plus<double>());
+
+
+            sig_x_e[i] = sqrt(sig_x_e[i]/double(iSe[i]));
+            sig_y_e[i] = sqrt(sig_y_e[i]/double(iSe[i]));
+
+            base_index_ms_e = 0;
+
+        }
+        else
+        {
+            sig_x_e[i] = 0;
+            sig_y_e[i] = 0;
         }
 
-
-        sig_x_e[i] = thrust::reduce(base_index_ms_e + ptr,
-                                    base_index_ms_e + ptr + iSe[i],
-                                    (double) 0,
-                                    thrust::plus<double>());
-        
-        sig_y_e[i] = thrust::reduce(base_index_ms_e + ptr +2*Npart_e_ext, 
-                                    base_index_ms_e + ptr + 2 * Npart_e_ext + iSe[i],
-                                    (double) 0, thrust::plus<double>());
-
-        sig_x_e[i] = sqrt(sig_x_e[i]/double(iSe[i]));
-        sig_y_e[i] = sqrt(sig_y_e[i]/double(iSe[i]));
-
-        base_index_ms_e = 0;
-
-      }
-      else{
-        sig_x_e[i] = 0;
-        sig_y_e[i] = 0;
-      }
-
     }
-  }
+}
 
-  if(pbunch_index != -1){
+if(pbunch_index != -1){
     ptr = thrust::device_pointer_cast(dx_ps_temp);
 
-    for(int i = 0; i < N; i++){
-      if(iSp[i] > 1){
-        for(int j = i - 1; j >= 0; j--){
-          base_index_ms_p = base_index_ms_p + iSp_ext[j];
+    for(int i = 0; i < N; i++)
+    {
+        if(iSp[i] > 1)
+        {
+            for(int j = i - 1; j >= 0; j--)
+            {
+                    base_index_ms_p = base_index_ms_p + iSp_ext[j];
+            }
+
+
+            sig_x_p[i] = thrust::reduce(base_index_ms_p + ptr, base_index_ms_p + ptr + iSp[i], (double) 0, thrust::plus<double>());
+            sig_y_p[i] = thrust::reduce(base_index_ms_p +  2 * Npart_p_ext + ptr, base_index_ms_p +  2 * Npart_p_ext + ptr + iSp[i], (double) 0, thrust::plus<double>());
+
+            sig_x_p[i] = sqrt(sig_x_p[i]/double(iSp[i]));
+            sig_y_p[i] = sqrt(sig_y_p[i]/double(iSp[i]));
+
+            base_index_ms_p = 0;
+
         }
-
-        sig_x_p[i] = thrust::reduce(base_index_ms_p + ptr, 
-                                    base_index_ms_p + ptr + iSp[i],
-                                    (double) 0, thrust::plus<double>());
-            
-        sig_y_p[i] = thrust::reduce(base_index_ms_p + 2*Npart_p_ext + ptr,
-                                    base_index_ms_p + 2*Npart_p_ext + ptr + iSp[i],
-                                    (double) 0, thrust::plus<double>());
-
-        sig_x_p[i] = sqrt(sig_x_p[i]/double(iSp[i]));
-        sig_y_p[i] = sqrt(sig_y_p[i]/double(iSp[i]));
-
-        base_index_ms_p = 0;
-
-      }
-      else{
-        sig_x_p[i] = 0;
-        sig_y_p[i] = 0;
-      }
+        else
+        {
+            sig_x_p[i] = 0;
+            sig_y_p[i] = 0;
+        }
     }
-  }
+}
 
-  if(ebunch_index != -1)
-    cudaMemcpy(dx_es_temp, 
-               x_es_temp_total, 
-               sizeof(double) * Npart_e_ext * (NCOL + 2), 
-               cudaMemcpyHostToDevice);
-  if(pbunch_index != -1)
-    cudaMemcpy(dx_ps_temp, 
-               x_ps_temp_total, 
-               sizeof(double) * Npart_p_ext * (NCOL + 2),
-               cudaMemcpyHostToDevice);
+if(ebunch_index != -1)
+    cudaMemcpy(dx_es_temp, x_es_temp_total, sizeof(double) * Npart_e_ext * (NCOL + 2), cudaMemcpyHostToDevice);
+if(pbunch_index != -1)
+    cudaMemcpy(dx_ps_temp, x_ps_temp_total, sizeof(double) * Npart_p_ext * (NCOL + 2), cudaMemcpyHostToDevice);
 
-  int iSe_total = 0, iSp_total = 0;
+int iSe_total = 0, iSp_total = 0;
 
-  if(ebunch_index != -1){
+if(ebunch_index != -1){
     ptr = thrust::device_pointer_cast(dx_es_temp);
 
-    for(int i = 0; i < N; i++){
-      if(iSe[i] > 1){
-        for(int j = i - 1; j >= 0; j--){
-          base_index_ms_e = base_index_ms_e + iSe_ext[j];
+    for(int i = 0; i < N; i++)
+    {
+        if(iSe[i] > 1)
+        {
+            for(int j = i - 1; j >= 0; j--)
+            {
+                base_index_ms_e = base_index_ms_e + iSe_ext[j];
+            }
+
+
+            sig_x_e_total+= thrust::reduce(base_index_ms_e + ptr, base_index_ms_e + ptr + iSe[i], (double) 0, thrust::plus<double>());
+            sig_y_e_total+= thrust::reduce(base_index_ms_e + ptr + 2 * Npart_e_ext, base_index_ms_e + ptr + 2 * Npart_e_ext + iSe[i], (double) 0, thrust::plus<double>());
+
+            base_index_ms_e = 0;
         }
-
-
-        sig_x_e_total+= thrust::reduce(base_index_ms_e + ptr, 
-                                       base_index_ms_e + ptr + iSe[i], 
-                                       (double) 0, thrust::plus<double>());
-            
-        sig_y_e_total+= thrust::reduce(base_index_ms_e + ptr + 2 * Npart_e_ext,
-                                       base_index_ms_e+ptr+2 *Npart_e_ext + iSe[i],
-                                       (double) 0, thrust::plus<double>());
-
-        base_index_ms_e = 0;
-      }
-      iSe_total += iSe[i];
+        iSe_total += iSe[i];
     }
 
     sig_x_e_total = sqrt(sig_x_e_total/double(iSe_total));
     sig_y_e_total = sqrt(sig_y_e_total/double(iSe_total));
-  }
+}
 
-  if(pbunch_index != -1){
+if(pbunch_index != -1){
     ptr = thrust::device_pointer_cast(dx_ps_temp);
 
-    for(int i = 0; i < N; i++){
-      if(iSp[i] > 1){
-        for(int j = i - 1; j >= 0; j--){
-          base_index_ms_p = base_index_ms_p + iSp_ext[j];
+    for(int i = 0; i < N; i++)
+    {
+        if(iSp[i] > 1)
+        {
+            for(int j = i - 1; j >= 0; j--)
+            {
+                    base_index_ms_p = base_index_ms_p + iSp_ext[j];
+            }
+
+
+            sig_x_p_total += thrust::reduce(base_index_ms_p + ptr, base_index_ms_p + ptr + iSp[i], (double) 0, thrust::plus<double>());
+            sig_y_p_total += thrust::reduce(base_index_ms_p +  2 * Npart_p_ext + ptr, base_index_ms_p +  2 * Npart_p_ext + ptr + iSp[i], (double) 0, thrust::plus<double>());
+
+            base_index_ms_p = 0;
+
         }
-
-
-        sig_x_p_total += thrust::reduce(base_index_ms_p + ptr, 
-                                        base_index_ms_p + ptr + iSp[i], 
-                                        (double) 0, thrust::plus<double>());
-        
-        sig_y_p_total += thrust::reduce(base_index_ms_p +  2 * Npart_p_ext + ptr, 
-                                        base_index_ms_p +  2 * Npart_p_ext + ptr + iSp[i], (double) 0, thrust::plus<double>());
-        //printf("base_ms_p[0]:%f\n", base_index_ms_p[0]);
-        //printf("before sqrt sig_x_p_total:%f\n",sig_x_p_total);
-        base_index_ms_p = 0;
-
-      }
-      iSp_total += iSp[i];
+        iSp_total += iSp[i];
     }
 
     sig_x_p_total = sqrt(sig_x_p_total/double(iSp_total));
     sig_y_p_total = sqrt(sig_y_p_total/double(iSp_total));
-    //printf("sig_x_p_total:%f\n",sig_x_p_total); 
-    //printf("sig_y_p_total:%f\n",sig_y_p_total);
-  }
+}
     
-  std::string filename_e, filename_p;
+    std::string filename_e, filename_p;
 
-  std::stringstream e_s, p_s;
+    std::stringstream e_s, p_s;
 	
-  e_s << ebunch_index;
-  p_s << pbunch_index;
+    e_s << ebunch_index;
+    p_s << pbunch_index;
 
-  filename_e = "output/beamspecs_e_" + e_s.str() + ".out";
-  filename_p = "output/beamspecs_p_" + p_s.str() + ".out";
+    filename_e = "output/beamspecs_e_" + e_s.str() + ".out";
+    filename_p = "output/beamspecs_p_" + p_s.str() + ".out";
 
 
-  std::stringstream ss_e, ss_p;
-  ss_e.precision(12);
-  ss_p.precision(12);
-  //std::cout<<"Sig_x_e[i]\n";
-  //std::cout<<sig_x_e[0]<<std::endl;
-  //std::cout<<sig_x_e[1]<<std::endl;
-  //std::cout<<sig_x_e[2]<<std::endl;
-  //std::cout<<"Sig_x_e_total:"<<sig_x_e_total<<std::endl;
-  if(ebunch_index != -1)
+    std::stringstream ss_e, ss_p;
+    ss_e.precision(12);
+    ss_p.precision(12);
+    //std::cout<<"Sig_x_e[i]\n";
+    //std::cout<<sig_x_e[0]<<std::endl;
+    //std::cout<<sig_x_e[1]<<std::endl;
+    //std::cout<<sig_x_e[2]<<std::endl;
+    //std::cout<<"Sig_x_e_total:"<<sig_x_e_total<<std::endl;
+if(ebunch_index != -1)
     ss_e << lum_turn << "\t" << xbar_e_total << "\t" << ybar_e_total << "\t" << sig_x_e_total << "\t" << sig_y_e_total << "\t";
-  if(pbunch_index != -1)
+if(pbunch_index != -1)
     ss_p << lum_turn << "\t" << xbar_p_total << "\t" << ybar_p_total << "\t" << sig_x_p_total << "\t" << sig_y_p_total << "\t";
 
-  for(int i = 0; i < N; i++)
+    for(int i = 0; i < N; i++)
     {
-      if(ebunch_index != -1)
+if(ebunch_index != -1)
         ss_e << xbar_e[i] << "\t" << ybar_e[i] << "\t" << sig_x_e[i] << "\t" << sig_y_e[i] << "\t";
-      if(pbunch_index != -1)
+if(pbunch_index != -1)
         ss_p << xbar_p[i] << "\t" << ybar_p[i] << "\t" << sig_x_p[i] << "\t" << sig_y_p[i] << "\t";
     }
 
-  if(ebunch_index != -1)
+if(ebunch_index != -1)
     ss_e << "\n";
-  if(pbunch_index != -1)
+if(pbunch_index != -1)
     ss_p << "\n";
 
 
-  std::_Ios_Openmode mode = std::ios::app;
+    std::_Ios_Openmode mode = std::ios::app;
 
-  if(ebunch_index != -1){
+if(ebunch_index != -1){
     std::ofstream file(filename_e.c_str(), mode);
     if (!file.is_open()){
-      std::string msg = "Cannot open file " + filename_e;
+        std::string msg = "Cannot open file " + filename_e;
     }
 
     file << ss_e.str();
     file.close();
-  }
+}
 
-  if(pbunch_index != -1){
+if(pbunch_index != -1){
     std::ofstream file1(filename_p.c_str(), mode);
     if (!file1.is_open()){
-      std::string msg = "Cannot open file " + filename_p;
+        std::string msg = "Cannot open file " + filename_p;
     }
 
     file1 << ss_p.str();
     file1.close();
-  }
+}
 
-  cudaFree(dx_es_temp);
-  cudaFree(dx_ps_temp);
+    cudaFree(dx_es_temp);
+    cudaFree(dx_ps_temp);
 
-  delete[] x_es_temp;
-  delete[] x_ps_temp;
-  delete[] xbar_e;
-  delete[] ybar_e;
-  delete[] xbar_p;
-  delete[] ybar_p;
-  delete[] sig_x_e;
-  delete[] sig_y_e;
-  delete[] sig_x_p;
-  delete[] sig_y_p;
-  delete[] x_es_temp_total;
-  delete[] x_ps_temp_total;
+    delete[] x_es_temp;
+    delete[] x_ps_temp;
+    delete[] xbar_e;
+    delete[] ybar_e;
+    delete[] xbar_p;
+    delete[] ybar_p;
+    delete[] sig_x_e;
+    delete[] sig_y_e;
+    delete[] sig_x_p;
+    delete[] sig_y_p;
+    delete[] x_es_temp_total;
+    delete[] x_ps_temp_total;
 }
 
 void Collide::collide_back(int *dOutOfBound_e, int *dOutOfBound_p, double *dx_e, double *dx_p, BeamParams *bParams, int e_bunch, int opp_p_bunch, int opp_p_bunch_gpu, int p_bunch, int opp_e_bunch, int opp_e_bunch_gpu){
@@ -1986,181 +1969,171 @@ void Collide::collide(int lum_turn, int *dOutOfBound_e, int *dOutOfBound_p, doub
 	int world_rank;
 	MPI_Comm_rank(MPI_COMM_WORLD, &world_rank);
 
+	//cout<<"Inside Collide:"<<e_bunch<<"-["<<p_bunch<<"]"<<endl;
+
 	double zmin_e, L_e, delta_e, *z_e, *z_p_rcvd, *SS_e;
 	double zmin_p, L_p, delta_p, *z_p, *z_e_rcvd, *SS_p;
 	
 	int N = bParams->N;
 	
 	double *dS_e, *dS_p;
-	//==============================================
+	
 	if(e_bunch != -1){
-          z_e = new double[N];
-          z_p_rcvd = new double[N];
-          SS_e = new double[N*N];
+		z_e = new double[N];
+		z_p_rcvd = new double[N];
+		SS_e = new double[N*N];
 	
-          double sig_z_e = find_zmin(dx_e, bParams->Npart_e);
-          
-          L_e = 6.0 * sig_z_e;
-          zmin_e = -0.5*L_e;
-          
-          if(N == 1){
-            delta_e = 0.0;
-            z_e[0] = 0.0;
-          }
-          else{
-            delta_e = L_e/(double)N;
-            int je = 0;
-            for(int i = -(N - 1); i <= (N - 1); i+=2){
-              je = je + 1;
-              z_e[je - 1] = -i * delta_e/2.0;
-            }
-          }
-	}
-	//===============================================
-	if(p_bunch != -1){
-          z_p = new double[N];
-          z_e_rcvd = new double[N];
-          SS_p = new double[N*N];
-	
-          double sig_z_p = find_zmin(dx_p, bParams->Npart_p);	
-          
-          L_p = 6.0 * sig_z_p;
-          zmin_p = -0.5*L_p;
+		double sig_z_e = find_zmin(dx_e, bParams->Npart_e);	
+		L_e = 6.0 * sig_z_e;
+		zmin_e = -0.5*L_e;
 		
-          if(N == 1){
-            delta_p = 0.0;
-            z_p[0] = 0.0;
-          }
-          else{
-            delta_p = L_p/(double)N;
-            int jp = 0;
-            for(int i = -(N - 1); i <= (N - 1); i+=2){
-              jp = jp + 1;
-              z_p[jp - 1] = -i * delta_p/2.0;
-            }
-          }
+		if(N == 1){
+			delta_e = 0.0;
+			z_e[0] = 0.0;
+		}
+		else{
+			delta_e = L_e/(double)N;
+			int je = 0;
+			for(int i = -(N - 1); i <= (N - 1); i+=2){
+				je = je + 1;
+				z_e[je - 1] = -i * delta_e/2.0;
+			}
+		}
 	}
-        //====================================================
+	
+	if(p_bunch != -1){
+		z_p = new double[N];
+		z_e_rcvd = new double[N];
+		SS_p = new double[N*N];
+	
+		double sig_z_p = find_zmin(dx_p, bParams->Npart_p);	
+		L_p = 6.0 * sig_z_p;
+		zmin_p = -0.5*L_p;
+		
+		if(N == 1){
+			delta_p = 0.0;
+			z_p[0] = 0.0;
+		}
+		else{
+			delta_p = L_p/(double)N;
+			int jp = 0;
+			for(int i = -(N - 1); i <= (N - 1); i+=2){
+				jp = jp + 1;
+				z_p[jp - 1] = -i * delta_p/2.0;
+			}
+		}
+	}
+
+	//std::cout<<"Came here start 111 \n";
+
 	//MPI_Barrier(MPI_COMM_WORLD);
 	
-	MPI_Request myRequest_send_e[6], 
-          myRequest_recv_e[6], 
-          myRequest_send_p[6], 
-          myRequest_recv_p[6];
-	MPI_Status status_send_e[6], 
-          status_recv_e[6], 
-          status_send_p[6], 
-          status_recv_p[6];
-        //=====================================================
+	MPI_Request myRequest_send_e[6], myRequest_recv_e[6], myRequest_send_p[6], myRequest_recv_p[6];
+	MPI_Status status_send_e[6], status_recv_e[6], status_send_p[6], status_recv_p[6];
+
+  	//quad::timer::event_pair timer_comm1;
+  	//quad::timer::start_timer(&timer_comm1);
+
+	//std::cout<<"Came here start 111-111 \n";
+	
 	if(e_bunch != -1){
 
-          if(opp_p_bunch_gpu != world_rank){
-            MPI_Isend(z_e, N, 
-                      MPI_DOUBLE, 
-                      opp_p_bunch_gpu, 
-                      1, 
-                      MPI_COMM_WORLD, 
-                      &myRequest_send_e[0]);
+		if(opp_p_bunch_gpu != world_rank){
+			MPI_Isend(z_e, N, MPI_DOUBLE, opp_p_bunch_gpu, 1, MPI_COMM_WORLD, &myRequest_send_e[0]);
 		
-            MPI_Irecv(z_p_rcvd, N, 
-                      MPI_DOUBLE, 
-                      opp_p_bunch_gpu, 
-                      2, 
-                      MPI_COMM_WORLD, 
-                      &myRequest_recv_e[0]);
-          }
-          else{
-            memcpy(z_p_rcvd, z_p, sizeof(double) * N);
-          }
-          //send z_e to opp_p_bunch_gpu
-          //receieve z_p from opp_p_bunch_gpu
-          //store z_p in z_p_recvd
-          //calculate SS_e
-	}
-	//=====================================
-	if(p_bunch != -1){
-
-          if(opp_e_bunch_gpu != world_rank){
-            MPI_Isend(z_p, N, 
-                      MPI_DOUBLE, 
-                      opp_e_bunch_gpu,
-                      2, 
-                      MPI_COMM_WORLD, 
-                      &myRequest_send_p[0]);
-		
-            MPI_Irecv(z_e_rcvd, N, 
-                      MPI_DOUBLE, 
-                      opp_e_bunch_gpu,
-                      1, 
-                      MPI_COMM_WORLD, 
-                      &myRequest_recv_p[0]);
-          }
-          else{
-            memcpy(z_e_rcvd, z_e, sizeof(double) * N);
-          }
-          //send z_p to opp_e_bunch_gpu
-          //receieve z_e from opp_e_bunch_gpu
-          //store z_e in z_e_recvd
-          //calculate SS_p
-	}
-	//====================================================
-	if(e_bunch != -1){
-          if(opp_p_bunch_gpu != world_rank){
-            MPI_Wait(&myRequest_send_e[0], &status_send_e[0]);
-            MPI_Wait(&myRequest_recv_e[0], &status_recv_e[0]);
-          }
+			MPI_Irecv(z_p_rcvd, N, MPI_DOUBLE, opp_p_bunch_gpu, 2, MPI_COMM_WORLD, &myRequest_recv_e[0]);
+		}
+		else{
+			memcpy(z_p_rcvd, z_p, sizeof(double) * N);
+		}
+		//send z_e to opp_p_bunch_gpu
+		//receieve z_p from opp_p_bunch_gpu
+		//store z_p in z_p_recvd
+		//calculate SS_e
 	}
 	
 	if(p_bunch != -1){
-          if(opp_e_bunch_gpu != world_rank){
-            MPI_Wait(&myRequest_send_p[0], &status_send_p[0]);
-            MPI_Wait(&myRequest_recv_p[0], &status_recv_p[0]);
-          }
+
+		if(opp_e_bunch_gpu != world_rank){
+			MPI_Isend(z_p, N, MPI_DOUBLE, opp_e_bunch_gpu, 2, MPI_COMM_WORLD, &myRequest_send_p[0]);
+		
+			MPI_Irecv(z_e_rcvd, N, MPI_DOUBLE, opp_e_bunch_gpu, 1, MPI_COMM_WORLD, &myRequest_recv_p[0]);
+		}
+		else{
+			memcpy(z_e_rcvd, z_e, sizeof(double) * N);
+		}
+		//send z_p to opp_e_bunch_gpu
+		//receieve z_e from opp_e_bunch_gpu
+		//store z_e in z_e_recvd
+		//calculate SS_p
 	}
+	
+	if(e_bunch != -1){
+		if(opp_p_bunch_gpu != world_rank){
+			MPI_Wait(&myRequest_send_e[0], &status_send_e[0]);
+			MPI_Wait(&myRequest_recv_e[0], &status_recv_e[0]);
+		}
+	}
+	
+	if(p_bunch != -1){
+		if(opp_e_bunch_gpu != world_rank){
+			MPI_Wait(&myRequest_send_p[0], &status_send_p[0]);
+			MPI_Wait(&myRequest_recv_p[0], &status_recv_p[0]);
+		}
+	}
+
+	//quad::timer::stop_timer(&timer_comm1, "Comm1");
+
+	//std::cout<<"Came here start 222 \n";
 
 	//MPI_Barrier(MPI_COMM_WORLD);
 	
 	int k = 0;
-        //========================================================
 	if(e_bunch != -1){
-          for(int i = 2; i <= N+1; ++i){
-            for(int j = 1; j <= i-1; ++j){
-              SS_e[k] = (z_p_rcvd[i-j-1]-z_e[j-1])/2.0;
-              k++;
-            }
-          }
+		for(int i = 2; i <= N+1; ++i){
+			for(int j = 1; j <= i-1; ++j){
+				SS_e[k] = (z_p_rcvd[i-j-1]-z_e[j-1])/2.0;
+				k++;
+			}
+		}
 		
-          for(int i = N+2; i <= 2*N; ++i){
-            for(int j = i - N; j<= N; ++j){
-              SS_e[k] = (z_p_rcvd[i-j-1]-z_e[j-1])/2.0;
-              k++;
-            }
-          }
+		for(int i = N+2; i <= 2*N; ++i){
+			for(int j = i - N; j<= N; ++j){
+				SS_e[k] = (z_p_rcvd[i-j-1]-z_e[j-1])/2.0;
+				k++;
+			}
+		}
 		
-          cudaMalloc((void **)&dS_e, sizeof(double) * N * N);
-          cudaMemcpy(dS_e, SS_e, sizeof(double) * N * N, cudaMemcpyHostToDevice);
+		cudaMalloc((void **)&dS_e, sizeof(double) * N * N);
+		cudaMemcpy(dS_e, SS_e, sizeof(double) * N * N, cudaMemcpyHostToDevice);
 	}
-	//==========================================================
+	
 	k = 0;
 	if(p_bunch != -1){
-          for(int i = 2; i <= N+1; ++i){
-            for(int j = 1; j <= i-1; ++j){
-              SS_p[k] = (z_p[i-j-1]-z_e_rcvd[j-1])/2.0;
-              k++;
-            }
-          }
+		for(int i = 2; i <= N+1; ++i){
+			for(int j = 1; j <= i-1; ++j){
+				SS_p[k] = (z_p[i-j-1]-z_e_rcvd[j-1])/2.0;
+				k++;
+			}
+		}
 		
-          for(int i = N+2; i <= 2*N; ++i){
-            for(int j = i - N; j<= N; ++j){
-              SS_p[k] = (z_p[i-j-1]-z_e_rcvd[j-1])/2.0;
-              k++;
-            }
-          }
-          
-          cudaMalloc((void **)&dS_p, sizeof(double) * N * N);
-          cudaMemcpy(dS_p, SS_p, sizeof(double) * N * N, cudaMemcpyHostToDevice);
-       
-        }
+		for(int i = N+2; i <= 2*N; ++i){
+			for(int j = i - N; j<= N; ++j){
+				SS_p[k] = (z_p[i-j-1]-z_e_rcvd[j-1])/2.0;
+				k++;
+			}
+		}
+		
+		cudaMalloc((void **)&dS_p, sizeof(double) * N * N);
+		cudaMemcpy(dS_p, SS_p, sizeof(double) * N * N, cudaMemcpyHostToDevice);
+	}
+
+	//std::cout<<"Came here start 333 \n";
+
+        //MPI_Barrier(MPI_COMM_WORLD);
+
+	//std::cout<<"After Barrier \n";
+
 	
 	int *d_iSe, *d_iSp, *d_iSe_ext, *d_iSp_ext, *iSe, *iSp, *iSe_ext, *iSp_ext;
 	int Npart_e_ext = 0, Npart_p_ext = 0;
@@ -2168,19 +2141,10 @@ void Collide::collide(int lum_turn, int *dOutOfBound_e, int *dOutOfBound_p, doub
 	int *d_iSe_Inc, *d_iSp_Inc;
 	double *dx_es, *dx_ps, *dx_ems, *dx_pms, *dx_esd, *dx_psd;
 	
-	double *xbar_e, *ybar_e, 
-          *xbar_p, *ybar_p, 
-          *xpbar_e, *ypbar_e, 
-          *xpbar_p, *ypbar_p;
-
-	double *sig_x_e, *sig_y_e, 
-          *sig_x_p, *sig_y_p;
+	double *xbar_e, *ybar_e, *xbar_p, *ybar_p, *xpbar_e, *ypbar_e, *xpbar_p, *ypbar_p;
+	double *sig_x_e, *sig_y_e, *sig_x_p, *sig_y_p;
 	
-	double *dxbar_e, *dybar_e, 
-          *dxbar_p, *dybar_p, 
-          *dxpbar_e, *dypbar_e, 
-          *dxpbar_p, *dypbar_p;
-
+	double *dxbar_e, *dybar_e, *dxbar_p, *dybar_p, *dxpbar_e, *dypbar_e, *dxpbar_p, *dypbar_p;
 	double *d_sig_x_e, *d_sig_y_e, *d_sig_x_p, *d_sig_y_p;
 	
 	double *dx_emb, *dx_pmb, *dx_esb, *dx_psb;
@@ -2191,310 +2155,264 @@ void Collide::collide(int lum_turn, int *dOutOfBound_e, int *dOutOfBound_p, doub
 	thrust::device_ptr<double> ptr;
 	
 	if(e_bunch != -1){
-          iSe = new int[N];
-          iSe_ext = new int[N];
+		iSe = new int[N];
+		iSe_ext = new int[N];
 		
-          cudaMalloc((void **)&d_iSe, sizeof(int) * N);
-          cudaMemset(d_iSe, 0, N * sizeof(int));
+		cudaMalloc((void **)&d_iSe, sizeof(int) * N);
+		cudaMemset(d_iSe, 0, N * sizeof(int));
 		
-          cudaMalloc((void **)&d_iSe_ext, sizeof(int) * N);
+		cudaMalloc((void **)&d_iSe_ext, sizeof(int) * N);
 		
-          numThreads = BLOCKDIMX;
-          numBlocks = bParams->Npart_e/numThreads + ((bParams->Npart_e%numThreads)?1:0);
-          
-          slice<<<numBlocks, numThreads>>>(dx_e, zmin_e, 
-                                           bParams->Npart_e, bParams->N, d_iSe, 
-                                           dOutOfBound_e);
+		numThreads = BLOCKDIMX;
+		numBlocks = bParams->Npart_e/numThreads + ((bParams->Npart_e%numThreads)?1:0);
+		cout<<"Before Slice E:"<<numBlocks<<","<<numThreads<<endl;
+		slice<<<numBlocks, numThreads>>>(dx_e, zmin_e, bParams->Npart_e, bParams->N, d_iSe, dOutOfBound_e);
 
+		//std::cout<<"Finished slicing \n";
 		
-          cudaMemcpy(iSe, d_iSe, sizeof(int) * N, cudaMemcpyDeviceToHost);
-	  
-          for(int i = 0; i < N; i++){
-            if(iSe[i]%BLOCKDIMX_COL == 0){
-              iSe_ext[i] = iSe[i];
-            }
-            else{
-              iSe_ext[i] = (iSe[i]/BLOCKDIMX_COL + 1) * BLOCKDIMX_COL;
-            }
+		cudaMemcpy(iSe, d_iSe, sizeof(int) * N, cudaMemcpyDeviceToHost);
+		
+		for(int i = 0; i < N; i++){
+			if(iSe[i]%BLOCKDIMX_COL == 0){
+				iSe_ext[i] = iSe[i];
+			}
+			else{
+				iSe_ext[i] = (iSe[i]/BLOCKDIMX_COL + 1) * BLOCKDIMX_COL;
+			}
 
-            Npart_e_ext += iSe_ext[i];
-          }
-          cudaMemcpy(d_iSe_ext, iSe_ext, sizeof(int) * N, cudaMemcpyHostToDevice);
+			Npart_e_ext += iSe_ext[i];
+		}
+		cudaMemcpy(d_iSe_ext, iSe_ext, sizeof(int) * N, cudaMemcpyHostToDevice);
 		
-          cudaMalloc((void **)&d_iSe_Inc, sizeof(int) * N);
-          cudaMemset(d_iSe_Inc, 0, N * sizeof(int));
+		cudaMalloc((void **)&d_iSe_Inc, sizeof(int) * N);
+		cudaMemset(d_iSe_Inc, 0, N * sizeof(int));
 		
-          cudaMalloc((void **)&dx_es, sizeof(double) * Npart_e_ext * (NCOL + 2));
+		cudaMalloc((void **)&dx_es, sizeof(double) * Npart_e_ext * (NCOL + 2));
 		
-          ptr = thrust::device_pointer_cast(dx_es);
-          thrust::fill(ptr, ptr + Npart_e_ext * (NCOL + 2), -1);
+		ptr = thrust::device_pointer_cast(dx_es);
+		thrust::fill(ptr, ptr + Npart_e_ext * (NCOL + 2), -1);
 		
-          cudaMalloc((void **)&dx_ems, sizeof(double) * Npart_e_ext * 3);
-          cudaMalloc((void **)&dx_esd, sizeof(double) * Npart_e_ext * 3);
-          //cout<<"Before Sort E:"<<numBlocks<<","<<numThreads<<endl;
+		cudaMalloc((void **)&dx_ems, sizeof(double) * Npart_e_ext * 3);
+		cudaMalloc((void **)&dx_esd, sizeof(double) * Npart_e_ext * 3);
+		cout<<"Before Sort E:"<<numBlocks<<","<<numThreads<<endl;
 
-          sortbeam<<<numBlocks, numThreads>>>(dx_e, dx_es, d_iSe, d_iSe_Inc, d_iSe_ext, bParams->Npart_e, Npart_e_ext, NCOL, dS_e, dx_ems, dx_esd, N, 1);
-          
-          //std::cout<<"Finished Sorting \n";
-		
-          xbar_e = new double[N];
-          ybar_e = new double[N];
-          sig_x_e = new double[N];
-          sig_y_e = new double[N];
+		sortbeam<<<numBlocks, numThreads>>>(dx_e, dx_es, d_iSe, d_iSe_Inc, d_iSe_ext, bParams->Npart_e, Npart_e_ext, NCOL, dS_e, dx_ems, dx_esd, N, 1);
 
-          xpbar_e = new double[N];
-          ypbar_e = new double[N];
+		//std::cout<<"Finished Sorting \n";
 		
-          ptr = thrust::device_pointer_cast(dx_ems);
+		xbar_e = new double[N];
+		ybar_e = new double[N];
+		sig_x_e = new double[N];
+		sig_y_e = new double[N];
+
+  		xpbar_e = new double[N];
+  		ypbar_e = new double[N];
 		
-          for(int i = 0; i < N; i++){
-            if(iSe[i] > 1){
-              for(int j = i - 1; j >= 0; j--){
-                base_index_ms_e = base_index_ms_e + iSe_ext[j];
-              }
+		ptr = thrust::device_pointer_cast(dx_ems);
+		
+		for(int i = 0; i < N; i++){
+			if(iSe[i] > 1){
+				for(int j = i - 1; j >= 0; j--){
+					base_index_ms_e = base_index_ms_e + iSe_ext[j];
+				}
 
-              xbar_e[i] = thrust::reduce(base_index_ms_e + ptr, 
-                                         base_index_ms_e + ptr + iSe[i], 
-                                         (double) 0, 
-                                         thrust::plus<double>())/iSe[i];
-              
-              ybar_e[i] = thrust::reduce(base_index_ms_e + ptr + Npart_e_ext, 
-                                         base_index_ms_e + ptr + Npart_e_ext + iSe[i], 
-                                         (double) 0, 
-                                         thrust::plus<double>())/iSe[i];
-              //printf("After sort: xbar_e:%f\n", xbar_e[i]);
+				xbar_e[i] = thrust::reduce(base_index_ms_e + ptr, base_index_ms_e + ptr + iSe[i], (double) 0, thrust::plus<double>())/iSe[i];
+				ybar_e[i] = thrust::reduce(base_index_ms_e + ptr + Npart_e_ext, base_index_ms_e + ptr + Npart_e_ext + iSe[i], (double) 0, thrust::plus<double>())/iSe[i];
 
-              base_index_ms_e = 0;
-            }
-            else{
-              xbar_e[i] = 0;
-              ybar_e[i] = 0;
-            }
-          }
-          // //zeroes
-          // for(int ii=0; ii<50; ii++){
-          //   printf("xbar_e:%f\n", xbar_e[ii]);
-          //   printf("ybar_e:%f\n", ybar_e[ii]);
-          // }
-          ptr = thrust::device_pointer_cast(dx_esd);
-          // for(int ii=0; ii<15; ii++)
-          //   printf("ptr:%f\n", ptr[ii]);
-          for(int i = 0; i < N; i++){
-            if(iSe[i] > 1){
-              for(int j = i - 1; j >= 0; j--){
-                base_index_ms_e = base_index_ms_e + iSe_ext[j];
-              }
+				base_index_ms_e = 0;
+			}
+			else{
+				xbar_e[i] = 0;
+				ybar_e[i] = 0;
+			}
+		}
+		
+		ptr = thrust::device_pointer_cast(dx_esd);
+
+		for(int i = 0; i < N; i++){
+			if(iSe[i] > 1){
+                for(int j = i - 1; j >= 0; j--){
+					base_index_ms_e = base_index_ms_e + iSe_ext[j];
+				}
 				
-              sig_x_e[i] = thrust::reduce(base_index_ms_e + ptr, 
-                                          base_index_ms_e + ptr + iSe[i], 
-                                          (double) 0, thrust::plus<double>());
-              sig_y_e[i] = thrust::reduce(base_index_ms_e + ptr + Npart_e_ext, 
-                                          base_index_ms_e + ptr + Npart_e_ext + iSe[i],
-                                          (double) 0, thrust::plus<double>());
-              //printf("Collide: sig_x_e:%f\n", sig_x_e[i]);
-              //printf("Collide: sig_y_e:%f\n", sig_y_e[i]);
-              //printf("Collde: iSe:%f\n", iSe[i]);
-              //same so far
-              sig_x_e[i] = sqrt((sig_x_e[i] - (iSe[i] * xbar_e[i] * xbar_e[i]))/iSe[i]);
-              sig_y_e[i] = sqrt((sig_y_e[i] - (iSe[i] * ybar_e[i] * ybar_e[i]))/iSe[i]);
-              //printf("Collide: sqrt sig_x_e:%f\n", sig_x_e[i]);
-              //printf("Collide: sqrt sig_y_e:%f\n", sig_y_e[i]);
-              base_index_ms_e = 0;
-            }
-            else{
-              sig_x_e[i] = 0;
-              sig_y_e[i] = 0;
-            }
-          }
+				sig_x_e[i] = thrust::reduce(base_index_ms_e + ptr, base_index_ms_e + ptr + iSe[i], (double) 0, thrust::plus<double>());
+				sig_y_e[i] = thrust::reduce(base_index_ms_e + ptr + Npart_e_ext, base_index_ms_e + ptr + Npart_e_ext + iSe[i], (double) 0, thrust::plus<double>());
 
-          ptr = thrust::device_pointer_cast(dx_es);
+				sig_x_e[i] = sqrt((sig_x_e[i] - (iSe[i] * xbar_e[i] * xbar_e[i]))/iSe[i]);
+				sig_y_e[i] = sqrt((sig_y_e[i] - (iSe[i] * ybar_e[i] * ybar_e[i]))/iSe[i]);
 
-          for(int i = 0; i < N; i++){
-            if(iSe[i] > 1){
-              for(int j = i - 1; j >= 0; j--){
-                base_index_ms_e = base_index_ms_e + iSe_ext[j];
-              }
+				base_index_ms_e = 0;
+			}
+			else{
+				sig_x_e[i] = 0;
+				sig_y_e[i] = 0;
+			}
+		}
+
+  		ptr = thrust::device_pointer_cast(dx_es);
+
+  		for(int i = 0; i < N; i++)
+  		{
+        		if(iSe[i] > 1)
+        		{
+                		for(int j = i - 1; j >= 0; j--)
+                		{
+                        		base_index_ms_e = base_index_ms_e + iSe_ext[j];
+                		}
 
 
-              xpbar_e[i] = thrust::reduce(base_index_ms_e + ptr + Npart_e_ext, 
-                                          base_index_ms_e + ptr + Npart_e_ext + iSe[i],
-                                          (double) 0, 
-                                          thrust::plus<double>())/iSe[i];
-              ypbar_e[i] = thrust::reduce(base_index_ms_e + ptr + (3 * Npart_e_ext), 
-                                          base_index_ms_e+ptr+(3*Npart_e_ext) + iSe[i],
-                                          (double) 0, thrust::plus<double>())/iSe[i];
-              //printf("xpbar_e:%f\n", xpbar_e[i]);
-              //printf("ypbar_e:%f\n", ypbar_e[i]);
-              base_index_ms_e = 0;
-            }
-            else
-              {
-                xpbar_e[i] = 0;
-                ypbar_e[i] = 0;
-              }
-            
-          }
-          printf("========================\n");
+                		xpbar_e[i] = thrust::reduce(base_index_ms_e + ptr + Npart_e_ext, base_index_ms_e + ptr + Npart_e_ext + iSe[i], (double) 0, thrust::plus<double>())/iSe[i];
+                		ypbar_e[i] = thrust::reduce(base_index_ms_e + ptr + (3 * Npart_e_ext), base_index_ms_e + ptr + (3 * Npart_e_ext) + iSe[i], (double) 0, thrust::plus<double>())/iSe[i];
 
-          cudaMalloc((void **)&dx_emb, sizeof(double) *(Npart_e_ext/BLOCKDIMX_COL) * 2);
-          cudaMemset(dx_emb, 0, sizeof(double) * (Npart_e_ext/BLOCKDIMX_COL) * 2);
+                		base_index_ms_e = 0;
+        		}
+        		else
+        		{
+                		xpbar_e[i] = 0;
+                		ypbar_e[i] = 0;
+        		}
+
+  		}
 		
-          cudaMalloc((void **)&dx_esb, sizeof(double) *(Npart_e_ext/BLOCKDIMX_COL) * 2);
-          cudaMemset(dx_esb, 0, sizeof(double) * (Npart_e_ext/BLOCKDIMX_COL) * 2);
+		cudaMalloc((void **)&dx_emb, sizeof(double) * (Npart_e_ext/BLOCKDIMX_COL) * 2);
+		cudaMemset(dx_emb, 0, sizeof(double) * (Npart_e_ext/BLOCKDIMX_COL) * 2);
+		
+		cudaMalloc((void **)&dx_esb, sizeof(double) * (Npart_e_ext/BLOCKDIMX_COL) * 2);
+		cudaMemset(dx_esb, 0, sizeof(double) * (Npart_e_ext/BLOCKDIMX_COL) * 2);
 
-          //std::cout<<"Finished Mean and SD \n";
+		//std::cout<<"Finished Mean and SD \n";
 	}
 	
 	if(p_bunch != -1){
-          iSp = new int[N];
-          iSp_ext = new int[N];
+		iSp = new int[N];
+		iSp_ext = new int[N];
 		
-          cudaMalloc((void **)&d_iSp, sizeof(int) * N);
-          cudaMemset(d_iSp, 0, N * sizeof(int));
+		cudaMalloc((void **)&d_iSp, sizeof(int) * N);
+		cudaMemset(d_iSp, 0, N * sizeof(int));
 		
-          cudaMalloc((void **)&d_iSp_ext, sizeof(int) * N);
+		cudaMalloc((void **)&d_iSp_ext, sizeof(int) * N);
 		
-          numThreads = BLOCKDIMX;
-          numBlocks = bParams->Npart_p/numThreads + ((bParams->Npart_p%numThreads)?1:0);
-          //cout<<"Before Slice P:"<<numBlocks<<","<<numThreads<<endl;
+		numThreads = BLOCKDIMX;
+		numBlocks = bParams->Npart_p/numThreads + ((bParams->Npart_p%numThreads)?1:0);
+		cout<<"Before Slice P:"<<numBlocks<<","<<numThreads<<endl;
 
-          slice<<<numBlocks, numThreads>>>(dx_p, zmin_p, bParams->Npart_p, bParams->N, d_iSp, dOutOfBound_p);
+		slice<<<numBlocks, numThreads>>>(dx_p, zmin_p, bParams->Npart_p, bParams->N, d_iSp, dOutOfBound_p);
 
-          //std::cout<<"Finished slicing of p-beam \n";
+		//std::cout<<"Finished slicing of p-beam \n";
 		
-          cudaMemcpy(iSp, d_iSp, sizeof(int) * N, cudaMemcpyDeviceToHost);
-          for(int i = 0; i < N; i++){
-            if(iSp[i]%BLOCKDIMX_COL == 0){
-              iSp_ext[i] = iSp[i];
-            }
-            else{
-              iSp_ext[i] = (iSp[i]/BLOCKDIMX_COL + 1) * BLOCKDIMX_COL;
-            }
-
-            Npart_p_ext += iSp_ext[i];
-          }
-          cudaMemcpy(d_iSp_ext, iSp_ext, sizeof(int) * N, cudaMemcpyHostToDevice);
+		cudaMemcpy(iSp, d_iSp, sizeof(int) * N, cudaMemcpyDeviceToHost);
 		
-          cudaMalloc((void **)&d_iSp_Inc, sizeof(int) * N);
-          cudaMemset(d_iSp_Inc, 0, N * sizeof(int));
+		for(int i = 0; i < N; i++){
+			if(iSp[i]%BLOCKDIMX_COL == 0){
+				iSp_ext[i] = iSp[i];
+			}
+			else{
+				iSp_ext[i] = (iSp[i]/BLOCKDIMX_COL + 1) * BLOCKDIMX_COL;
+			}
+
+			Npart_p_ext += iSp_ext[i];
+		}
+		cudaMemcpy(d_iSp_ext, iSp_ext, sizeof(int) * N, cudaMemcpyHostToDevice);
 		
-          cudaMalloc((void **)&dx_ps, sizeof(double) * Npart_p_ext * (NCOL + 2));
+		cudaMalloc((void **)&d_iSp_Inc, sizeof(int) * N);
+		cudaMemset(d_iSp_Inc, 0, N * sizeof(int));
 		
-          ptr = thrust::device_pointer_cast(dx_ps);
-          thrust::fill(ptr, ptr + Npart_p_ext * (NCOL + 2), -1);
+		cudaMalloc((void **)&dx_ps, sizeof(double) * Npart_p_ext * (NCOL + 2));
 		
-          cudaMalloc((void **)&dx_pms, sizeof(double) * Npart_p_ext * 3);
-          cudaMalloc((void **)&dx_psd, sizeof(double) * Npart_p_ext * 3);
-
-          //std::cout<<"Before sorting of p-beam \n";
-          //cout<<"Before sort P:"<<numBlocks<<","<<numThreads<<endl;
-
-          sortbeam<<<numBlocks, numThreads>>>(dx_p, dx_ps, d_iSp, d_iSp_Inc, d_iSp_ext, bParams->Npart_p, Npart_p_ext, NCOL, dS_p, dx_pms, dx_psd, N, 0);
-
-          //std::cout<<"Finished sorting of p-beam \n";
+		ptr = thrust::device_pointer_cast(dx_ps);
+		thrust::fill(ptr, ptr + Npart_p_ext * (NCOL + 2), -1);
 		
-          xbar_p = new double[N];
-          ybar_p = new double[N];
-          sig_x_p = new double[N];
-          sig_y_p = new double[N];
+		cudaMalloc((void **)&dx_pms, sizeof(double) * Npart_p_ext * 3);
+		cudaMalloc((void **)&dx_psd, sizeof(double) * Npart_p_ext * 3);
 
-          xpbar_p = new double[N];
-          ypbar_p = new double[N];
+		//std::cout<<"Before sorting of p-beam \n";
+		cout<<"Before sort P:"<<numBlocks<<","<<numThreads<<endl;
+
+		sortbeam<<<numBlocks, numThreads>>>(dx_p, dx_ps, d_iSp, d_iSp_Inc, d_iSp_ext, bParams->Npart_p, Npart_p_ext, NCOL, dS_p, dx_pms, dx_psd, N, 0);
+
+		//std::cout<<"Finished sorting of p-beam \n";
 		
-          ptr = thrust::device_pointer_cast(dx_pms);
+		xbar_p = new double[N];
+		ybar_p = new double[N];
+		sig_x_p = new double[N];
+		sig_y_p = new double[N];
 
-          for(int i = 0; i < N; i++){
-            if(iSp[i] > 1){
-              for(int j = i - 1; j >= 0; j--){
-                base_index_ms_p = base_index_ms_p + iSp_ext[j];
-              }
-
-              xbar_p[i] = thrust::reduce(base_index_ms_p + ptr,
-                                         base_index_ms_p + ptr + iSp[i],
-                                         (double) 0,
-                                         thrust::plus<double>())/iSp[i];
-              ybar_p[i] = thrust::reduce(base_index_ms_p + Npart_p_ext + ptr,
-                                         base_index_ms_p + Npart_p_ext + ptr + iSp[i],
-                                         (double) 0, 
-                                         thrust::plus<double>())/iSp[i];
-              //printf("After sort: xbar_e:%f\n", xbar_p[i]);
-              base_index_ms_p = 0;
-            }
-            else{
-              xbar_p[i] = 0;
-              ybar_p[i] = 0;
-            }
-          }
+                xpbar_p = new double[N];
+                ypbar_p = new double[N];
 		
-          ptr = thrust::device_pointer_cast(dx_psd);
+		ptr = thrust::device_pointer_cast(dx_pms);
 
-          for(int i = 0; i < N; i++){
-            if(iSp[i] > 1){
-              for(int j = i - 1; j >= 0; j--){
-                base_index_ms_p = base_index_ms_p + iSp_ext[j];
-              }
-              
-              sig_x_p[i] = thrust::reduce(base_index_ms_p + ptr,
-                                          base_index_ms_p + ptr + iSp[i],
-                                          (double) 0, thrust::plus<double>());
-              sig_y_p[i] = thrust::reduce(base_index_ms_p + Npart_p_ext + ptr, 
-                                          base_index_ms_p + Npart_p_ext + ptr + iSp[i],
-                                          (double) 0, thrust::plus<double>());
-              // printf("Collide: sig_x_p:%f\n", sig_x_p[i]);
-              // printf("Collide: sig_y_p:%f\n", sig_y_p[i]);
-              // printf("Collde: iSp:%f\n", iSp[i]);
- 
+		for(int i = 0; i < N; i++){
+			if(iSp[i] > 1){
+				for(int j = i - 1; j >= 0; j--){
+					base_index_ms_p = base_index_ms_p + iSp_ext[j];
+				}
 
-              sig_x_p[i] = sqrt((sig_x_p[i] - (iSp[i] * xbar_p[i] * xbar_p[i]))/iSp[i]);
-              sig_y_p[i] = sqrt((sig_y_p[i] - (iSp[i] * ybar_p[i] * ybar_p[i]))/iSp[i]);
-              // printf("Collide: qrt sig_x_p:%f\n", sig_x_p[i]);
-              // printf("Collide: sqrt sig_y_p:%f\n", sig_y_p[i]);
-              base_index_ms_p = 0;
-            }
-            else{
-              sig_x_p[i] = 0;
-              sig_y_p[i] = 0;
-            }
-          }
-          //printf("===========================\n");
-          ptr = thrust::device_pointer_cast(dx_ps);
+				xbar_p[i] = thrust::reduce(base_index_ms_p + ptr, base_index_ms_p + ptr + iSp[i], (double) 0, thrust::plus<double>())/iSp[i];
+				ybar_p[i] = thrust::reduce(base_index_ms_p + Npart_p_ext + ptr, base_index_ms_p + Npart_p_ext + ptr + iSp[i], (double) 0, thrust::plus<double>())/iSp[i];
 
-          for(int i = 0; i < N; i++){
-            if(iSp[i] > 1){
-              for(int j = i - 1; j >= 0; j--){
-                base_index_ms_p = base_index_ms_p + iSp_ext[j];
-              }
-
-              
-              xpbar_p[i] = thrust::reduce(base_index_ms_p + ptr + Npart_p_ext,
-                                          base_index_ms_p + ptr + Npart_p_ext + iSp[i],
-                                          (double) 0, thrust::plus<double>())/iSp[i];
-              ypbar_p[i] = thrust::reduce(base_index_ms_p + (3 * Npart_p_ext) + ptr,
-                                          base_index_ms_p+(3*Npart_p_ext)+ ptr +iSp[i],
-                                          (double) 0, thrust::plus<double>())/iSp[i];
-              // printf("Collide: xpbar_p:%f\n", xpbar_p[i]);
-              //printf("Collide: ypbar_p:%f\n", ypbar_p[i]);
-              base_index_ms_p = 0;
-            }
-            else
-              {
-                xpbar_p[i] = 0;
-                ypbar_p[i] = 0;
-              }
-          }
-          //printf("==============================\n");
+				base_index_ms_p = 0;
+			}
+			else{
+				xbar_p[i] = 0;
+				ybar_p[i] = 0;
+			}
+		}
 		
-          cudaMalloc((void **)&dx_pmb, 
-                     sizeof(double) * (Npart_p_ext/BLOCKDIMX_COL) * 2);
-          cudaMemset(dx_pmb, 0, 
-                     sizeof(double) * (Npart_p_ext/BLOCKDIMX_COL) * 2);
-		
-          cudaMalloc((void **)&dx_psb, 
-                     sizeof(double) * (Npart_p_ext/BLOCKDIMX_COL) * 2);
-          cudaMemset(dx_psb, 0, 
-                     sizeof(double) * (Npart_p_ext/BLOCKDIMX_COL) * 2);
+		ptr = thrust::device_pointer_cast(dx_psd);
 
-          //std::cout<<"Finished Mean and SD of p-beam \n";
+		for(int i = 0; i < N; i++){
+			if(iSp[i] > 1){
+				for(int j = i - 1; j >= 0; j--){
+					base_index_ms_p = base_index_ms_p + iSp_ext[j];
+				}
+
+                sig_x_p[i] = thrust::reduce(base_index_ms_p + ptr, base_index_ms_p + ptr + iSp[i], (double) 0, thrust::plus<double>());
+                sig_y_p[i] = thrust::reduce(base_index_ms_p + Npart_p_ext + ptr, base_index_ms_p + Npart_p_ext + ptr + iSp[i], (double) 0, thrust::plus<double>());
+
+                sig_x_p[i] = sqrt((sig_x_p[i] - (iSp[i] * xbar_p[i] * xbar_p[i]))/iSp[i]);
+                sig_y_p[i] = sqrt((sig_y_p[i] - (iSp[i] * ybar_p[i] * ybar_p[i]))/iSp[i]);
+
+                base_index_ms_p = 0;
+			}
+			else{
+				sig_x_p[i] = 0;
+				sig_y_p[i] = 0;
+			}
+		}
+
+  		ptr = thrust::device_pointer_cast(dx_ps);
+
+  		for(int i = 0; i < N; i++)
+  		{
+        		if(iSp[i] > 1)
+        		{
+               	 		for(int j = i - 1; j >= 0; j--)
+                		{
+                        		base_index_ms_p = base_index_ms_p + iSp_ext[j];
+                		}
+
+
+                		xpbar_p[i] = thrust::reduce(base_index_ms_p + ptr + Npart_p_ext, base_index_ms_p + ptr + Npart_p_ext + iSp[i], (double) 0, thrust::plus<double>())/iSp[i];
+                		ypbar_p[i] = thrust::reduce(base_index_ms_p + (3 * Npart_p_ext) + ptr, base_index_ms_p + (3 * Npart_p_ext) + ptr + iSp[i], (double) 0, thrust::plus<double>())/iSp[i];
+
+                		base_index_ms_p = 0;
+        		}
+        		else
+        		{
+                		xpbar_p[i] = 0;
+                		ypbar_p[i] = 0;
+        		}
+  		}
+
+		
+		cudaMalloc((void **)&dx_pmb, sizeof(double) * (Npart_p_ext/BLOCKDIMX_COL) * 2);
+		cudaMemset(dx_pmb, 0, sizeof(double) * (Npart_p_ext/BLOCKDIMX_COL) * 2);
+		
+		cudaMalloc((void **)&dx_psb, sizeof(double) * (Npart_p_ext/BLOCKDIMX_COL) * 2);
+		cudaMemset(dx_psb, 0, sizeof(double) * (Npart_p_ext/BLOCKDIMX_COL) * 2);
+
+		//std::cout<<"Finished Mean and SD of p-beam \n";
 	}
 
 /*
@@ -2514,190 +2432,171 @@ void Collide::collide(int lum_turn, int *dOutOfBound_e, int *dOutOfBound_p, doub
 	int *d_iSe_rcvd, *d_iSp_rcvd;
 	int Npart_inbound_e_rcvd, Npart_inbound_p_rcvd;
 
-        
+        //quad::timer::event_pair timer_comm2;
+        //quad::timer::start_timer(&timer_comm2);
+	
 	if(e_bunch != -1){
 	
-          xbar_p_rcvd = new double[N];
-          ybar_p_rcvd = new double[N];
-          sig_x_p_rcvd = new double[N];
-          sig_y_p_rcvd = new double[N];
-          iSp_rcvd = new int[N];
+		xbar_p_rcvd = new double[N];
+		ybar_p_rcvd = new double[N];
+		sig_x_p_rcvd = new double[N];
+		sig_y_p_rcvd = new double[N];
+		iSp_rcvd = new int[N];
 		
-          //store receieved in xbar_p_rcvd, sig_x_p_rcvd
+		//store receieved in xbar_p_rcvd, sig_x_p_rcvd
 		
-          if(opp_p_bunch_gpu != world_rank){
-            //send e-beam mean and sd to opp_p_bunch GPU
-            //receieve p-beam mean and sd from opp_p_bunch GPU
-            //receieve iSp from opp_p_bunch GPU
-            //receieve Npart_ibound_p from opp_p_bunch GPU
+		if(opp_p_bunch_gpu != world_rank){
+			//send e-beam mean and sd to opp_p_bunch GPU
+			//receieve p-beam mean and sd from opp_p_bunch GPU
+			//receieve iSp from opp_p_bunch GPU
+			//receieve Npart_ibound_p from opp_p_bunch GPU
 
-            int Npart_inbound_e = bParams->Npart_inbound_e;
+			int Npart_inbound_e = bParams->Npart_inbound_e;
 			
-            MPI_Isend(xbar_e, N, MPI_DOUBLE, 
-                      opp_p_bunch_gpu, 1, MPI_COMM_WORLD, &myRequest_send_e[0]);
-            MPI_Isend(ybar_e, N, MPI_DOUBLE, 
-                      opp_p_bunch_gpu, 2, MPI_COMM_WORLD, &myRequest_send_e[1]);
-            MPI_Isend(sig_x_e, N, MPI_DOUBLE, 
-                      opp_p_bunch_gpu, 3, MPI_COMM_WORLD, &myRequest_send_e[2]);
-            MPI_Isend(sig_y_e, N, MPI_DOUBLE, 
-                      opp_p_bunch_gpu, 4, MPI_COMM_WORLD, &myRequest_send_e[3]);
-            MPI_Isend(iSe, N, MPI_INT, 
-                      opp_p_bunch_gpu, 5, MPI_COMM_WORLD, &myRequest_send_e[4]);
-            MPI_Isend(&Npart_inbound_e, 1, MPI_INT, 
-                      opp_p_bunch_gpu, 6, MPI_COMM_WORLD, &myRequest_send_e[5]);
+			MPI_Isend(xbar_e, N, MPI_DOUBLE, opp_p_bunch_gpu, 1, MPI_COMM_WORLD, &myRequest_send_e[0]);
+			MPI_Isend(ybar_e, N, MPI_DOUBLE, opp_p_bunch_gpu, 2, MPI_COMM_WORLD, &myRequest_send_e[1]);
+			MPI_Isend(sig_x_e, N, MPI_DOUBLE, opp_p_bunch_gpu, 3, MPI_COMM_WORLD, &myRequest_send_e[2]);
+			MPI_Isend(sig_y_e, N, MPI_DOUBLE, opp_p_bunch_gpu, 4, MPI_COMM_WORLD, &myRequest_send_e[3]);
+			MPI_Isend(iSe, N, MPI_INT, opp_p_bunch_gpu, 5, MPI_COMM_WORLD, &myRequest_send_e[4]);
+			MPI_Isend(&Npart_inbound_e, 1, MPI_INT, opp_p_bunch_gpu, 6, MPI_COMM_WORLD, &myRequest_send_e[5]);
 			
-            MPI_Irecv(xbar_p_rcvd, N, MPI_DOUBLE, 
-                      opp_p_bunch_gpu, 7, MPI_COMM_WORLD, &myRequest_recv_e[0]);
-            MPI_Irecv(ybar_p_rcvd, N, MPI_DOUBLE, 
-                      opp_p_bunch_gpu, 8, MPI_COMM_WORLD, &myRequest_recv_e[1]);
-            MPI_Irecv(sig_x_p_rcvd, N, MPI_DOUBLE, 
-                      opp_p_bunch_gpu, 9, MPI_COMM_WORLD, &myRequest_recv_e[2]);
-            MPI_Irecv(sig_y_p_rcvd, N, MPI_DOUBLE, 
-                      opp_p_bunch_gpu, 10, MPI_COMM_WORLD, &myRequest_recv_e[3]);
-            MPI_Irecv(iSp_rcvd, N, MPI_INT, 
-                      opp_p_bunch_gpu, 11, MPI_COMM_WORLD, &myRequest_recv_e[4]);
-            MPI_Irecv(&Npart_inbound_p_rcvd, 1, MPI_INT, opp_p_bunch_gpu, 12, MPI_COMM_WORLD, &myRequest_recv_e[5]);
-          }
-          else{
-            memcpy(xbar_p_rcvd, xbar_p, sizeof(double) * N);
-            memcpy(ybar_p_rcvd, ybar_p, sizeof(double) * N);
-            memcpy(sig_x_p_rcvd, sig_x_p, sizeof(double) * N);
-            memcpy(sig_y_p_rcvd, sig_y_p, sizeof(double) * N);
+			MPI_Irecv(xbar_p_rcvd, N, MPI_DOUBLE, opp_p_bunch_gpu, 7, MPI_COMM_WORLD, &myRequest_recv_e[0]);
+			MPI_Irecv(ybar_p_rcvd, N, MPI_DOUBLE, opp_p_bunch_gpu, 8, MPI_COMM_WORLD, &myRequest_recv_e[1]);
+			MPI_Irecv(sig_x_p_rcvd, N, MPI_DOUBLE, opp_p_bunch_gpu, 9, MPI_COMM_WORLD, &myRequest_recv_e[2]);
+			MPI_Irecv(sig_y_p_rcvd, N, MPI_DOUBLE, opp_p_bunch_gpu, 10, MPI_COMM_WORLD, &myRequest_recv_e[3]);
+			MPI_Irecv(iSp_rcvd, N, MPI_INT, opp_p_bunch_gpu, 11, MPI_COMM_WORLD, &myRequest_recv_e[4]);
+			MPI_Irecv(&Npart_inbound_p_rcvd, 1, MPI_INT, opp_p_bunch_gpu, 12, MPI_COMM_WORLD, &myRequest_recv_e[5]);
+		}
+		else{
+			memcpy(xbar_p_rcvd, xbar_p, sizeof(double) * N);
+			memcpy(ybar_p_rcvd, ybar_p, sizeof(double) * N);
+			memcpy(sig_x_p_rcvd, sig_x_p, sizeof(double) * N);
+			memcpy(sig_y_p_rcvd, sig_y_p, sizeof(double) * N);
 			
-            memcpy(iSp_rcvd, iSp, sizeof(int) * N);
-            Npart_inbound_p_rcvd = bParams->Npart_inbound_p;
-          }
+			memcpy(iSp_rcvd, iSp, sizeof(int) * N);
+			Npart_inbound_p_rcvd = bParams->Npart_inbound_p;
+		}
 	}
 	//cout<<"stuff"<<endl;
 	if(p_bunch != -1){
 		
-          xbar_e_rcvd = new double[N];
-          ybar_e_rcvd = new double[N];
-          sig_x_e_rcvd = new double[N];
-          sig_y_e_rcvd = new double[N];
-          iSe_rcvd = new int[N];
+		xbar_e_rcvd = new double[N];
+		ybar_e_rcvd = new double[N];
+		sig_x_e_rcvd = new double[N];
+		sig_y_e_rcvd = new double[N];
+		iSe_rcvd = new int[N];
 		
-          if(opp_e_bunch_gpu != world_rank){
-            //send p-beam mean and sd to opp_e_bunch GPU
-            //receieve e-beam mean and sd from opp_e_bunch GPU
-            //store receieved in xbar_e_rcvd, sig_x_e_rcvd
-            //receieve iSe from opp_e_bunch GPU
-            //receieve Npart_ibound_e from opp_e_bunch GPU
+		if(opp_e_bunch_gpu != world_rank){
+			//send p-beam mean and sd to opp_e_bunch GPU
+			//receieve e-beam mean and sd from opp_e_bunch GPU
+			//store receieved in xbar_e_rcvd, sig_x_e_rcvd
+			//receieve iSe from opp_e_bunch GPU
+			//receieve Npart_ibound_e from opp_e_bunch GPU
 
-            int Npart_inbound_p = bParams->Npart_inbound_p;
+			int Npart_inbound_p = bParams->Npart_inbound_p;
 			
-            MPI_Isend(xbar_p, N, MPI_DOUBLE, 
-                      opp_e_bunch_gpu, 7, MPI_COMM_WORLD, &myRequest_send_p[0]);
-            MPI_Isend(ybar_p, N, MPI_DOUBLE, 
-                      opp_e_bunch_gpu, 8, MPI_COMM_WORLD, &myRequest_send_p[1]);
-            MPI_Isend(sig_x_p, N, MPI_DOUBLE, 
-                      opp_e_bunch_gpu, 9, MPI_COMM_WORLD, &myRequest_send_p[2]);
-            MPI_Isend(sig_y_p, N, MPI_DOUBLE, 
-                      opp_e_bunch_gpu, 10, MPI_COMM_WORLD, &myRequest_send_p[3]);
-            MPI_Isend(iSp, N, MPI_INT, 
-                      opp_e_bunch_gpu, 11, MPI_COMM_WORLD, &myRequest_send_p[4]);
-            MPI_Isend(&Npart_inbound_p, 1, MPI_INT, 
-                      opp_e_bunch_gpu, 12, MPI_COMM_WORLD, &myRequest_send_p[5]);
+			MPI_Isend(xbar_p, N, MPI_DOUBLE, opp_e_bunch_gpu, 7, MPI_COMM_WORLD, &myRequest_send_p[0]);
+			MPI_Isend(ybar_p, N, MPI_DOUBLE, opp_e_bunch_gpu, 8, MPI_COMM_WORLD, &myRequest_send_p[1]);
+			MPI_Isend(sig_x_p, N, MPI_DOUBLE, opp_e_bunch_gpu, 9, MPI_COMM_WORLD, &myRequest_send_p[2]);
+			MPI_Isend(sig_y_p, N, MPI_DOUBLE, opp_e_bunch_gpu, 10, MPI_COMM_WORLD, &myRequest_send_p[3]);
+			MPI_Isend(iSp, N, MPI_INT, opp_e_bunch_gpu, 11, MPI_COMM_WORLD, &myRequest_send_p[4]);
+			MPI_Isend(&Npart_inbound_p, 1, MPI_INT, opp_e_bunch_gpu, 12, MPI_COMM_WORLD, &myRequest_send_p[5]);
 			
-            MPI_Irecv(xbar_e_rcvd, N, MPI_DOUBLE, 
-                      opp_e_bunch_gpu, 1, MPI_COMM_WORLD, &myRequest_recv_p[0]);
-            MPI_Irecv(ybar_e_rcvd, 
-                      N, 
-                      MPI_DOUBLE, 
-                      opp_e_bunch_gpu, 2, MPI_COMM_WORLD, &myRequest_recv_p[1]);
-            MPI_Irecv(sig_x_e_rcvd, N, MPI_DOUBLE, 
-                      opp_e_bunch_gpu, 3, MPI_COMM_WORLD, &myRequest_recv_p[2]);
-            MPI_Irecv(sig_y_e_rcvd, N, MPI_DOUBLE, 
-                      opp_e_bunch_gpu, 4, MPI_COMM_WORLD, &myRequest_recv_p[3]);
-            MPI_Irecv(iSe_rcvd, N, MPI_INT, 
-                      opp_e_bunch_gpu, 5, MPI_COMM_WORLD, &myRequest_recv_p[4]);
-            MPI_Irecv(&Npart_inbound_e_rcvd, 1, MPI_INT, 
-                      opp_e_bunch_gpu, 6, MPI_COMM_WORLD, &myRequest_recv_p[5]);
-          }
-          else{
-            memcpy(xbar_e_rcvd, xbar_e, sizeof(double) * N);
-            memcpy(ybar_e_rcvd, ybar_e, sizeof(double) * N);
-            memcpy(sig_x_e_rcvd, sig_x_e, sizeof(double) * N);
-            memcpy(sig_y_e_rcvd, sig_y_e, sizeof(double) * N);
+			MPI_Irecv(xbar_e_rcvd, N, MPI_DOUBLE, opp_e_bunch_gpu, 1, MPI_COMM_WORLD, &myRequest_recv_p[0]);
+			MPI_Irecv(ybar_e_rcvd, N, MPI_DOUBLE, opp_e_bunch_gpu, 2, MPI_COMM_WORLD, &myRequest_recv_p[1]);
+			MPI_Irecv(sig_x_e_rcvd, N, MPI_DOUBLE, opp_e_bunch_gpu, 3, MPI_COMM_WORLD, &myRequest_recv_p[2]);
+			MPI_Irecv(sig_y_e_rcvd, N, MPI_DOUBLE, opp_e_bunch_gpu, 4, MPI_COMM_WORLD, &myRequest_recv_p[3]);
+			MPI_Irecv(iSe_rcvd, N, MPI_INT, opp_e_bunch_gpu, 5, MPI_COMM_WORLD, &myRequest_recv_p[4]);
+			MPI_Irecv(&Npart_inbound_e_rcvd, 1, MPI_INT, opp_e_bunch_gpu, 6, MPI_COMM_WORLD, &myRequest_recv_p[5]);
+		}
+		else{
+			memcpy(xbar_e_rcvd, xbar_e, sizeof(double) * N);
+			memcpy(ybar_e_rcvd, ybar_e, sizeof(double) * N);
+			memcpy(sig_x_e_rcvd, sig_x_e, sizeof(double) * N);
+			memcpy(sig_y_e_rcvd, sig_y_e, sizeof(double) * N);
 			
-            memcpy(iSe_rcvd, iSe, sizeof(int) * N);
-            Npart_inbound_e_rcvd = bParams->Npart_inbound_e;
-          }
+			memcpy(iSe_rcvd, iSe, sizeof(int) * N);
+			Npart_inbound_e_rcvd = bParams->Npart_inbound_e;
+		}
 	}
 	
 	//DO MPI_Wait calls here
 	
 	if(e_bunch != -1){
-          if(opp_p_bunch_gpu != world_rank){
-            MPI_Waitall(6, myRequest_send_e, status_send_e);
-            MPI_Waitall(6, myRequest_recv_e, status_recv_e);
-          }
+		if(opp_p_bunch_gpu != world_rank){
+			MPI_Waitall(6, myRequest_send_e, status_send_e);
+			MPI_Waitall(6, myRequest_recv_e, status_recv_e);
+		}
 	}
 	
 	if(p_bunch != -1){
-          if(opp_e_bunch_gpu != world_rank){
-            MPI_Waitall(6, myRequest_send_p, status_send_p);
-            MPI_Waitall(6, myRequest_recv_p, status_recv_p);
-          }
+		if(opp_e_bunch_gpu != world_rank){
+			MPI_Waitall(6, myRequest_send_p, status_send_p);
+			MPI_Waitall(6, myRequest_recv_p, status_recv_p);
+		}
 	}
-       
-	if(e_bunch != -1){
-          (cudaMalloc((void **)&dxbar_p, sizeof(double) * N));
-          (cudaMalloc((void **)&dybar_p, sizeof(double) * N));
+        //cout<<"performed comm2\n";
+	//quad::timer::stop_timer(&timer_comm2, "Comm2");
+        //cudaError_t errorA = cudaGetLastError();
+        //if(errorA != cudaSuccess)
+          {
+            // something's gone wrong
+            // print out the CUDA error as a string
+            // printf("CUDA ErrorA: %s\n bunches:%i %i", cudaGetErrorString(errorA), e_bunch, p_bunch);
 
-          (cudaMalloc((void **)&dxpbar_e, sizeof(double) * N));
-          (cudaMalloc((void **)&dypbar_e, sizeof(double) * N));
+            // we can't recover from the error -- exit the program
+           
+          }
+	if(e_bunch != -1){
+		(cudaMalloc((void **)&dxbar_p, sizeof(double) * N));
+		(cudaMalloc((void **)&dybar_p, sizeof(double) * N));
+
+  		(cudaMalloc((void **)&dxpbar_e, sizeof(double) * N));
+  		(cudaMalloc((void **)&dypbar_e, sizeof(double) * N));
 		
-          (cudaMalloc((void **)&d_sig_x_p, sizeof(double) * N));
-          (cudaMalloc((void **)&d_sig_y_p, sizeof(double) * N));
+		(cudaMalloc((void **)&d_sig_x_p, sizeof(double) * N));
+		(cudaMalloc((void **)&d_sig_y_p, sizeof(double) * N));
 		
-          (cudaMalloc((void **)&d_iSp_rcvd, sizeof(int) * N));
+		(cudaMalloc((void **)&d_iSp_rcvd, sizeof(int) * N));
 	
-          (cudaMemcpy(dxbar_p, xbar_p_rcvd, sizeof(double) * N, cudaMemcpyHostToDevice));
-          (cudaMemcpy(dybar_p, ybar_p_rcvd, sizeof(double) * N, cudaMemcpyHostToDevice));
+		(cudaMemcpy(dxbar_p, xbar_p_rcvd, sizeof(double) * N, cudaMemcpyHostToDevice));
+		(cudaMemcpy(dybar_p, ybar_p_rcvd, sizeof(double) * N, cudaMemcpyHostToDevice));
                 
-          (cudaMemcpy(dxpbar_e, xpbar_e, sizeof(double) * N, cudaMemcpyHostToDevice));
-          (cudaMemcpy(dypbar_e, ypbar_e, sizeof(double) * N, cudaMemcpyHostToDevice));
-          (cudaMemcpy(d_sig_x_p, sig_x_p_rcvd, sizeof(double) * N, cudaMemcpyHostToDevice));
-          (cudaMemcpy(d_sig_y_p, sig_y_p_rcvd, sizeof(double) * N, cudaMemcpyHostToDevice));
-          (cudaMemcpy(d_iSp_rcvd, iSp_rcvd, sizeof(int) * N, cudaMemcpyHostToDevice));
+  		(cudaMemcpy(dxpbar_e, xpbar_e, sizeof(double) * N, cudaMemcpyHostToDevice));
+  		(cudaMemcpy(dypbar_e, ypbar_e, sizeof(double) * N, cudaMemcpyHostToDevice));
+		(cudaMemcpy(d_sig_x_p, sig_x_p_rcvd, sizeof(double) * N, cudaMemcpyHostToDevice));
+		(cudaMemcpy(d_sig_y_p, sig_y_p_rcvd, sizeof(double) * N, cudaMemcpyHostToDevice));
+		(cudaMemcpy(d_iSp_rcvd, iSp_rcvd, sizeof(int) * N, cudaMemcpyHostToDevice));
         
 	}
 	
 	if(p_bunch != -1){
           
-          (cudaMalloc((void **)&dxbar_e, sizeof(double) * N));
-          (cudaMalloc((void **)&dybar_e, sizeof(double) * N));
+		(cudaMalloc((void **)&dxbar_e, sizeof(double) * N));
+		(cudaMalloc((void **)&dybar_e, sizeof(double) * N));
 
-          (cudaMalloc((void **)&dxpbar_p, sizeof(double) * N));
-          (cudaMalloc((void **)&dypbar_p, sizeof(double) * N));
+  		(cudaMalloc((void **)&dxpbar_p, sizeof(double) * N));
+  		(cudaMalloc((void **)&dypbar_p, sizeof(double) * N));
 
-          (cudaMalloc((void **)&d_sig_x_e, sizeof(double) * N));
-          (cudaMalloc((void **)&d_sig_y_e, sizeof(double) * N));
+		(cudaMalloc((void **)&d_sig_x_e, sizeof(double) * N));
+		(cudaMalloc((void **)&d_sig_y_e, sizeof(double) * N));
 		
-          (cudaMalloc((void **)&d_iSe_rcvd, sizeof(int) * N));
+		(cudaMalloc((void **)&d_iSe_rcvd, sizeof(int) * N));
                 
-          (cudaMemcpy(dxbar_e, xbar_e_rcvd, 
-                      sizeof(double) * N, 
-                      cudaMemcpyHostToDevice));
-          (cudaMemcpy(dybar_e, ybar_e_rcvd, 
-                      sizeof(double) * N, 
-                      cudaMemcpyHostToDevice));
+		(cudaMemcpy(dxbar_e, xbar_e_rcvd, sizeof(double) * N, cudaMemcpyHostToDevice));
+		(cudaMemcpy(dybar_e, ybar_e_rcvd, sizeof(double) * N, cudaMemcpyHostToDevice));
                 
-          (cudaMemcpy(dxpbar_p, xpbar_p, sizeof(double) * N, cudaMemcpyHostToDevice));
-          (cudaMemcpy(dypbar_p, ypbar_p, sizeof(double) * N, cudaMemcpyHostToDevice));
+  		(cudaMemcpy(dxpbar_p, xpbar_p, sizeof(double) * N, cudaMemcpyHostToDevice));
+  		(cudaMemcpy(dypbar_p, ypbar_p, sizeof(double) * N, cudaMemcpyHostToDevice));
                 
-          (cudaMemcpy(d_sig_x_e, sig_x_e_rcvd, 
-                      sizeof(double) * N, 
-                      cudaMemcpyHostToDevice));
-          (cudaMemcpy(d_sig_y_e, sig_y_e_rcvd, 
-                      sizeof(double) * N, 
-                      cudaMemcpyHostToDevice));
+		(cudaMemcpy(d_sig_x_e, sig_x_e_rcvd, sizeof(double) * N, cudaMemcpyHostToDevice));
+		(cudaMemcpy(d_sig_y_e, sig_y_e_rcvd, sizeof(double) * N, cudaMemcpyHostToDevice));
 	     
-          (cudaMemcpy(d_iSe_rcvd, iSe_rcvd, sizeof(int) * N, cudaMemcpyHostToDevice));
+                (cudaMemcpy(d_iSe_rcvd, iSe_rcvd, sizeof(int) * N, cudaMemcpyHostToDevice));
                 
 	}
-        //printf("1st RMS\n");
+
+	
 	calculate_rms(lum_turn, e_bunch, p_bunch, dx_es, dx_ps, N, iSe, iSp, iSe_ext, iSp_ext, Npart_e_ext, Npart_p_ext, 0);
 	
 	int epart = 0; int ppart = 0;
@@ -2721,632 +2620,612 @@ void Collide::collide(int lum_turn, int *dOutOfBound_e, int *dOutOfBound_p, doub
 	
 	for(int i = 0; i < N*(2*N-1); i++)
 	{
-          xbar_e_dump[i] = -1;
-          ybar_e_dump[i] = -1;
-          sig_x_e_dump[i] = -1;
-          sig_y_e_dump[i] = -1;
+        xbar_e_dump[i] = -1;
+        ybar_e_dump[i] = -1;
+        sig_x_e_dump[i] = -1;
+        sig_y_e_dump[i] = -1;
 
-          xbar_p_dump[i] = -1;
-          ybar_p_dump[i] = -1;
-          sig_x_p_dump[i] = -1;
-          sig_y_p_dump[i] = -1;
+        xbar_p_dump[i] = -1;
+        ybar_p_dump[i] = -1;
+        sig_x_p_dump[i] = -1;
+        sig_y_p_dump[i] = -1;
 	}
 	
 	for(int i = 0; i < N; i++){
 		
-          epart = 0; ppart = 0;
+		epart = 0; ppart = 0;
 		
-          int k_start = 0;
+		int k_start = 0;
 		
-          if(i == N - 1)
-            k_start = 1;
+		if(i == N - 1)
+        k_start = 1;
 
-          for(int j = 0; j < i+1; j++){
-            if(e_bunch != -1)
-            {
-              xbar_e_dump[col_num_dump*N + j] = xbar_e[j];//added by Ioannis
-              ybar_e_dump[col_num_dump*N + j] = ybar_e[j];//added by Ioannis
-              sig_x_e_dump[col_num_dump*N + j] = sig_x_e[j];//added by Ioannis
-              sig_y_e_dump[col_num_dump*N + j] = sig_y_e[j];//added by Ioannis
+		for(int j = 0; j < i+1; j++){
+			if(e_bunch != -1)
+			{
+				xbar_e_dump[col_num_dump*N + j] = xbar_e[j];//added by Ioannis
+				ybar_e_dump[col_num_dump*N + j] = ybar_e[j];//added by Ioannis
+				sig_x_e_dump[col_num_dump*N + j] = sig_x_e[j];//added by Ioannis
+				sig_y_e_dump[col_num_dump*N + j] = sig_y_e[j];//added by Ioannis
 				
-              if(p_bunch ==-1)
-              {
-                xbar_p_dump[col_num_dump*N + j] = xbar_p_rcvd[j];//added by Ioannis
-                ybar_p_dump[col_num_dump*N + j] = ybar_p_rcvd[j];//added by Ioannis
-                sig_x_p_dump[col_num_dump*N + j] = sig_x_p_rcvd[j];//added by Ioannis
-                sig_y_p_dump[col_num_dump*N + j] = sig_y_p_rcvd[j];//added by Ioannis
+				if(p_bunch ==-1)
+				{
+					xbar_p_dump[col_num_dump*N + j] = xbar_p_rcvd[j];//added by Ioannis
+					ybar_p_dump[col_num_dump*N + j] = ybar_p_rcvd[j];//added by Ioannis
+					sig_x_p_dump[col_num_dump*N + j] = sig_x_p_rcvd[j];//added by Ioannis
+					sig_y_p_dump[col_num_dump*N + j] = sig_y_p_rcvd[j];//added by Ioannis
 					
-              }
-              epart += iSe_ext[j];
-            }
+				}
+				epart += iSe_ext[j];
+			}
 				
-            if(p_bunch != -1)
-            {
-              xbar_p_dump[col_num_dump*N + j] = xbar_p[j];//added by Ioannis
-              ybar_p_dump[col_num_dump*N + j] = ybar_p[j];//added by Ioannis
-              sig_x_p_dump[col_num_dump*N + j] = sig_x_p[j];//added by Ioannis
-              sig_y_p_dump[col_num_dump*N + j] = sig_y_p[j];//added by Ioannis
+			if(p_bunch != -1)
+			{
+				xbar_p_dump[col_num_dump*N + j] = xbar_p[j];//added by Ioannis
+				ybar_p_dump[col_num_dump*N + j] = ybar_p[j];//added by Ioannis
+				sig_x_p_dump[col_num_dump*N + j] = sig_x_p[j];//added by Ioannis
+				sig_y_p_dump[col_num_dump*N + j] = sig_y_p[j];//added by Ioannis
 				
-              if(e_bunch == -1)
-              {
-                xbar_e_dump[col_num_dump*N + j] = xbar_e_rcvd[j];//added by Ioannis
-                ybar_e_dump[col_num_dump*N + j] = ybar_e_rcvd[j];//added by Ioannis
-                sig_x_e_dump[col_num_dump*N + j] = sig_x_e_rcvd[j];//added by Ioannis
-                sig_y_e_dump[col_num_dump*N + j] = sig_y_e_rcvd[j];//added by Ioannis
-              }
-              ppart += iSp_ext[j];
-            }
+				if(e_bunch == -1)
+				{
+					xbar_e_dump[col_num_dump*N + j] = xbar_e_rcvd[j];//added by Ioannis
+					ybar_e_dump[col_num_dump*N + j] = ybar_e_rcvd[j];//added by Ioannis
+					sig_x_e_dump[col_num_dump*N + j] = sig_x_e_rcvd[j];//added by Ioannis
+					sig_y_e_dump[col_num_dump*N + j] = sig_y_e_rcvd[j];//added by Ioannis
+				}
+				ppart += iSp_ext[j];
+			}
 				
-          }
-          col_num_dump++;
+		}
+		col_num_dump++;
 		
-          if(e_bunch != -1){
-            numBlocks = (epart)/numThreads + (((epart)%numThreads)?1:0);
+		if(e_bunch != -1){
+			numBlocks = (epart)/numThreads + (((epart)%numThreads)?1:0);
 			
-            int num_devices=-1;
-            cudaGetDeviceCount(&num_devices);
-            int deviceRank=-1;
-            cudaDeviceProp devProp;
-            cudaGetDevice(&deviceRank);
-            cudaGetDeviceProperties(&devProp, deviceRank);
-            //printf("Num Devices: %i\n", deviceRank);
-            //printf("About to KICK MPI RANK:%i GPU Rank:%i, name:%s\n",world_rank, deviceRank, devProp.name);
+			int num_devices=-1;
+			cudaGetDeviceCount(&num_devices);
+			int deviceRank=-1;
+			cudaDeviceProp devProp;
+			cudaGetDevice(&deviceRank);
+			cudaGetDeviceProperties(&devProp, deviceRank);
+			//printf("Num Devices: %i\n", deviceRank);
+			//printf("About to KICK MPI RANK:%i GPU Rank:%i, name:%s\n",world_rank, deviceRank, devProp.name);
 			
-            //printf("about to kick:%i\n", deviceRank);
-            //cout<<"Before kick E:"<<numBlocks<<","<<numThreads<<endl;
+			//printf("about to kick:%i\n", deviceRank);
+                        //cout<<"Before kick E:"<<numBlocks<<","<<numThreads<<endl;
 
-            applyKickGPU_E<<<numBlocks, numThreads>>>(dx_es, bParams->gamma_e, Npart_e_ext, dxpbar_e, dypbar_e, dxbar_p, dybar_p, d_sig_x_p, d_sig_y_p, d_iSp_rcvd, bParams->N_p, &dS_e[S_Index], i+1, epart, 0, dx_emb, dx_esb, 1, Npart_inbound_p_rcvd, bParams->N);
+			applyKickGPU_E<<<numBlocks, numThreads>>>(dx_es, bParams->gamma_e, Npart_e_ext, dxpbar_e, dypbar_e, dxbar_p, dybar_p, d_sig_x_p, d_sig_y_p, d_iSp_rcvd, bParams->N_p, &dS_e[S_Index], i+1, epart, 0, dx_emb, dx_esb, 1, Npart_inbound_p_rcvd, bParams->N);
 			
-            cudaDeviceSynchronize();
+			cudaDeviceSynchronize();
 			
-            ptr = thrust::device_pointer_cast(dx_emb);
+			ptr = thrust::device_pointer_cast(dx_emb);
 			
-            for(int k = k_start; k <= i; k++){
-              if(iSe[k] > 1){
-                for(int j = k - 1; j >= 0; j--){
-                  base_index_ms_e = base_index_ms_e + (iSe_ext[j]/BLOCKDIMX_COL);
-                }
-                xbar_e[k] = thrust::reduce(base_index_ms_e + ptr, base_index_ms_e + ptr + (iSe_ext[k]/BLOCKDIMX_COL), (double) 0, thrust::plus<double>())/iSe[k];
-                ybar_e[k] = thrust::reduce(base_index_ms_e + ptr + (Npart_e_ext/BLOCKDIMX_COL), base_index_ms_e + ptr + (Npart_e_ext/BLOCKDIMX_COL) + (iSe_ext[k]/BLOCKDIMX_COL), (double) 0, thrust::plus<double>())/iSe[k];
+			for(int k = k_start; k <= i; k++){
+				if(iSe[k] > 1){
+					for(int j = k - 1; j >= 0; j--){
+							base_index_ms_e = base_index_ms_e + (iSe_ext[j]/BLOCKDIMX_COL);
+					}
+					xbar_e[k] = thrust::reduce(base_index_ms_e + ptr, base_index_ms_e + ptr + (iSe_ext[k]/BLOCKDIMX_COL), (double) 0, thrust::plus<double>())/iSe[k];
+					ybar_e[k] = thrust::reduce(base_index_ms_e + ptr + (Npart_e_ext/BLOCKDIMX_COL), base_index_ms_e + ptr + (Npart_e_ext/BLOCKDIMX_COL) + (iSe_ext[k]/BLOCKDIMX_COL), (double) 0, thrust::plus<double>())/iSe[k];
 
-                base_index_ms_e = 0;
-              }
-              else{
-                xbar_e[k] = 0;
-                ybar_e[k] = 0;
-              }
-            }
+					base_index_ms_e = 0;
+				}
+				else{
+						xbar_e[k] = 0;
+						ybar_e[k] = 0;
+				}
+			}
 			
-            ptr = thrust::device_pointer_cast(dx_esb);
+			ptr = thrust::device_pointer_cast(dx_esb);
 
-            for(int k = k_start; k <= i; k++){
-              if(iSe[k] > 1){
-                for(int j = k - 1; j >= 0; j--){
-                  base_index_ms_e = base_index_ms_e + (iSe_ext[j]/BLOCKDIMX_COL);
-                }
-                sig_x_e[k] = thrust::reduce(base_index_ms_e + ptr, base_index_ms_e + ptr + (iSe_ext[k]/BLOCKDIMX_COL), (double) 0, thrust::plus<double>());
-                sig_y_e[k] = thrust::reduce(base_index_ms_e + ptr + (Npart_e_ext/BLOCKDIMX_COL), base_index_ms_e + ptr + (Npart_e_ext/BLOCKDIMX_COL) + (iSe_ext[k]/BLOCKDIMX_COL), (double) 0, thrust::plus<double>());
+			for(int k = k_start; k <= i; k++){
+				if(iSe[k] > 1){
+					for(int j = k - 1; j >= 0; j--){
+							base_index_ms_e = base_index_ms_e + (iSe_ext[j]/BLOCKDIMX_COL);
+					}
+					sig_x_e[k] = thrust::reduce(base_index_ms_e + ptr, base_index_ms_e + ptr + (iSe_ext[k]/BLOCKDIMX_COL), (double) 0, thrust::plus<double>());
+					sig_y_e[k] = thrust::reduce(base_index_ms_e + ptr + (Npart_e_ext/BLOCKDIMX_COL), base_index_ms_e + ptr + (Npart_e_ext/BLOCKDIMX_COL) + (iSe_ext[k]/BLOCKDIMX_COL), (double) 0, thrust::plus<double>());
 
-                sig_x_e[k] = sqrt((sig_x_e[k] - (iSe[k] * xbar_e[k] * xbar_e[k]))/iSe[k]);
-                sig_y_e[k] = sqrt((sig_y_e[k] - (iSe[k] * ybar_e[k] * ybar_e[k]))/iSe[k]);
+					sig_x_e[k] = sqrt((sig_x_e[k] - (iSe[k] * xbar_e[k] * xbar_e[k]))/iSe[k]);
+					sig_y_e[k] = sqrt((sig_y_e[k] - (iSe[k] * ybar_e[k] * ybar_e[k]))/iSe[k]);
 
-                base_index_ms_e = 0;
-              }
-              else{
-                sig_x_e[k] = 0;
-                sig_y_e[k] = 0;
-              }
-            }
+					base_index_ms_e = 0;
+				}
+				else{
+					sig_x_e[k] = 0;
+					sig_y_e[k] = 0;
+				}
+			}
 
-            ptr = thrust::device_pointer_cast(dx_es);
+		        ptr = thrust::device_pointer_cast(dx_es);
 
-            for(int k = k_start; k <= i; k++)
-              {
-                if(iSe[k] > 1)
-                  {
-                    for(int j = k - 1; j >= 0; j--)
-                      {
-                        base_index_ms_e = base_index_ms_e + iSe_ext[j];
-                      }
+        		for(int k = k_start; k <= i; k++)
+        		{
+                		if(iSe[k] > 1)
+                		{
+                        		for(int j = k - 1; j >= 0; j--)
+                        		{
+                                		base_index_ms_e = base_index_ms_e + iSe_ext[j];
+                        		}
 
 
-                    xpbar_e[k] = thrust::reduce(base_index_ms_e + ptr + Npart_e_ext, base_index_ms_e + ptr + Npart_e_ext + iSe[k], (double) 0, thrust::plus<double>())/iSe[k];
-                    ypbar_e[k] = thrust::reduce(base_index_ms_e + ptr + (3 * Npart_e_ext), base_index_ms_e + ptr + (3 * Npart_e_ext) + iSe[k], (double) 0, thrust::plus<double>())/iSe[k];
+                        		xpbar_e[k] = thrust::reduce(base_index_ms_e + ptr + Npart_e_ext, base_index_ms_e + ptr + Npart_e_ext + iSe[k], (double) 0, thrust::plus<double>())/iSe[k];
+                        		ypbar_e[k] = thrust::reduce(base_index_ms_e + ptr + (3 * Npart_e_ext), base_index_ms_e + ptr + (3 * Npart_e_ext) + iSe[k], (double) 0, thrust::plus<double>())/iSe[k];
 
-                    base_index_ms_e = 0;
-                  }
-                else
-                  {
-                    xpbar_e[k] = 0;
-                    ypbar_e[k] = 0;
-                  }
+                        		base_index_ms_e = 0;
+                		}
+                		else
+                		{
+                        		xpbar_e[k] = 0;
+                        		ypbar_e[k] = 0;
+                		}
 
-              }
+        		}
 
-          }
+		}
 		
-          if(p_bunch != -1){
-            numBlocks = (ppart)/numThreads + (((ppart)%numThreads)?1:0);
-            //cout<<"Before kick P:"<<numBlocks<<","<<numThreads<<endl;
+		if(p_bunch != -1){
+			numBlocks = (ppart)/numThreads + (((ppart)%numThreads)?1:0);
+			//cout<<"Before kick P:"<<numBlocks<<","<<numThreads<<endl;
 
-            applyKickGPU_P<<<numBlocks, numThreads>>>(dxpbar_p, dypbar_p, dxbar_e, dybar_e, d_sig_x_e, d_sig_y_e, d_iSe_rcvd, bParams->N_e, dx_ps, bParams->gamma_p, Npart_p_ext, &dS_p[S_Index], i+1, ppart, 0, dx_pmb, dx_psb, 1, Npart_inbound_e_rcvd, bParams->N);
+                        applyKickGPU_P<<<numBlocks, numThreads>>>(dxpbar_p, dypbar_p, dxbar_e, dybar_e, d_sig_x_e, d_sig_y_e, d_iSe_rcvd, bParams->N_e, dx_ps, bParams->gamma_p, Npart_p_ext, &dS_p[S_Index], i+1, ppart, 0, dx_pmb, dx_psb, 1, Npart_inbound_e_rcvd, bParams->N);
 			
-            cudaDeviceSynchronize();
+			cudaDeviceSynchronize();
 			
-            ptr = thrust::device_pointer_cast(dx_pmb);
+			ptr = thrust::device_pointer_cast(dx_pmb);
 
-            for(int k = k_start; k <= i; k++){
-              if(iSp[k] > 1){
-                for(int j = k - 1; j >= 0; j--){
-                  base_index_ms_p = base_index_ms_p + (iSp_ext[j]/BLOCKDIMX_COL);
-                }
-                xbar_p[k] = thrust::reduce(base_index_ms_p + ptr, base_index_ms_p + ptr + (iSp_ext[k]/BLOCKDIMX_COL), (double) 0, thrust::plus<double>())/iSp[k];
-                ybar_p[k] = thrust::reduce(base_index_ms_p + (Npart_p_ext/BLOCKDIMX_COL) + ptr, base_index_ms_p + (Npart_p_ext/BLOCKDIMX_COL) + ptr + (iSp_ext[k]/BLOCKDIMX_COL), (double) 0, thrust::plus<double>())/iSp[k];
+			for(int k = k_start; k <= i; k++){
+				if(iSp[k] > 1){
+					for(int j = k - 1; j >= 0; j--){
+							base_index_ms_p = base_index_ms_p + (iSp_ext[j]/BLOCKDIMX_COL);
+					}
+					xbar_p[k] = thrust::reduce(base_index_ms_p + ptr, base_index_ms_p + ptr + (iSp_ext[k]/BLOCKDIMX_COL), (double) 0, thrust::plus<double>())/iSp[k];
+					ybar_p[k] = thrust::reduce(base_index_ms_p + (Npart_p_ext/BLOCKDIMX_COL) + ptr, base_index_ms_p + (Npart_p_ext/BLOCKDIMX_COL) + ptr + (iSp_ext[k]/BLOCKDIMX_COL), (double) 0, thrust::plus<double>())/iSp[k];
 
-                base_index_ms_p = 0;
-              }
-              else{
-                xbar_p[k] = 0;
-                ybar_p[k] = 0;
-              }
-            }
+					base_index_ms_p = 0;
+				}
+				else{
+					xbar_p[k] = 0;
+					ybar_p[k] = 0;
+				}
+			}
 			
-            ptr = thrust::device_pointer_cast(dx_psb);
+			ptr = thrust::device_pointer_cast(dx_psb);
 
-            for(int k = k_start; k <= i; k++){
-              if(iSp[k] > 1){
-                for(int j = k - 1; j >= 0; j--){
-                  base_index_ms_p = base_index_ms_p + (iSp_ext[j]/BLOCKDIMX_COL);
-                }
-                sig_x_p[k] = thrust::reduce(base_index_ms_p + ptr, base_index_ms_p + ptr + (iSp_ext[k]/BLOCKDIMX_COL), (double) 0, thrust::plus<double>());
-                sig_y_p[k] = thrust::reduce(base_index_ms_p + (Npart_p_ext/BLOCKDIMX_COL) + ptr, base_index_ms_p + (Npart_p_ext/BLOCKDIMX_COL) + ptr + (iSp_ext[k]/BLOCKDIMX_COL), (double) 0, thrust::plus<double>());
+			for(int k = k_start; k <= i; k++){
+				if(iSp[k] > 1){
+					for(int j = k - 1; j >= 0; j--){
+							base_index_ms_p = base_index_ms_p + (iSp_ext[j]/BLOCKDIMX_COL);
+					}
+					sig_x_p[k] = thrust::reduce(base_index_ms_p + ptr, base_index_ms_p + ptr + (iSp_ext[k]/BLOCKDIMX_COL), (double) 0, thrust::plus<double>());
+					sig_y_p[k] = thrust::reduce(base_index_ms_p + (Npart_p_ext/BLOCKDIMX_COL) + ptr, base_index_ms_p + (Npart_p_ext/BLOCKDIMX_COL) + ptr + (iSp_ext[k]/BLOCKDIMX_COL), (double) 0, thrust::plus<double>());
 
-                sig_x_p[k] = sqrt((sig_x_p[k] - (iSp[k] * xbar_p[k] * xbar_p[k]))/iSp[k]);
-                sig_y_p[k] = sqrt((sig_y_p[k] - (iSp[k] * ybar_p[k] * ybar_p[k]))/iSp[k]);
+					sig_x_p[k] = sqrt((sig_x_p[k] - (iSp[k] * xbar_p[k] * xbar_p[k]))/iSp[k]);
+					sig_y_p[k] = sqrt((sig_y_p[k] - (iSp[k] * ybar_p[k] * ybar_p[k]))/iSp[k]);
 
-                base_index_ms_p = 0;
-              }
-              else{
-                sig_x_p[k] = 0;
-                sig_y_p[k] = 0;
-              }
-            }
+					base_index_ms_p = 0;
+				}
+				else{
+					sig_x_p[k] = 0;
+					sig_y_p[k] = 0;
+				}
+			}
 
-            ptr = thrust::device_pointer_cast(dx_ps);
+		        ptr = thrust::device_pointer_cast(dx_ps);
 
-            for(int k = k_start; k <= i; k++)
-            {
-              if(iSp[k] > 1)
-              {
-                for(int j = k - 1; j >= 0; j--)
-                {
-                  base_index_ms_p = base_index_ms_p + iSp_ext[j];
-                }
+        		for(int k = k_start; k <= i; k++)
+        		{
+                		if(iSp[k] > 1)
+                		{
+                        		for(int j = k - 1; j >= 0; j--)
+                        		{
+                                		base_index_ms_p = base_index_ms_p + iSp_ext[j];
+                        		}
 
-                xpbar_p[k] = thrust::reduce(base_index_ms_p + ptr + Npart_p_ext, base_index_ms_p + ptr + Npart_p_ext + iSp[k], (double) 0, thrust::plus<double>())/iSp[k];
-                ypbar_p[k] = thrust::reduce(base_index_ms_p + (3 * Npart_p_ext) + ptr, base_index_ms_p + (3 * Npart_p_ext) + ptr + iSp[k], (double) 0, thrust::plus<double>())/iSp[k];
+		                        xpbar_p[k] = thrust::reduce(base_index_ms_p + ptr + Npart_p_ext, base_index_ms_p + ptr + Npart_p_ext + iSp[k], (double) 0, thrust::plus<double>())/iSp[k];
+                		        ypbar_p[k] = thrust::reduce(base_index_ms_p + (3 * Npart_p_ext) + ptr, base_index_ms_p + (3 * Npart_p_ext) + ptr + iSp[k], (double) 0, thrust::plus<double>())/iSp[k];
 
-                base_index_ms_p = 0;
-              }
-              else
-              {
-                xpbar_p[k] = 0;
-                ypbar_p[k] = 0;
-              }
-            }
+                        		base_index_ms_p = 0;
+                		}
+                		else
+                		{
+                        		xpbar_p[k] = 0;
+                        		ypbar_p[k] = 0;
+                		}
+        		}
 
-          }
+		}
 
-          //quad::timer::start_timer(&timer_comm2);
+		//quad::timer::start_timer(&timer_comm2);
 		
-          if(e_bunch != -1){
+		if(e_bunch != -1){
 		
-            if(opp_p_bunch_gpu != world_rank){
-              //send e-beam mean and sd to opp_p_bunch GPU
-              //receieve p-beam mean and sd from opp_p_bunch GPU
-              //receieve iSp from opp_p_bunch GPU
-              //receieve Npart_ibound_p from opp_p_bunch GPU
+			if(opp_p_bunch_gpu != world_rank){
+				//send e-beam mean and sd to opp_p_bunch GPU
+				//receieve p-beam mean and sd from opp_p_bunch GPU
+				//receieve iSp from opp_p_bunch GPU
+				//receieve Npart_ibound_p from opp_p_bunch GPU
 				
-              MPI_Isend(xbar_e, N, MPI_DOUBLE, opp_p_bunch_gpu, 1, MPI_COMM_WORLD, &myRequest_send_e[0]);
-              MPI_Isend(ybar_e, N, MPI_DOUBLE, opp_p_bunch_gpu, 2, MPI_COMM_WORLD, &myRequest_send_e[1]);
-              MPI_Isend(sig_x_e, N, MPI_DOUBLE, opp_p_bunch_gpu, 3, MPI_COMM_WORLD, &myRequest_send_e[2]);
-              MPI_Isend(sig_y_e, N, MPI_DOUBLE, opp_p_bunch_gpu, 4, MPI_COMM_WORLD, &myRequest_send_e[3]);
+				MPI_Isend(xbar_e, N, MPI_DOUBLE, opp_p_bunch_gpu, 1, MPI_COMM_WORLD, &myRequest_send_e[0]);
+				MPI_Isend(ybar_e, N, MPI_DOUBLE, opp_p_bunch_gpu, 2, MPI_COMM_WORLD, &myRequest_send_e[1]);
+				MPI_Isend(sig_x_e, N, MPI_DOUBLE, opp_p_bunch_gpu, 3, MPI_COMM_WORLD, &myRequest_send_e[2]);
+				MPI_Isend(sig_y_e, N, MPI_DOUBLE, opp_p_bunch_gpu, 4, MPI_COMM_WORLD, &myRequest_send_e[3]);
 				
-              MPI_Irecv(xbar_p_rcvd, N, MPI_DOUBLE, opp_p_bunch_gpu, 5, MPI_COMM_WORLD, &myRequest_recv_e[0]);
-              MPI_Irecv(ybar_p_rcvd, N, MPI_DOUBLE, opp_p_bunch_gpu, 6, MPI_COMM_WORLD, &myRequest_recv_e[1]);
-              MPI_Irecv(sig_x_p_rcvd, N, MPI_DOUBLE, opp_p_bunch_gpu, 7, MPI_COMM_WORLD, &myRequest_recv_e[2]);
-              MPI_Irecv(sig_y_p_rcvd, N, MPI_DOUBLE, opp_p_bunch_gpu, 8, MPI_COMM_WORLD, &myRequest_recv_e[3]);
-            }
-            else{
-              memcpy(xbar_p_rcvd, xbar_p, sizeof(double) * N);
-              memcpy(ybar_p_rcvd, ybar_p, sizeof(double) * N);
-              memcpy(sig_x_p_rcvd, sig_x_p, sizeof(double) * N);
-              memcpy(sig_y_p_rcvd, sig_y_p, sizeof(double) * N);
-            }
-          }
+				MPI_Irecv(xbar_p_rcvd, N, MPI_DOUBLE, opp_p_bunch_gpu, 5, MPI_COMM_WORLD, &myRequest_recv_e[0]);
+				MPI_Irecv(ybar_p_rcvd, N, MPI_DOUBLE, opp_p_bunch_gpu, 6, MPI_COMM_WORLD, &myRequest_recv_e[1]);
+				MPI_Irecv(sig_x_p_rcvd, N, MPI_DOUBLE, opp_p_bunch_gpu, 7, MPI_COMM_WORLD, &myRequest_recv_e[2]);
+				MPI_Irecv(sig_y_p_rcvd, N, MPI_DOUBLE, opp_p_bunch_gpu, 8, MPI_COMM_WORLD, &myRequest_recv_e[3]);
+			}
+			else{
+				memcpy(xbar_p_rcvd, xbar_p, sizeof(double) * N);
+				memcpy(ybar_p_rcvd, ybar_p, sizeof(double) * N);
+				memcpy(sig_x_p_rcvd, sig_x_p, sizeof(double) * N);
+				memcpy(sig_y_p_rcvd, sig_y_p, sizeof(double) * N);
+			}
+		}
 	
-          if(p_bunch != -1){
+		if(p_bunch != -1){
 		
-            if(opp_e_bunch_gpu != world_rank){
-              //send p-beam mean and sd to opp_e_bunch GPU
-              //receieve e-beam mean and sd from opp_e_bunch GPU
-              //store receieved in xbar_e_rcvd, sig_x_e_rcvd
-              //receieve iSe from opp_e_bunch GPU
-              //receieve Npart_ibound_e from opp_e_bunch GPU
+			if(opp_e_bunch_gpu != world_rank){
+				//send p-beam mean and sd to opp_e_bunch GPU
+				//receieve e-beam mean and sd from opp_e_bunch GPU
+				//store receieved in xbar_e_rcvd, sig_x_e_rcvd
+				//receieve iSe from opp_e_bunch GPU
+				//receieve Npart_ibound_e from opp_e_bunch GPU
 				
-              MPI_Isend(xbar_p, N, MPI_DOUBLE, opp_e_bunch_gpu, 5, MPI_COMM_WORLD, &myRequest_send_p[0]);
-              MPI_Isend(ybar_p, N, MPI_DOUBLE, opp_e_bunch_gpu, 6, MPI_COMM_WORLD, &myRequest_send_p[1]);
-              MPI_Isend(sig_x_p, N, MPI_DOUBLE, opp_e_bunch_gpu, 7, MPI_COMM_WORLD, &myRequest_send_p[2]);
-              MPI_Isend(sig_y_p, N, MPI_DOUBLE, opp_e_bunch_gpu, 8, MPI_COMM_WORLD, &myRequest_send_p[3]);
+				MPI_Isend(xbar_p, N, MPI_DOUBLE, opp_e_bunch_gpu, 5, MPI_COMM_WORLD, &myRequest_send_p[0]);
+				MPI_Isend(ybar_p, N, MPI_DOUBLE, opp_e_bunch_gpu, 6, MPI_COMM_WORLD, &myRequest_send_p[1]);
+				MPI_Isend(sig_x_p, N, MPI_DOUBLE, opp_e_bunch_gpu, 7, MPI_COMM_WORLD, &myRequest_send_p[2]);
+				MPI_Isend(sig_y_p, N, MPI_DOUBLE, opp_e_bunch_gpu, 8, MPI_COMM_WORLD, &myRequest_send_p[3]);
 				
-              MPI_Irecv(xbar_e_rcvd, N, MPI_DOUBLE, opp_e_bunch_gpu, 1, MPI_COMM_WORLD, &myRequest_recv_p[0]);
-              MPI_Irecv(ybar_e_rcvd, N, MPI_DOUBLE, opp_e_bunch_gpu, 2, MPI_COMM_WORLD, &myRequest_recv_p[1]);
-              MPI_Irecv(sig_x_e_rcvd, N, MPI_DOUBLE, opp_e_bunch_gpu, 3, MPI_COMM_WORLD, &myRequest_recv_p[2]);
-              MPI_Irecv(sig_y_e_rcvd, N, MPI_DOUBLE, opp_e_bunch_gpu, 4, MPI_COMM_WORLD, &myRequest_recv_p[3]);
-            }
-            else{
-              memcpy(xbar_e_rcvd, xbar_e, sizeof(double) * N);
-              memcpy(ybar_e_rcvd, ybar_e, sizeof(double) * N);
-              memcpy(sig_x_e_rcvd, sig_x_e, sizeof(double) * N);
-              memcpy(sig_y_e_rcvd, sig_y_e, sizeof(double) * N);
-            }
-          }
+				MPI_Irecv(xbar_e_rcvd, N, MPI_DOUBLE, opp_e_bunch_gpu, 1, MPI_COMM_WORLD, &myRequest_recv_p[0]);
+				MPI_Irecv(ybar_e_rcvd, N, MPI_DOUBLE, opp_e_bunch_gpu, 2, MPI_COMM_WORLD, &myRequest_recv_p[1]);
+				MPI_Irecv(sig_x_e_rcvd, N, MPI_DOUBLE, opp_e_bunch_gpu, 3, MPI_COMM_WORLD, &myRequest_recv_p[2]);
+				MPI_Irecv(sig_y_e_rcvd, N, MPI_DOUBLE, opp_e_bunch_gpu, 4, MPI_COMM_WORLD, &myRequest_recv_p[3]);
+			}
+			else{
+				memcpy(xbar_e_rcvd, xbar_e, sizeof(double) * N);
+				memcpy(ybar_e_rcvd, ybar_e, sizeof(double) * N);
+				memcpy(sig_x_e_rcvd, sig_x_e, sizeof(double) * N);
+				memcpy(sig_y_e_rcvd, sig_y_e, sizeof(double) * N);
+			}
+		}
 	
-          //DO MPI_Wait calls here
+	//DO MPI_Wait calls here
 	
-          if(e_bunch != -1){
-            if(opp_p_bunch_gpu != world_rank){
-              MPI_Waitall(4, myRequest_send_e, status_send_e);
-              MPI_Waitall(4, myRequest_recv_e, status_recv_e);
-            }
-          }
+	        if(e_bunch != -1){
+        	        if(opp_p_bunch_gpu != world_rank){
+                	        MPI_Waitall(4, myRequest_send_e, status_send_e);
+                        	MPI_Waitall(4, myRequest_recv_e, status_recv_e);
+                	}
+        	}
 
-          if(p_bunch != -1){
-            if(opp_e_bunch_gpu != world_rank){
-              MPI_Waitall(4, myRequest_send_p, status_send_p);
-              MPI_Waitall(4, myRequest_recv_p, status_recv_p);
-            }
-          }
+	        if(p_bunch != -1){
+        	        if(opp_e_bunch_gpu != world_rank){
+                	        MPI_Waitall(4, myRequest_send_p, status_send_p);
+                        	MPI_Waitall(4, myRequest_recv_p, status_recv_p);
+	                }
+        	}
 
-          //quad::timer::stop_timer(&timer_comm2, "Comm2");
+		//quad::timer::stop_timer(&timer_comm2, "Comm2");
 	
-          if(e_bunch != -1){
-            (cudaMemcpy(dxbar_p, xbar_p_rcvd, sizeof(double) * N, cudaMemcpyHostToDevice));
-            (cudaMemcpy(dybar_p, ybar_p_rcvd, sizeof(double) * N, cudaMemcpyHostToDevice));
+		if(e_bunch != -1){
+			(cudaMemcpy(dxbar_p, xbar_p_rcvd, sizeof(double) * N, cudaMemcpyHostToDevice));
+			(cudaMemcpy(dybar_p, ybar_p_rcvd, sizeof(double) * N, cudaMemcpyHostToDevice));
 
-            (cudaMemcpy(dxpbar_e, xpbar_e, sizeof(double) * N, cudaMemcpyHostToDevice));
-            (cudaMemcpy(dypbar_e, ypbar_e, sizeof(double) * N, cudaMemcpyHostToDevice));
+                	(cudaMemcpy(dxpbar_e, xpbar_e, sizeof(double) * N, cudaMemcpyHostToDevice));
+                	(cudaMemcpy(dypbar_e, ypbar_e, sizeof(double) * N, cudaMemcpyHostToDevice));
 			
-            (cudaMemcpy(d_sig_x_p, sig_x_p_rcvd, sizeof(double) * N, cudaMemcpyHostToDevice));
-            (cudaMemcpy(d_sig_y_p, sig_y_p_rcvd, sizeof(double) * N, cudaMemcpyHostToDevice));
-          }
+			(cudaMemcpy(d_sig_x_p, sig_x_p_rcvd, sizeof(double) * N, cudaMemcpyHostToDevice));
+			(cudaMemcpy(d_sig_y_p, sig_y_p_rcvd, sizeof(double) * N, cudaMemcpyHostToDevice));
+		}
 		
-          if(p_bunch != -1){
-            (cudaMemcpy(dxbar_e, xbar_e_rcvd, sizeof(double) * N, cudaMemcpyHostToDevice));
-            (cudaMemcpy(dybar_e, ybar_e_rcvd, sizeof(double) * N, cudaMemcpyHostToDevice));
+		if(p_bunch != -1){
+			(cudaMemcpy(dxbar_e, xbar_e_rcvd, sizeof(double) * N, cudaMemcpyHostToDevice));
+			(cudaMemcpy(dybar_e, ybar_e_rcvd, sizeof(double) * N, cudaMemcpyHostToDevice));
 
-            (cudaMemcpy(dxpbar_p, xpbar_p, sizeof(double) * N, cudaMemcpyHostToDevice));
-            (cudaMemcpy(dypbar_p, ypbar_p, sizeof(double) * N, cudaMemcpyHostToDevice));
+  			(cudaMemcpy(dxpbar_p, xpbar_p, sizeof(double) * N, cudaMemcpyHostToDevice));
+  			(cudaMemcpy(dypbar_p, ypbar_p, sizeof(double) * N, cudaMemcpyHostToDevice));
 
-            (cudaMemcpy(d_sig_x_e, sig_x_e_rcvd, sizeof(double) * N, cudaMemcpyHostToDevice));
-            (cudaMemcpy(d_sig_y_e, sig_y_e_rcvd, sizeof(double) * N, cudaMemcpyHostToDevice));
-          }
+			(cudaMemcpy(d_sig_x_e, sig_x_e_rcvd, sizeof(double) * N, cudaMemcpyHostToDevice));
+			(cudaMemcpy(d_sig_y_e, sig_y_e_rcvd, sizeof(double) * N, cudaMemcpyHostToDevice));
+		}
 
-          S_Index = S_Index + (i + 1);
+		S_Index = S_Index + (i + 1);
 	}
 
 	calculate_rms(lum_turn, e_bunch, p_bunch, dx_es, dx_ps, N, iSe, iSp, iSe_ext, iSp_ext, Npart_e_ext, Npart_p_ext, 1);
 	
 	for(int i = 1; i <= N-1; i++){
 	
-          epart = 0; ppart = 0;
+		epart = 0; ppart = 0;
 	
-          for(int j = i; j <= N-1; j++){
-            if(e_bunch != -1)
-              epart += iSe_ext[j];
-            if(p_bunch != -1)
-              ppart += iSp_ext[j];
-            if(e_bunch != -1)
-            {	
-              //cout<<"doing e dump vars 2"<<endl;
-              xbar_e_dump[col_num_dump*N + j] = xbar_e[j];
-              ybar_e_dump[col_num_dump*N + j] = ybar_e[j];
-              sig_x_e_dump[col_num_dump*N + j] = sig_x_e[j];
-              sig_y_e_dump[col_num_dump*N + j] = sig_y_e[j];
-              if(p_bunch == -1)
-              {
-                //cout<<"doing p dump vars 2, from e"<<endl;
-                xbar_p_dump[col_num_dump*N + j] = xbar_p_rcvd[j];
-                ybar_p_dump[col_num_dump*N + j] = ybar_p_rcvd[j];
-                sig_x_p_dump[col_num_dump*N + j] = sig_x_p_rcvd[j];
-                sig_y_p_dump[col_num_dump*N + j] = sig_y_p_rcvd[j];
-              }
-            }
+		for(int j = i; j <= N-1; j++){
+			if(e_bunch != -1)
+				epart += iSe_ext[j];
+			if(p_bunch != -1)
+				ppart += iSp_ext[j];
+			if(e_bunch != -1)
+			{	
+				//cout<<"doing e dump vars 2"<<endl;
+				xbar_e_dump[col_num_dump*N + j] = xbar_e[j];
+				ybar_e_dump[col_num_dump*N + j] = ybar_e[j];
+				sig_x_e_dump[col_num_dump*N + j] = sig_x_e[j];
+				sig_y_e_dump[col_num_dump*N + j] = sig_y_e[j];
+				if(p_bunch == -1)
+				{
+					//cout<<"doing p dump vars 2, from e"<<endl;
+					xbar_p_dump[col_num_dump*N + j] = xbar_p_rcvd[j];
+					ybar_p_dump[col_num_dump*N + j] = ybar_p_rcvd[j];
+					sig_x_p_dump[col_num_dump*N + j] = sig_x_p_rcvd[j];
+					sig_y_p_dump[col_num_dump*N + j] = sig_y_p_rcvd[j];
+				}
+			}
 			
-            if(p_bunch != -1)
-            {//crashes here
-              //cout<<"doing p dump vars 2"<<endl;
-              if(e_bunch == -1)
-              {
-                //cout<<"doing e dump vars 2, from p"<<endl;
-                xbar_e_dump[col_num_dump*N + j] = xbar_e_rcvd[j];
-                ybar_e_dump[col_num_dump*N + j] = ybar_e_rcvd[j];
-                sig_x_e_dump[col_num_dump*N + j] = sig_x_e_rcvd[j];
-                sig_y_e_dump[col_num_dump*N + j] = sig_y_e_rcvd[j];
-              }
+			if(p_bunch != -1)
+			{//crashes here
+				//cout<<"doing p dump vars 2"<<endl;
+				if(e_bunch == -1)
+				{
+					//cout<<"doing e dump vars 2, from p"<<endl;
+					xbar_e_dump[col_num_dump*N + j] = xbar_e_rcvd[j];
+					ybar_e_dump[col_num_dump*N + j] = ybar_e_rcvd[j];
+					sig_x_e_dump[col_num_dump*N + j] = sig_x_e_rcvd[j];
+					sig_y_e_dump[col_num_dump*N + j] = sig_y_e_rcvd[j];
+				}
 		
-              xbar_p_dump[col_num_dump*N + j] = xbar_p[j];
-              ybar_p_dump[col_num_dump*N + j] = ybar_p[j];
-              sig_x_p_dump[col_num_dump*N + j] = sig_x_p[j];
-              sig_y_p_dump[col_num_dump*N + j] = sig_y_p[j];	
-            }
-          }
-          col_num_dump++;
-          if(e_bunch != -1){
-            numBlocks = (epart)/numThreads + (((epart)%numThreads)?1:0);
-            //cout<<"Before kick2 E:"<<numBlocks<<","<<numThreads<<endl;
+				xbar_p_dump[col_num_dump*N + j] = xbar_p[j];
+				ybar_p_dump[col_num_dump*N + j] = ybar_p[j];
+				sig_x_p_dump[col_num_dump*N + j] = sig_x_p[j];
+				sig_y_p_dump[col_num_dump*N + j] = sig_y_p[j];	
+			}
+		}
+		col_num_dump++;
+		if(e_bunch != -1){
+			numBlocks = (epart)/numThreads + (((epart)%numThreads)?1:0);
+			//cout<<"Before kick2 E:"<<numBlocks<<","<<numThreads<<endl;
 
-            applyKickGPU_E<<<numBlocks, numThreads>>>(dx_es, bParams->gamma_e, Npart_e_ext, dxpbar_e, dypbar_e, dxbar_p, dybar_p, d_sig_x_p, d_sig_y_p, d_iSp_rcvd, bParams->N_p, &dS_e[S_Index], bParams->N - i, epart, i, dx_emb, dx_esb, 0, Npart_inbound_p_rcvd, bParams->N);
+			applyKickGPU_E<<<numBlocks, numThreads>>>(dx_es, bParams->gamma_e, Npart_e_ext, dxpbar_e, dypbar_e, dxbar_p, dybar_p, d_sig_x_p, d_sig_y_p, d_iSp_rcvd, bParams->N_p, &dS_e[S_Index], bParams->N - i, epart, i, dx_emb, dx_esb, 0, Npart_inbound_p_rcvd, bParams->N);
 			
-            cudaDeviceSynchronize();
+			cudaDeviceSynchronize();
 			
-            ptr = thrust::device_pointer_cast(dx_emb);
+			ptr = thrust::device_pointer_cast(dx_emb);
 
-            for(int k = i+1; k < N; k++){
-              if(iSe[k] > 1){
-                for(int j = k - 1; j >= 0; j--){
-                  base_index_ms_e = base_index_ms_e + (iSe_ext[j]/BLOCKDIMX_COL);
-                }
-                xbar_e[k] = thrust::reduce(base_index_ms_e + ptr, base_index_ms_e + ptr + (iSe_ext[k]/BLOCKDIMX_COL), (double) 0, thrust::plus<double>())/iSe[k];
-                ybar_e[k] = thrust::reduce(base_index_ms_e + ptr + (Npart_e_ext/BLOCKDIMX_COL), base_index_ms_e + ptr + (Npart_e_ext/BLOCKDIMX_COL) + (iSe_ext[k]/BLOCKDIMX_COL), (double) 0, thrust::plus<double>())/iSe[k];
+			for(int k = i+1; k < N; k++){
+				if(iSe[k] > 1){
+					for(int j = k - 1; j >= 0; j--){
+							base_index_ms_e = base_index_ms_e + (iSe_ext[j]/BLOCKDIMX_COL);
+					}
+					xbar_e[k] = thrust::reduce(base_index_ms_e + ptr, base_index_ms_e + ptr + (iSe_ext[k]/BLOCKDIMX_COL), (double) 0, thrust::plus<double>())/iSe[k];
+					ybar_e[k] = thrust::reduce(base_index_ms_e + ptr + (Npart_e_ext/BLOCKDIMX_COL), base_index_ms_e + ptr + (Npart_e_ext/BLOCKDIMX_COL) + (iSe_ext[k]/BLOCKDIMX_COL), (double) 0, thrust::plus<double>())/iSe[k];
 
-                base_index_ms_e = 0;
-              }
-              else{
-                xbar_e[k] = 0;
-                ybar_e[k] = 0;
-              }
-            }
+					base_index_ms_e = 0;
+				}
+				else{
+					xbar_e[k] = 0;
+					ybar_e[k] = 0;
+				}
+			}
 			
-            ptr = thrust::device_pointer_cast(dx_esb);
+			ptr = thrust::device_pointer_cast(dx_esb);
 
-            for(int k = i+1; k < N; k++){
-              if(iSe[k] > 1){
-                for(int j = k - 1; j >= 0; j--){
-                  base_index_ms_e = base_index_ms_e + (iSe_ext[j]/BLOCKDIMX_COL);
-                }
-                sig_x_e[k] = thrust::reduce(base_index_ms_e + ptr, base_index_ms_e + ptr + (iSe_ext[k]/BLOCKDIMX_COL), (double) 0, thrust::plus<double>());
-                sig_y_e[k] = thrust::reduce(base_index_ms_e + ptr + (Npart_e_ext/BLOCKDIMX_COL), base_index_ms_e + ptr + (Npart_e_ext/BLOCKDIMX_COL) + (iSe_ext[k]/BLOCKDIMX_COL), (double) 0, thrust::plus<double>());
+			for(int k = i+1; k < N; k++){
+				if(iSe[k] > 1){
+					for(int j = k - 1; j >= 0; j--){
+							base_index_ms_e = base_index_ms_e + (iSe_ext[j]/BLOCKDIMX_COL);
+					}
+					sig_x_e[k] = thrust::reduce(base_index_ms_e + ptr, base_index_ms_e + ptr + (iSe_ext[k]/BLOCKDIMX_COL), (double) 0, thrust::plus<double>());
+					sig_y_e[k] = thrust::reduce(base_index_ms_e + ptr + (Npart_e_ext/BLOCKDIMX_COL), base_index_ms_e + ptr + (Npart_e_ext/BLOCKDIMX_COL) + (iSe_ext[k]/BLOCKDIMX_COL), (double) 0, thrust::plus<double>());
 
-                sig_x_e[k] = sqrt((sig_x_e[k] - (iSe[k] * xbar_e[k] * xbar_e[k]))/iSe[k]);
-                sig_y_e[k] = sqrt((sig_y_e[k] - (iSe[k] * ybar_e[k] * ybar_e[k]))/iSe[k]);
+					sig_x_e[k] = sqrt((sig_x_e[k] - (iSe[k] * xbar_e[k] * xbar_e[k]))/iSe[k]);
+					sig_y_e[k] = sqrt((sig_y_e[k] - (iSe[k] * ybar_e[k] * ybar_e[k]))/iSe[k]);
 
-                base_index_ms_e = 0;
-              }
-              else{
-                sig_x_e[k] = 0;
-                sig_y_e[k] = 0;
-              }
-            }
+					base_index_ms_e = 0;
+				}
+				else{
+					sig_x_e[k] = 0;
+					sig_y_e[k] = 0;
+				}
+			}
 
-            ptr = thrust::device_pointer_cast(dx_es);
+		        ptr = thrust::device_pointer_cast(dx_es);
 
-            for(int k = i+1; k < N; k++)
-            {
-              if(iSe[k] > 1)
-              {
-                for(int j = k - 1; j >= 0; j--)
-                {
-                  base_index_ms_e = base_index_ms_e + iSe_ext[j];
-                }
+        		for(int k = i+1; k < N; k++)
+        		{
+                		if(iSe[k] > 1)
+                		{
+                        		for(int j = k - 1; j >= 0; j--)
+                        		{
+                                		base_index_ms_e = base_index_ms_e + iSe_ext[j];
+                        		}
 
-                xpbar_e[k] = thrust::reduce(base_index_ms_e + ptr + Npart_e_ext, base_index_ms_e + ptr + Npart_e_ext + iSe[k], (double) 0, thrust::plus<double>())/iSe[k];
-                ypbar_e[k] = thrust::reduce(base_index_ms_e + ptr + (3 * Npart_e_ext), base_index_ms_e + ptr + (3 * Npart_e_ext) + iSe[k], (double) 0, thrust::plus<double>())/iSe[k];
+               			        xpbar_e[k] = thrust::reduce(base_index_ms_e + ptr + Npart_e_ext, base_index_ms_e + ptr + Npart_e_ext + iSe[k], (double) 0, thrust::plus<double>())/iSe[k];
+		                        ypbar_e[k] = thrust::reduce(base_index_ms_e + ptr + (3 * Npart_e_ext), base_index_ms_e + ptr + (3 * Npart_e_ext) + iSe[k], (double) 0, thrust::plus<double>())/iSe[k];
 
-                base_index_ms_e = 0;
-              }
-              else
-              {
-                xpbar_e[k] = 0;
-                ypbar_e[k] = 0;
-              }
+                		        base_index_ms_e = 0;
+                		}
+                		else
+                		{
+                        		xpbar_e[k] = 0;
+                        		ypbar_e[k] = 0;
+                		}
 
-            }
+        		}
 
-          }
+		}
 		
-          if(p_bunch != -1){
-            numBlocks = (ppart)/numThreads + (((ppart)%numThreads)?1:0);
-            //cout<<"Before Kick2 P:"<<numBlocks<<","<<numThreads<<endl;
+		if(p_bunch != -1){
+			numBlocks = (ppart)/numThreads + (((ppart)%numThreads)?1:0);
+			//cout<<"Before Kick2 P:"<<numBlocks<<","<<numThreads<<endl;
 
-            applyKickGPU_P<<<numBlocks, numThreads>>>(dxpbar_p, dypbar_p, dxbar_e, dybar_e, d_sig_x_e, d_sig_y_e, d_iSe_rcvd, bParams->N_e, dx_ps, bParams->gamma_p, Npart_p_ext, &dS_p[S_Index], bParams->N - i, ppart, i, dx_pmb, dx_psb, 0, Npart_inbound_e_rcvd, bParams->N);
+			applyKickGPU_P<<<numBlocks, numThreads>>>(dxpbar_p, dypbar_p, dxbar_e, dybar_e, d_sig_x_e, d_sig_y_e, d_iSe_rcvd, bParams->N_e, dx_ps, bParams->gamma_p, Npart_p_ext, &dS_p[S_Index], bParams->N - i, ppart, i, dx_pmb, dx_psb, 0, Npart_inbound_e_rcvd, bParams->N);
 			
-            cudaDeviceSynchronize();
+			cudaDeviceSynchronize();
 			
-            ptr = thrust::device_pointer_cast(dx_pmb);
+			ptr = thrust::device_pointer_cast(dx_pmb);
 
-            for(int k = i+1; k < N; k++){
-              if(iSp[k] > 1){
-                for(int j = k - 1; j >= 0; j--){
-                  base_index_ms_p = base_index_ms_p + (iSp_ext[j]/BLOCKDIMX_COL);
-                }
-                xbar_p[k] = thrust::reduce(base_index_ms_p + ptr, base_index_ms_p + ptr + (iSp_ext[k]/BLOCKDIMX_COL), (double) 0, thrust::plus<double>())/iSp[k];
-                ybar_p[k] = thrust::reduce(base_index_ms_p + (Npart_p_ext/BLOCKDIMX_COL) + ptr, base_index_ms_p + (Npart_p_ext/BLOCKDIMX_COL) + ptr + (iSp_ext[k]/BLOCKDIMX_COL), (double) 0, thrust::plus<double>())/iSp[k];
+			for(int k = i+1; k < N; k++){
+				if(iSp[k] > 1){
+					for(int j = k - 1; j >= 0; j--){
+							base_index_ms_p = base_index_ms_p + (iSp_ext[j]/BLOCKDIMX_COL);
+					}
+					xbar_p[k] = thrust::reduce(base_index_ms_p + ptr, base_index_ms_p + ptr + (iSp_ext[k]/BLOCKDIMX_COL), (double) 0, thrust::plus<double>())/iSp[k];
+					ybar_p[k] = thrust::reduce(base_index_ms_p + (Npart_p_ext/BLOCKDIMX_COL) + ptr, base_index_ms_p + (Npart_p_ext/BLOCKDIMX_COL) + ptr + (iSp_ext[k]/BLOCKDIMX_COL), (double) 0, thrust::plus<double>())/iSp[k];
 
-                base_index_ms_p = 0;
-              }
-              else{
-                xbar_p[k] = 0;
-                ybar_p[k] = 0;
-              }
-            }
+					base_index_ms_p = 0;
+				}
+				else{
+					xbar_p[k] = 0;
+					ybar_p[k] = 0;
+				}
+			}
 			
-            ptr = thrust::device_pointer_cast(dx_psb);
+			ptr = thrust::device_pointer_cast(dx_psb);
 
-            for(int k = i+1; k < N; k++){
-              if(iSp[k] > 1){
-                for(int j = k - 1; j >= 0; j--){
-                  base_index_ms_p = base_index_ms_p + (iSp_ext[j]/BLOCKDIMX_COL);
-                }
-                sig_x_p[k] = thrust::reduce(base_index_ms_p + ptr, base_index_ms_p + ptr + (iSp_ext[k]/BLOCKDIMX_COL), (double) 0, thrust::plus<double>());
-                sig_y_p[k] = thrust::reduce(base_index_ms_p + (Npart_p_ext/BLOCKDIMX_COL) + ptr, base_index_ms_p + (Npart_p_ext/BLOCKDIMX_COL) + ptr + (iSp_ext[k]/BLOCKDIMX_COL), (double) 0, thrust::plus<double>());
+			for(int k = i+1; k < N; k++){
+				if(iSp[k] > 1){
+					for(int j = k - 1; j >= 0; j--){
+							base_index_ms_p = base_index_ms_p + (iSp_ext[j]/BLOCKDIMX_COL);
+					}
+					sig_x_p[k] = thrust::reduce(base_index_ms_p + ptr, base_index_ms_p + ptr + (iSp_ext[k]/BLOCKDIMX_COL), (double) 0, thrust::plus<double>());
+					sig_y_p[k] = thrust::reduce(base_index_ms_p + (Npart_p_ext/BLOCKDIMX_COL) + ptr, base_index_ms_p + (Npart_p_ext/BLOCKDIMX_COL) + ptr + (iSp_ext[k]/BLOCKDIMX_COL), (double) 0, thrust::plus<double>());
 
-                sig_x_p[k] = sqrt((sig_x_p[k] - (iSp[k] * xbar_p[k] * xbar_p[k]))/iSp[k]);
-                sig_y_p[k] = sqrt((sig_y_p[k] - (iSp[k] * ybar_p[k] * ybar_p[k]))/iSp[k]);
+					sig_x_p[k] = sqrt((sig_x_p[k] - (iSp[k] * xbar_p[k] * xbar_p[k]))/iSp[k]);
+					sig_y_p[k] = sqrt((sig_y_p[k] - (iSp[k] * ybar_p[k] * ybar_p[k]))/iSp[k]);
 
-                base_index_ms_p = 0;
-              }
-              else{
-                sig_x_p[k] = 0;
-                sig_y_p[k] = 0;
-              }
-            }
+					base_index_ms_p = 0;
+				}
+				else{
+					sig_x_p[k] = 0;
+					sig_y_p[k] = 0;
+				}
+			}
 
-            ptr = thrust::device_pointer_cast(dx_ps);
+        		ptr = thrust::device_pointer_cast(dx_ps);
 
-            for(int k = i+1; k < N; k++)
-            {
-              if(iSp[k] > 1)
-              {
-                for(int j = k - 1; j >= 0; j--)
-                {
-                  base_index_ms_p = base_index_ms_p + iSp_ext[j];
-                }
+		        for(int k = i+1; k < N; k++)
+        		{
+                		if(iSp[k] > 1)
+                		{
+                        		for(int j = k - 1; j >= 0; j--)
+                        		{
+                                		base_index_ms_p = base_index_ms_p + iSp_ext[j];
+                        		}
 
-                xpbar_p[k] = thrust::reduce(base_index_ms_p + ptr + Npart_p_ext, base_index_ms_p + ptr + Npart_p_ext + iSp[k], (double) 0, thrust::plus<double>())/iSp[k];
-                ypbar_p[k] = thrust::reduce(base_index_ms_p + (3 * Npart_p_ext) + ptr, base_index_ms_p + (3 * Npart_p_ext) + ptr + iSp[k], (double) 0, thrust::plus<double>())/iSp[k];
+		                        xpbar_p[k] = thrust::reduce(base_index_ms_p + ptr + Npart_p_ext, base_index_ms_p + ptr + Npart_p_ext + iSp[k], (double) 0, thrust::plus<double>())/iSp[k];
+                		        ypbar_p[k] = thrust::reduce(base_index_ms_p + (3 * Npart_p_ext) + ptr, base_index_ms_p + (3 * Npart_p_ext) + ptr + iSp[k], (double) 0, thrust::plus<double>())/iSp[k];
 
-                base_index_ms_p = 0;
-              }
-              else
-              {
-                xpbar_p[k] = 0;
-                ypbar_p[k] = 0;
-              }
-            }
-          }
+		                        base_index_ms_p = 0;
+                		}
+                		else
+                		{
+                        		xpbar_p[k] = 0;
+                        		ypbar_p[k] = 0;
+                		}
+        		}
+		}
 
-          //quad::timer::start_timer(&timer_comm2);
+		//quad::timer::start_timer(&timer_comm2);
 		
-          if(e_bunch != -1){
+		if(e_bunch != -1){
 		
-            if(opp_p_bunch_gpu != world_rank){
-              //send e-beam mean and sd to opp_p_bunch GPU
-              //receieve p-beam mean and sd from opp_p_bunch GPU
-              //receieve iSp from opp_p_bunch GPU
-              //receieve Npart_ibound_p from opp_p_bunch GPU
+			if(opp_p_bunch_gpu != world_rank){
+				//send e-beam mean and sd to opp_p_bunch GPU
+				//receieve p-beam mean and sd from opp_p_bunch GPU
+				//receieve iSp from opp_p_bunch GPU
+				//receieve Npart_ibound_p from opp_p_bunch GPU
 				
-              MPI_Isend(xbar_e, N, MPI_DOUBLE, opp_p_bunch_gpu, 1, MPI_COMM_WORLD, &myRequest_send_e[0]);
-              MPI_Isend(ybar_e, N, MPI_DOUBLE, opp_p_bunch_gpu, 2, MPI_COMM_WORLD, &myRequest_send_e[1]);
-              MPI_Isend(sig_x_e, N, MPI_DOUBLE, opp_p_bunch_gpu, 3, MPI_COMM_WORLD, &myRequest_send_e[2]);
-              MPI_Isend(sig_y_e, N, MPI_DOUBLE, opp_p_bunch_gpu, 4, MPI_COMM_WORLD, &myRequest_send_e[3]);
+				MPI_Isend(xbar_e, N, MPI_DOUBLE, opp_p_bunch_gpu, 1, MPI_COMM_WORLD, &myRequest_send_e[0]);
+				MPI_Isend(ybar_e, N, MPI_DOUBLE, opp_p_bunch_gpu, 2, MPI_COMM_WORLD, &myRequest_send_e[1]);
+				MPI_Isend(sig_x_e, N, MPI_DOUBLE, opp_p_bunch_gpu, 3, MPI_COMM_WORLD, &myRequest_send_e[2]);
+				MPI_Isend(sig_y_e, N, MPI_DOUBLE, opp_p_bunch_gpu, 4, MPI_COMM_WORLD, &myRequest_send_e[3]);
 				
-              MPI_Irecv(xbar_p_rcvd, N, MPI_DOUBLE, opp_p_bunch_gpu, 5, MPI_COMM_WORLD, &myRequest_recv_e[0]);
-              MPI_Irecv(ybar_p_rcvd, N, MPI_DOUBLE, opp_p_bunch_gpu, 6, MPI_COMM_WORLD, &myRequest_recv_e[1]);
-              MPI_Irecv(sig_x_p_rcvd, N, MPI_DOUBLE, opp_p_bunch_gpu, 7, MPI_COMM_WORLD, &myRequest_recv_e[2]);
-              MPI_Irecv(sig_y_p_rcvd, N, MPI_DOUBLE, opp_p_bunch_gpu, 8, MPI_COMM_WORLD, &myRequest_recv_e[3]);
-            }
-            else{
-              memcpy(xbar_p_rcvd, xbar_p, sizeof(double) * N);
-              memcpy(ybar_p_rcvd, ybar_p, sizeof(double) * N);
-              memcpy(sig_x_p_rcvd, sig_x_p, sizeof(double) * N);
-              memcpy(sig_y_p_rcvd, sig_y_p, sizeof(double) * N);
-            }
-          }
+				MPI_Irecv(xbar_p_rcvd, N, MPI_DOUBLE, opp_p_bunch_gpu, 5, MPI_COMM_WORLD, &myRequest_recv_e[0]);
+				MPI_Irecv(ybar_p_rcvd, N, MPI_DOUBLE, opp_p_bunch_gpu, 6, MPI_COMM_WORLD, &myRequest_recv_e[1]);
+				MPI_Irecv(sig_x_p_rcvd, N, MPI_DOUBLE, opp_p_bunch_gpu, 7, MPI_COMM_WORLD, &myRequest_recv_e[2]);
+				MPI_Irecv(sig_y_p_rcvd, N, MPI_DOUBLE, opp_p_bunch_gpu, 8, MPI_COMM_WORLD, &myRequest_recv_e[3]);
+			}
+			else{
+				memcpy(xbar_p_rcvd, xbar_p, sizeof(double) * N);
+				memcpy(ybar_p_rcvd, ybar_p, sizeof(double) * N);
+				memcpy(sig_x_p_rcvd, sig_x_p, sizeof(double) * N);
+				memcpy(sig_y_p_rcvd, sig_y_p, sizeof(double) * N);
+			}
+		}
 	
-          if(p_bunch != -1){
+		if(p_bunch != -1){
 		
-            if(opp_e_bunch_gpu != world_rank){
-              //send p-beam mean and sd to opp_e_bunch GPU
-              //receieve e-beam mean and sd from opp_e_bunch GPU
-              //store receieved in xbar_e_rcvd, sig_x_e_rcvd
-              //receieve iSe from opp_e_bunch GPU
-              //receieve Npart_ibound_e from opp_e_bunch GPU
+			if(opp_e_bunch_gpu != world_rank){
+				//send p-beam mean and sd to opp_e_bunch GPU
+				//receieve e-beam mean and sd from opp_e_bunch GPU
+				//store receieved in xbar_e_rcvd, sig_x_e_rcvd
+				//receieve iSe from opp_e_bunch GPU
+				//receieve Npart_ibound_e from opp_e_bunch GPU
 				
-              MPI_Isend(xbar_p, N, MPI_DOUBLE, opp_e_bunch_gpu, 5, MPI_COMM_WORLD, &myRequest_send_p[0]);
-              MPI_Isend(ybar_p, N, MPI_DOUBLE, opp_e_bunch_gpu, 6, MPI_COMM_WORLD, &myRequest_send_p[1]);
-              MPI_Isend(sig_x_p, N, MPI_DOUBLE, opp_e_bunch_gpu, 7, MPI_COMM_WORLD, &myRequest_send_p[2]);
-              MPI_Isend(sig_y_p, N, MPI_DOUBLE, opp_e_bunch_gpu, 8, MPI_COMM_WORLD, &myRequest_send_p[3]);
+				MPI_Isend(xbar_p, N, MPI_DOUBLE, opp_e_bunch_gpu, 5, MPI_COMM_WORLD, &myRequest_send_p[0]);
+				MPI_Isend(ybar_p, N, MPI_DOUBLE, opp_e_bunch_gpu, 6, MPI_COMM_WORLD, &myRequest_send_p[1]);
+				MPI_Isend(sig_x_p, N, MPI_DOUBLE, opp_e_bunch_gpu, 7, MPI_COMM_WORLD, &myRequest_send_p[2]);
+				MPI_Isend(sig_y_p, N, MPI_DOUBLE, opp_e_bunch_gpu, 8, MPI_COMM_WORLD, &myRequest_send_p[3]);
 				
-              MPI_Irecv(xbar_e_rcvd, N, MPI_DOUBLE, opp_e_bunch_gpu, 1, MPI_COMM_WORLD, &myRequest_recv_p[0]);
-              MPI_Irecv(ybar_e_rcvd, N, MPI_DOUBLE, opp_e_bunch_gpu, 2, MPI_COMM_WORLD, &myRequest_recv_p[1]);
-              MPI_Irecv(sig_x_e_rcvd, N, MPI_DOUBLE, opp_e_bunch_gpu, 3, MPI_COMM_WORLD, &myRequest_recv_p[2]);
-              MPI_Irecv(sig_y_e_rcvd, N, MPI_DOUBLE, opp_e_bunch_gpu, 4, MPI_COMM_WORLD, &myRequest_recv_p[3]);
-            }
-            else{
-              memcpy(xbar_e_rcvd, xbar_e, sizeof(double) * N);
-              memcpy(ybar_e_rcvd, ybar_e, sizeof(double) * N);
-              memcpy(sig_x_e_rcvd, sig_x_e, sizeof(double) * N);
-              memcpy(sig_y_e_rcvd, sig_y_e, sizeof(double) * N);
-            }
-          }
+				MPI_Irecv(xbar_e_rcvd, N, MPI_DOUBLE, opp_e_bunch_gpu, 1, MPI_COMM_WORLD, &myRequest_recv_p[0]);
+				MPI_Irecv(ybar_e_rcvd, N, MPI_DOUBLE, opp_e_bunch_gpu, 2, MPI_COMM_WORLD, &myRequest_recv_p[1]);
+				MPI_Irecv(sig_x_e_rcvd, N, MPI_DOUBLE, opp_e_bunch_gpu, 3, MPI_COMM_WORLD, &myRequest_recv_p[2]);
+				MPI_Irecv(sig_y_e_rcvd, N, MPI_DOUBLE, opp_e_bunch_gpu, 4, MPI_COMM_WORLD, &myRequest_recv_p[3]);
+			}
+			else{
+				memcpy(xbar_e_rcvd, xbar_e, sizeof(double) * N);
+				memcpy(ybar_e_rcvd, ybar_e, sizeof(double) * N);
+				memcpy(sig_x_e_rcvd, sig_x_e, sizeof(double) * N);
+				memcpy(sig_y_e_rcvd, sig_y_e, sizeof(double) * N);
+			}
+		}
 	
-          //DO MPI_Wait calls here
+	//DO MPI_Wait calls here
 	
-          if(e_bunch != -1){
-            if(opp_p_bunch_gpu != world_rank){
-              MPI_Waitall(4, myRequest_send_e, status_send_e);
-              MPI_Waitall(4, myRequest_recv_e, status_recv_e);
-            }
-          }
+                if(e_bunch != -1){
+                        if(opp_p_bunch_gpu != world_rank){
+                                MPI_Waitall(4, myRequest_send_e, status_send_e);
+                                MPI_Waitall(4, myRequest_recv_e, status_recv_e);
+                        }
+                }
 
-          if(p_bunch != -1){
-            if(opp_e_bunch_gpu != world_rank){
-              MPI_Waitall(4, myRequest_send_p, status_send_p);
-              MPI_Waitall(4, myRequest_recv_p, status_recv_p);
-            }
-          }
+                if(p_bunch != -1){
+                        if(opp_e_bunch_gpu != world_rank){
+                                MPI_Waitall(4, myRequest_send_p, status_send_p);
+                                MPI_Waitall(4, myRequest_recv_p, status_recv_p);
+                        }
+                }
 
-          //quad::timer::stop_timer(&timer_comm2, "Comm2");
+		//quad::timer::stop_timer(&timer_comm2, "Comm2");
 	
-          if(e_bunch != -1){
-            (cudaMemcpy(dxbar_p, xbar_p_rcvd, sizeof(double) * N, cudaMemcpyHostToDevice));
-            (cudaMemcpy(dybar_p, ybar_p_rcvd, sizeof(double) * N, cudaMemcpyHostToDevice));
+		if(e_bunch != -1){
+			(cudaMemcpy(dxbar_p, xbar_p_rcvd, sizeof(double) * N, cudaMemcpyHostToDevice));
+			(cudaMemcpy(dybar_p, ybar_p_rcvd, sizeof(double) * N, cudaMemcpyHostToDevice));
 			
-            (cudaMemcpy(d_sig_x_p, sig_x_p_rcvd, sizeof(double) * N, cudaMemcpyHostToDevice));
-            (cudaMemcpy(d_sig_y_p, sig_y_p_rcvd, sizeof(double) * N, cudaMemcpyHostToDevice));
+			(cudaMemcpy(d_sig_x_p, sig_x_p_rcvd, sizeof(double) * N, cudaMemcpyHostToDevice));
+			(cudaMemcpy(d_sig_y_p, sig_y_p_rcvd, sizeof(double) * N, cudaMemcpyHostToDevice));
 
-            (cudaMemcpy(dxpbar_e, xpbar_e, sizeof(double) * N, cudaMemcpyHostToDevice));
-            (cudaMemcpy(dypbar_e, ypbar_e, sizeof(double) * N, cudaMemcpyHostToDevice));
+        	        (cudaMemcpy(dxpbar_e, xpbar_e, sizeof(double) * N, cudaMemcpyHostToDevice));
+	                (cudaMemcpy(dypbar_e, ypbar_e, sizeof(double) * N, cudaMemcpyHostToDevice));
 
-          }
+		}
 		
-          if(p_bunch != -1){
-            (cudaMemcpy(dxbar_e, xbar_e_rcvd, 
-                        sizeof(double) * N, 
-                        cudaMemcpyHostToDevice));
-            (cudaMemcpy(dybar_e, ybar_e_rcvd, 
-                        sizeof(double) * N, 
-                        cudaMemcpyHostToDevice));
+		if(p_bunch != -1){
+			(cudaMemcpy(dxbar_e, xbar_e_rcvd, sizeof(double) * N, cudaMemcpyHostToDevice));
+			(cudaMemcpy(dybar_e, ybar_e_rcvd, sizeof(double) * N, cudaMemcpyHostToDevice));
 
-            (cudaMemcpy(dxpbar_p, xpbar_p, 
-                        sizeof(double) * N, 
-                        cudaMemcpyHostToDevice));
-            (cudaMemcpy(dypbar_p, ypbar_p, 
-                        sizeof(double) * N, 
-                        cudaMemcpyHostToDevice));
+  			(cudaMemcpy(dxpbar_p, xpbar_p, sizeof(double) * N, cudaMemcpyHostToDevice));
+  			(cudaMemcpy(dypbar_p, ypbar_p, sizeof(double) * N, cudaMemcpyHostToDevice));
 
-            (cudaMemcpy(d_sig_x_e, sig_x_e_rcvd, 
-                        sizeof(double) * N, 
-                        cudaMemcpyHostToDevice));
-            (cudaMemcpy(d_sig_y_e, sig_y_e_rcvd, 
-                        sizeof(double) * N, 
-                        cudaMemcpyHostToDevice));
-          }
+			(cudaMemcpy(d_sig_x_e, sig_x_e_rcvd, sizeof(double) * N, cudaMemcpyHostToDevice));
+			(cudaMemcpy(d_sig_y_e, sig_y_e_rcvd, sizeof(double) * N, cudaMemcpyHostToDevice));
+		}
 		
-          S_Index = S_Index + bParams->N - i;
+		S_Index = S_Index + bParams->N - i;
 
 	}
 
-	calculate_rms(lum_turn, 
-                      e_bunch, p_bunch, 
-                      dx_es, dx_ps, 
-                      N,
-                      iSe, iSp,
-                      iSe_ext, iSp_ext,
-                      Npart_e_ext,
-                      Npart_p_ext,
-                      2);
+	calculate_rms(lum_turn, e_bunch, p_bunch, dx_es, dx_ps, N, iSe, iSp, iSe_ext, iSp_ext, Npart_e_ext, Npart_p_ext, 2);
 
 
 	numBlocks = Npart_e_ext/numThreads + ((Npart_e_ext%numThreads)?1:0);
@@ -3356,40 +3235,17 @@ void Collide::collide(int lum_turn, int *dOutOfBound_e, int *dOutOfBound_p, doub
 	merge<<<numBlocks, numThreads>>>(dx_p, dx_ps, bParams->Npart_p, Npart_p_ext);
 
 	cudaDeviceSynchronize();
-	
-       	if(e_bunch !=-1 && p_bunch!=-1)
-	  dumpSlices(N, bParams->Npart_e, 
-                     bParams->Npart_p, 
-                     iSe, iSp, 
-                     bParams, 
-                     xbar_e_dump, ybar_e_dump, 
-                     sig_x_e_dump, sig_y_e_dump, 
-                     xbar_p_dump, ybar_p_dump, 
-                     sig_x_p_dump, sig_y_p_dump);
-
+	//cout<<"About to dumpSlices:"<<world_rank<<endl;
+        //cout<<"e:"<<e_bunch<<" p:"<<p_bunch<<" ("<<world_rank<<")"<<endl;;
+	if(e_bunch !=-1 && p_bunch!=-1)
+		dumpSlices(N, bParams->Npart_e, bParams->Npart_p, iSe, iSp, bParams, xbar_e_dump, ybar_e_dump, sig_x_e_dump, sig_y_e_dump, xbar_p_dump, ybar_p_dump, sig_x_p_dump, sig_y_p_dump);
 	else if(e_bunch!=-1)
-	  dumpSlices(N, bParams->Npart_e, 
-                     bParams->Npart_p, 
-                     iSe, iSp_rcvd, 
-                     bParams, 
-                     xbar_e_dump, ybar_e_dump, 
-                     sig_x_e_dump, sig_y_e_dump, 
-                     xbar_p_dump, ybar_p_dump, 
-                     sig_x_p_dump, sig_y_p_dump);
-	
-        else if(p_bunch!=-1)
-	  dumpSlices(N, bParams->Npart_e, 
-                     bParams->Npart_p, 
-                     iSe_rcvd, iSp, 
-                     bParams, 
-                     xbar_e_dump, ybar_e_dump, 
-                     sig_x_e_dump, sig_y_e_dump, 
-                     xbar_p_dump, ybar_p_dump, 
-                     sig_x_p_dump, sig_y_p_dump);
-	
-        //cout<<"Dumped Slices:"<<world_rank<<endl;
+		dumpSlices(N, bParams->Npart_e, bParams->Npart_p, iSe, iSp_rcvd, bParams, xbar_e_dump, ybar_e_dump, sig_x_e_dump, sig_y_e_dump, xbar_p_dump, ybar_p_dump, sig_x_p_dump, sig_y_p_dump);
+	else if(p_bunch!=-1)
+		dumpSlices(N, bParams->Npart_e, bParams->Npart_p, iSe_rcvd, iSp, bParams, xbar_e_dump, ybar_e_dump, sig_x_e_dump, sig_y_e_dump, xbar_p_dump, ybar_p_dump, sig_x_p_dump, sig_y_p_dump);
+	//cout<<"Dumped Slices:"<<world_rank<<endl;
         if(e_bunch != -1){
-          /*	delete[] z_e;
+	/*	delete[] z_e;
 		delete[] z_p_rcvd;
 		delete[] SS_e;
 		delete[] iSe;
@@ -3403,23 +3259,23 @@ void Collide::collide(int lum_turn, int *dOutOfBound_e, int *dOutOfBound_p, doub
 		delete[] sig_x_e_rcvd; 
 		delete[] sig_y_e_rcvd; 
 		delete[] iSe_rcvd;
-          */
-          cudaFree(dS_e);
-          cudaFree(d_iSe);
-          cudaFree(d_iSe_ext);
-          cudaFree(d_iSe_Inc);
-          cudaFree(dx_es);
-          cudaFree(dx_ems);
-          cudaFree(dx_esd);
-          cudaFree(dx_emb);
-          cudaFree(dx_esb);
-          cudaFree(dxbar_p);
-          cudaFree(dybar_p);
-          cudaFree(dxpbar_e);
-          cudaFree(dypbar_e);
-          cudaFree(d_sig_x_p);
-          cudaFree(d_sig_y_p);
-          cudaFree(d_iSp_rcvd);
+	*/
+		cudaFree(dS_e);
+		cudaFree(d_iSe);
+		cudaFree(d_iSe_ext);
+		cudaFree(d_iSe_Inc);
+		cudaFree(dx_es);
+		cudaFree(dx_ems);
+		cudaFree(dx_esd);
+		cudaFree(dx_emb);
+		cudaFree(dx_esb);
+		cudaFree(dxbar_p);
+		cudaFree(dybar_p);
+                cudaFree(dxpbar_e);
+                cudaFree(dypbar_e);
+		cudaFree(d_sig_x_p);
+		cudaFree(d_sig_y_p);
+		cudaFree(d_iSp_rcvd);
 	}
 	
 	if(p_bunch != -1){

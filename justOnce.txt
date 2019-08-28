@@ -1,0 +1,5267 @@
+Num Devices: 4
+Device MPI RANK:0 GPU Rank:0, name:Tesla K40c
+Max Block Size:-919420704
+0 hello from 0 x=-1
+1 hello from 0 x=-1
+2 hello from 0 x=-1
+3 hello from 0 x=-1
+4 hello from 0 x=-1
+5 hello from 0 x=-1
+6 hello from 0 x=-1
+7 hello from 0 x=-1
+8 hello from 0 x=-1
+9 hello from 0 x=-1
+10 hello from 0 x=-1
+11 hello from 0 x=-1
+12 hello from 0 x=-1
+13 hello from 0 x=-1
+14 hello from 0 x=-1
+15 hello from 0 x=-1
+16 hello from 0 x=-1
+17 hello from 0 x=-1
+18 hello from 0 x=-1
+19 hello from 0 x=-1
+20 hello from 0 x=-1
+21 hello from 0 x=-1
+22 hello from 0 x=-1
+23 hello from 0 x=-1
+24 hello from 0 x=-1
+25 hello from 0 x=-1
+26 hello from 0 x=-1
+27 hello from 0 x=-1
+28 hello from 0 x=-1
+29 hello from 0 x=-1
+30 hello from 0 x=-1
+31 hello from 0 x=-1
+32 hello from 0 x=-1
+33 hello from 0 x=-1
+34 hello from 0 x=-1
+35 hello from 0 x=-1
+36 hello from 0 x=-1
+37 hello from 0 x=-1
+38 hello from 0 x=-1
+39 hello from 0 x=-1
+40 hello from 0 x=-1
+41 hello from 0 x=-1
+42 hello from 0 x=-1
+43 hello from 0 x=-1
+44 hello from 0 x=-1
+45 hello from 0 x=-1
+46 hello from 0 x=-1
+47 hello from 0 x=-1
+48 hello from 0 x=-1
+49 hello from 0 x=-1
+50 hello from 0 x=-1
+51 hello from 0 x=-1
+52 hello from 0 x=-1
+53 hello from 0 x=-1
+54 hello from 0 x=-1
+55 hello from 0 x=-1
+56 hello from 0 x=-1
+57 hello from 0 x=-1
+58 hello from 0 x=-1
+59 hello from 0 x=-1
+60 hello from 0 x=-1
+61 hello from 0 x=-1
+62 hello from 0 x=-1
+63 hello from 0 x=-1
+64 hello from 0 x=-1
+65 hello from 0 x=-1
+66 hello from 0 x=-1
+67 hello from 0 x=-1
+68 hello from 0 x=-1
+69 hello from 0 x=-1
+70 hello from 0 x=-1
+71 hello from 0 x=-1
+72 hello from 0 x=-1
+73 hello from 0 x=-1
+74 hello from 0 x=-1
+75 hello from 0 x=-1
+76 hello from 0 x=-1
+77 hello from 0 x=-1
+78 hello from 0 x=-1
+79 hello from 0 x=-1
+80 hello from 0 x=-1
+81 hello from 0 x=-1
+82 hello from 0 x=-1
+83 hello from 0 x=-1
+84 hello from 0 x=-1
+85 hello from 0 x=-1
+86 hello from 0 x=-1
+87 hello from 0 x=-1
+88 hello from 0 x=-1
+89 hello from 0 x=-1
+90 hello from 0 x=-1
+91 hello from 0 x=-1
+92 hello from 0 x=-1
+93 hello from 0 x=-1
+94 hello from 0 x=-1
+95 hello from 0 x=-1
+96 hello from 0 x=-1
+97 hello from 0 x=-1
+98 hello from 0 x=-1
+99 hello from 0 x=-1
+100 hello from 0 x=-1
+101 hello from 0 x=-1
+102 hello from 0 x=-1
+103 hello from 0 x=-1
+104 hello from 0 x=-1
+105 hello from 0 x=-1
+106 hello from 0 x=-1
+107 hello from 0 x=-1
+108 hello from 0 x=-1
+109 hello from 0 x=-1
+110 hello from 0 x=-1
+111 hello from 0 x=-1
+112 hello from 0 x=-1
+113 hello from 0 x=-1
+114 hello from 0 x=-1
+115 hello from 0 x=-1
+116 hello from 0 x=-1
+117 hello from 0 x=-1
+118 hello from 0 x=-1
+119 hello from 0 x=-1
+120 hello from 0 x=-1
+121 hello from 0 x=-1
+122 hello from 0 x=-1
+123 hello from 0 x=-1
+124 hello from 0 x=-1
+125 hello from 0 x=-1
+126 hello from 0 x=-1
+127 hello from 0 x=-1
+128 hello from 0 x=-1
+129 hello from 0 x=-1
+130 hello from 0 x=-1
+131 hello from 0 x=-1
+132 hello from 0 x=-1
+133 hello from 0 x=-1
+134 hello from 0 x=-1
+135 hello from 0 x=-1
+136 hello from 0 x=-1
+137 hello from 0 x=-1
+138 hello from 0 x=-1
+139 hello from 0 x=-1
+140 hello from 0 x=-1
+141 hello from 0 x=-1
+142 hello from 0 x=-1
+143 hello from 0 x=-1
+144 hello from 0 x=-1
+145 hello from 0 x=-1
+146 hello from 0 x=-1
+147 hello from 0 x=-1
+148 hello from 0 x=-1
+149 hello from 0 x=-1
+150 hello from 0 x=-1
+151 hello from 0 x=-1
+152 hello from 0 x=-1
+153 hello from 0 x=-1
+154 hello from 0 x=-1
+155 hello from 0 x=-1
+156 hello from 0 x=-1
+157 hello from 0 x=-1
+158 hello from 0 x=-1
+159 hello from 0 x=-1
+160 hello from 0 x=-1
+161 hello from 0 x=-1
+162 hello from 0 x=-1
+163 hello from 0 x=-1
+164 hello from 0 x=-1
+165 hello from 0 x=-1
+166 hello from 0 x=-1
+167 hello from 0 x=-1
+168 hello from 0 x=-1
+169 hello from 0 x=-1
+170 hello from 0 x=-1
+171 hello from 0 x=-1
+172 hello from 0 x=-1
+173 hello from 0 x=-1
+174 hello from 0 x=-1
+175 hello from 0 x=-1
+176 hello from 0 x=-1
+177 hello from 0 x=-1
+178 hello from 0 x=-1
+179 hello from 0 x=-1
+180 hello from 0 x=-1
+181 hello from 0 x=-1
+182 hello from 0 x=-1
+183 hello from 0 x=-1
+184 hello from 0 x=-1
+185 hello from 0 x=-1
+186 hello from 0 x=-1
+187 hello from 0 x=-1
+188 hello from 0 x=-1
+189 hello from 0 x=-1
+190 hello from 0 x=-1
+191 hello from 0 x=-1
+192 hello from 0 x=-1
+193 hello from 0 x=-1
+194 hello from 0 x=-1
+195 hello from 0 x=-1
+196 hello from 0 x=-1
+197 hello from 0 x=-1
+198 hello from 0 x=-1
+199 hello from 0 x=-1
+200 hello from 0 x=-1
+201 hello from 0 x=-1
+202 hello from 0 x=-1
+203 hello from 0 x=-1
+204 hello from 0 x=-1
+205 hello from 0 x=-1
+206 hello from 0 x=-1
+207 hello from 0 x=-1
+208 hello from 0 x=-1
+209 hello from 0 x=-1
+210 hello from 0 x=-1
+211 hello from 0 x=-1
+212 hello from 0 x=-1
+213 hello from 0 x=-1
+214 hello from 0 x=-1
+215 hello from 0 x=-1
+216 hello from 0 x=-1
+217 hello from 0 x=-1
+218 hello from 0 x=-1
+219 hello from 0 x=-1
+220 hello from 0 x=-1
+221 hello from 0 x=-1
+222 hello from 0 x=-1
+223 hello from 0 x=-1
+224 hello from 0 x=-1
+225 hello from 0 x=-1
+226 hello from 0 x=-1
+227 hello from 0 x=-1
+228 hello from 0 x=-1
+229 hello from 0 x=-1
+230 hello from 0 x=-1
+231 hello from 0 x=-1
+232 hello from 0 x=-1
+233 hello from 0 x=-1
+234 hello from 0 x=-1
+235 hello from 0 x=-1
+236 hello from 0 x=-1
+237 hello from 0 x=-1
+238 hello from 0 x=-1
+239 hello from 0 x=-1
+240 hello from 0 x=-1
+241 hello from 0 x=-1
+242 hello from 0 x=-1
+243 hello from 0 x=-1
+244 hello from 0 x=-1
+245 hello from 0 x=-1
+246 hello from 0 x=-1
+247 hello from 0 x=-1
+248 hello from 0 x=-1
+249 hello from 0 x=-1
+250 hello from 0 x=-1
+251 hello from 0 x=-1
+252 hello from 0 x=-1
+253 hello from 0 x=-1
+254 hello from 0 x=-1
+255 hello from 0 x=-1
+256 hello from 0 x=-1
+257 hello from 0 x=-1
+258 hello from 0 x=-1
+259 hello from 0 x=-1
+260 hello from 0 x=-1
+261 hello from 0 x=-1
+262 hello from 0 x=-1
+263 hello from 0 x=-1
+264 hello from 0 x=-1
+265 hello from 0 x=-1
+266 hello from 0 x=-1
+267 hello from 0 x=-1
+268 hello from 0 x=-1
+269 hello from 0 x=-1
+270 hello from 0 x=-1
+271 hello from 0 x=-1
+272 hello from 0 x=-1
+273 hello from 0 x=-1
+274 hello from 0 x=-1
+275 hello from 0 x=-1
+276 hello from 0 x=-1
+277 hello from 0 x=-1
+278 hello from 0 x=-1
+279 hello from 0 x=-1
+280 hello from 0 x=-1
+281 hello from 0 x=-1
+282 hello from 0 x=-1
+283 hello from 0 x=-1
+284 hello from 0 x=-1
+285 hello from 0 x=-1
+286 hello from 0 x=-1
+287 hello from 0 x=-1
+288 hello from 0 x=-1
+289 hello from 0 x=-1
+290 hello from 0 x=-1
+291 hello from 0 x=-1
+292 hello from 0 x=-1
+293 hello from 0 x=-1
+294 hello from 0 x=-1
+295 hello from 0 x=-1
+296 hello from 0 x=-1
+297 hello from 0 x=-1
+298 hello from 0 x=-1
+299 hello from 0 x=-1
+300 hello from 0 x=-1
+301 hello from 0 x=-1
+302 hello from 0 x=-1
+303 hello from 0 x=-1
+304 hello from 0 x=-1
+305 hello from 0 x=-1
+306 hello from 0 x=-1
+307 hello from 0 x=-1
+308 hello from 0 x=-1
+309 hello from 0 x=-1
+310 hello from 0 x=-1
+311 hello from 0 x=-1
+312 hello from 0 x=-1
+313 hello from 0 x=-1
+314 hello from 0 x=-1
+315 hello from 0 x=-1
+316 hello from 0 x=-1
+317 hello from 0 x=-1
+318 hello from 0 x=-1
+319 hello from 0 x=-1
+320 hello from 0 x=-1
+321 hello from 0 x=-1
+322 hello from 0 x=-1
+323 hello from 0 x=-1
+324 hello from 0 x=-1
+325 hello from 0 x=-1
+326 hello from 0 x=-1
+327 hello from 0 x=-1
+328 hello from 0 x=-1
+329 hello from 0 x=-1
+330 hello from 0 x=-1
+331 hello from 0 x=-1
+332 hello from 0 x=-1
+333 hello from 0 x=-1
+334 hello from 0 x=-1
+335 hello from 0 x=-1
+336 hello from 0 x=-1
+337 hello from 0 x=-1
+338 hello from 0 x=-1
+339 hello from 0 x=-1
+340 hello from 0 x=-1
+341 hello from 0 x=-1
+342 hello from 0 x=-1
+343 hello from 0 x=-1
+344 hello from 0 x=-1
+345 hello from 0 x=-1
+346 hello from 0 x=-1
+347 hello from 0 x=-1
+348 hello from 0 x=-1
+349 hello from 0 x=-1
+350 hello from 0 x=-1
+351 hello from 0 x=-1
+352 hello from 0 x=-1
+353 hello from 0 x=-1
+354 hello from 0 x=-1
+355 hello from 0 x=-1
+356 hello from 0 x=-1
+357 hello from 0 x=-1
+358 hello from 0 x=-1
+359 hello from 0 x=-1
+360 hello from 0 x=-1
+361 hello from 0 x=-1
+362 hello from 0 x=-1
+363 hello from 0 x=-1
+364 hello from 0 x=-1
+365 hello from 0 x=-1
+366 hello from 0 x=-1
+367 hello from 0 x=-1
+368 hello from 0 x=-1
+369 hello from 0 x=-1
+370 hello from 0 x=-1
+371 hello from 0 x=-1
+372 hello from 0 x=-1
+373 hello from 0 x=-1
+374 hello from 0 x=-1
+375 hello from 0 x=-1
+376 hello from 0 x=-1
+377 hello from 0 x=-1
+378 hello from 0 x=-1
+379 hello from 0 x=-1
+380 hello from 0 x=-1
+381 hello from 0 x=-1
+382 hello from 0 x=-1
+383 hello from 0 x=-1
+384 hello from 0 x=-1
+385 hello from 0 x=-1
+386 hello from 0 x=-1
+387 hello from 0 x=-1
+388 hello from 0 x=-1
+389 hello from 0 x=-1
+390 hello from 0 x=-1
+391 hello from 0 x=-1
+392 hello from 0 x=-1
+393 hello from 0 x=-1
+394 hello from 0 x=-1
+395 hello from 0 x=-1
+396 hello from 0 x=-1
+397 hello from 0 x=-1
+398 hello from 0 x=-1
+399 hello from 0 x=-1
+400 hello from 0 x=-1
+401 hello from 0 x=-1
+402 hello from 0 x=-1
+403 hello from 0 x=-1
+404 hello from 0 x=-1
+405 hello from 0 x=-1
+406 hello from 0 x=-1
+407 hello from 0 x=-1
+408 hello from 0 x=-1
+409 hello from 0 x=-1
+410 hello from 0 x=-1
+411 hello from 0 x=-1
+412 hello from 0 x=-1
+413 hello from 0 x=-1
+414 hello from 0 x=-1
+415 hello from 0 x=-1
+416 hello from 0 x=-1
+417 hello from 0 x=-1
+418 hello from 0 x=-1
+419 hello from 0 x=-1
+420 hello from 0 x=-1
+421 hello from 0 x=-1
+422 hello from 0 x=-1
+423 hello from 0 x=-1
+424 hello from 0 x=-1
+425 hello from 0 x=-1
+426 hello from 0 x=-1
+427 hello from 0 x=-1
+428 hello from 0 x=-1
+429 hello from 0 x=-1
+430 hello from 0 x=-1
+431 hello from 0 x=-1
+432 hello from 0 x=-1
+433 hello from 0 x=-1
+434 hello from 0 x=-1
+435 hello from 0 x=-1
+436 hello from 0 x=-1
+437 hello from 0 x=-1
+438 hello from 0 x=-1
+439 hello from 0 x=-1
+440 hello from 0 x=-1
+441 hello from 0 x=-1
+442 hello from 0 x=-1
+443 hello from 0 x=-1
+444 hello from 0 x=-1
+445 hello from 0 x=-1
+446 hello from 0 x=-1
+447 hello from 0 x=-1
+448 hello from 0 x=-1
+449 hello from 0 x=-1
+450 hello from 0 x=-1
+451 hello from 0 x=-1
+452 hello from 0 x=-1
+453 hello from 0 x=-1
+454 hello from 0 x=-1
+455 hello from 0 x=-1
+456 hello from 0 x=-1
+457 hello from 0 x=-1
+458 hello from 0 x=-1
+459 hello from 0 x=-1
+460 hello from 0 x=-1
+461 hello from 0 x=-1
+462 hello from 0 x=-1
+463 hello from 0 x=-1
+464 hello from 0 x=-1
+465 hello from 0 x=-1
+466 hello from 0 x=-1
+467 hello from 0 x=-1
+468 hello from 0 x=-1
+469 hello from 0 x=-1
+470 hello from 0 x=-1
+471 hello from 0 x=-1
+472 hello from 0 x=-1
+473 hello from 0 x=-1
+474 hello from 0 x=-1
+475 hello from 0 x=-1
+476 hello from 0 x=-1
+477 hello from 0 x=-1
+478 hello from 0 x=-1
+479 hello from 0 x=-1
+480 hello from 0 x=-1
+481 hello from 0 x=-1
+482 hello from 0 x=-1
+483 hello from 0 x=-1
+484 hello from 0 x=-1
+485 hello from 0 x=-1
+486 hello from 0 x=-1
+487 hello from 0 x=-1
+488 hello from 0 x=-1
+489 hello from 0 x=-1
+490 hello from 0 x=-1
+491 hello from 0 x=-1
+492 hello from 0 x=-1
+493 hello from 0 x=-1
+494 hello from 0 x=-1
+495 hello from 0 x=-1
+496 hello from 0 x=-1
+497 hello from 0 x=-1
+498 hello from 0 x=-1
+499 hello from 0 x=-1
+500 hello from 0 x=-1
+501 hello from 0 x=-1
+502 hello from 0 x=-1
+503 hello from 0 x=-1
+504 hello from 0 x=-1
+505 hello from 0 x=-1
+506 hello from 0 x=-1
+507 hello from 0 x=-1
+508 hello from 0 x=-1
+509 hello from 0 x=-1
+510 hello from 0 x=-1
+511 hello from 0 x=-1
+512 hello from 0 x=-1
+513 hello from 0 x=-1
+514 hello from 0 x=-1
+515 hello from 0 x=-1
+516 hello from 0 x=-1
+517 hello from 0 x=-1
+518 hello from 0 x=-1
+519 hello from 0 x=-1
+520 hello from 0 x=-1
+521 hello from 0 x=-1
+522 hello from 0 x=-1
+523 hello from 0 x=-1
+524 hello from 0 x=-1
+525 hello from 0 x=-1
+526 hello from 0 x=-1
+527 hello from 0 x=-1
+528 hello from 0 x=-1
+529 hello from 0 x=-1
+530 hello from 0 x=-1
+531 hello from 0 x=-1
+532 hello from 0 x=-1
+533 hello from 0 x=-1
+534 hello from 0 x=-1
+535 hello from 0 x=-1
+536 hello from 0 x=-1
+537 hello from 0 x=-1
+538 hello from 0 x=-1
+539 hello from 0 x=-1
+540 hello from 0 x=-1
+541 hello from 0 x=-1
+542 hello from 0 x=-1
+543 hello from 0 x=-1
+544 hello from 0 x=-1
+545 hello from 0 x=-1
+546 hello from 0 x=-1
+547 hello from 0 x=-1
+548 hello from 0 x=-1
+549 hello from 0 x=-1
+550 hello from 0 x=-1
+551 hello from 0 x=-1
+552 hello from 0 x=-1
+553 hello from 0 x=-1
+554 hello from 0 x=-1
+555 hello from 0 x=-1
+556 hello from 0 x=-1
+557 hello from 0 x=-1
+558 hello from 0 x=-1
+559 hello from 0 x=-1
+560 hello from 0 x=-1
+561 hello from 0 x=-1
+562 hello from 0 x=-1
+563 hello from 0 x=-1
+564 hello from 0 x=-1
+565 hello from 0 x=-1
+566 hello from 0 x=-1
+567 hello from 0 x=-1
+568 hello from 0 x=-1
+569 hello from 0 x=-1
+570 hello from 0 x=-1
+571 hello from 0 x=-1
+572 hello from 0 x=-1
+573 hello from 0 x=-1
+574 hello from 0 x=-1
+575 hello from 0 x=-1
+576 hello from 0 x=-1
+577 hello from 0 x=-1
+578 hello from 0 x=-1
+579 hello from 0 x=-1
+580 hello from 0 x=-1
+581 hello from 0 x=-1
+582 hello from 0 x=-1
+583 hello from 0 x=-1
+584 hello from 0 x=-1
+585 hello from 0 x=-1
+586 hello from 0 x=-1
+587 hello from 0 x=-1
+588 hello from 0 x=-1
+589 hello from 0 x=-1
+590 hello from 0 x=-1
+591 hello from 0 x=-1
+592 hello from 0 x=-1
+593 hello from 0 x=-1
+594 hello from 0 x=-1
+595 hello from 0 x=-1
+596 hello from 0 x=-1
+597 hello from 0 x=-1
+598 hello from 0 x=-1
+599 hello from 0 x=-1
+600 hello from 0 x=-1
+601 hello from 0 x=-1
+602 hello from 0 x=-1
+603 hello from 0 x=-1
+604 hello from 0 x=-1
+605 hello from 0 x=-1
+606 hello from 0 x=-1
+607 hello from 0 x=-1
+608 hello from 0 x=-1
+609 hello from 0 x=-1
+610 hello from 0 x=-1
+611 hello from 0 x=-1
+612 hello from 0 x=-1
+613 hello from 0 x=-1
+614 hello from 0 x=-1
+615 hello from 0 x=-1
+616 hello from 0 x=-1
+617 hello from 0 x=-1
+618 hello from 0 x=-1
+619 hello from 0 x=-1
+620 hello from 0 x=-1
+621 hello from 0 x=-1
+622 hello from 0 x=-1
+623 hello from 0 x=-1
+624 hello from 0 x=-1
+625 hello from 0 x=-1
+626 hello from 0 x=-1
+627 hello from 0 x=-1
+628 hello from 0 x=-1
+629 hello from 0 x=-1
+630 hello from 0 x=-1
+631 hello from 0 x=-1
+632 hello from 0 x=-1
+633 hello from 0 x=-1
+634 hello from 0 x=-1
+635 hello from 0 x=-1
+636 hello from 0 x=-1
+637 hello from 0 x=-1
+638 hello from 0 x=-1
+639 hello from 0 x=-1
+640 hello from 0 x=-1
+641 hello from 0 x=-1
+642 hello from 0 x=-1
+643 hello from 0 x=-1
+644 hello from 0 x=-1
+645 hello from 0 x=-1
+646 hello from 0 x=-1
+647 hello from 0 x=-1
+648 hello from 0 x=-1
+649 hello from 0 x=-1
+650 hello from 0 x=-1
+651 hello from 0 x=-1
+652 hello from 0 x=-1
+653 hello from 0 x=-1
+654 hello from 0 x=-1
+655 hello from 0 x=-1
+656 hello from 0 x=-1
+657 hello from 0 x=-1
+658 hello from 0 x=-1
+659 hello from 0 x=-1
+660 hello from 0 x=-1
+661 hello from 0 x=-1
+662 hello from 0 x=-1
+663 hello from 0 x=-1
+664 hello from 0 x=-1
+665 hello from 0 x=-1
+666 hello from 0 x=-1
+667 hello from 0 x=-1
+668 hello from 0 x=-1
+669 hello from 0 x=-1
+670 hello from 0 x=-1
+671 hello from 0 x=-1
+672 hello from 0 x=-1
+673 hello from 0 x=-1
+674 hello from 0 x=-1
+675 hello from 0 x=-1
+676 hello from 0 x=-1
+677 hello from 0 x=-1
+678 hello from 0 x=-1
+679 hello from 0 x=-1
+680 hello from 0 x=-1
+681 hello from 0 x=-1
+682 hello from 0 x=-1
+683 hello from 0 x=-1
+684 hello from 0 x=-1
+685 hello from 0 x=-1
+686 hello from 0 x=-1
+687 hello from 0 x=-1
+688 hello from 0 x=-1
+689 hello from 0 x=-1
+690 hello from 0 x=-1
+691 hello from 0 x=-1
+692 hello from 0 x=-1
+693 hello from 0 x=-1
+694 hello from 0 x=-1
+695 hello from 0 x=-1
+696 hello from 0 x=-1
+697 hello from 0 x=-1
+698 hello from 0 x=-1
+699 hello from 0 x=-1
+700 hello from 0 x=-1
+701 hello from 0 x=-1
+702 hello from 0 x=-1
+703 hello from 0 x=-1
+704 hello from 0 x=-1
+705 hello from 0 x=-1
+706 hello from 0 x=-1
+707 hello from 0 x=-1
+708 hello from 0 x=-1
+709 hello from 0 x=-1
+710 hello from 0 x=-1
+711 hello from 0 x=-1
+712 hello from 0 x=-1
+713 hello from 0 x=-1
+714 hello from 0 x=-1
+715 hello from 0 x=-1
+716 hello from 0 x=-1
+717 hello from 0 x=-1
+718 hello from 0 x=-1
+719 hello from 0 x=-1
+720 hello from 0 x=-1
+721 hello from 0 x=-1
+722 hello from 0 x=-1
+723 hello from 0 x=-1
+724 hello from 0 x=-1
+725 hello from 0 x=-1
+726 hello from 0 x=-1
+727 hello from 0 x=-1
+728 hello from 0 x=-1
+729 hello from 0 x=-1
+730 hello from 0 x=-1
+731 hello from 0 x=-1
+732 hello from 0 x=-1
+733 hello from 0 x=-1
+734 hello from 0 x=-1
+735 hello from 0 x=-1
+736 hello from 0 x=-1
+737 hello from 0 x=-1
+738 hello from 0 x=-1
+739 hello from 0 x=-1
+740 hello from 0 x=-1
+741 hello from 0 x=-1
+742 hello from 0 x=-1
+743 hello from 0 x=-1
+744 hello from 0 x=-1
+745 hello from 0 x=-1
+746 hello from 0 x=-1
+747 hello from 0 x=-1
+748 hello from 0 x=-1
+749 hello from 0 x=-1
+750 hello from 0 x=-1
+751 hello from 0 x=-1
+752 hello from 0 x=-1
+753 hello from 0 x=-1
+754 hello from 0 x=-1
+755 hello from 0 x=-1
+756 hello from 0 x=-1
+757 hello from 0 x=-1
+758 hello from 0 x=-1
+759 hello from 0 x=-1
+760 hello from 0 x=-1
+761 hello from 0 x=-1
+762 hello from 0 x=-1
+763 hello from 0 x=-1
+764 hello from 0 x=-1
+765 hello from 0 x=-1
+766 hello from 0 x=-1
+767 hello from 0 x=-1
+768 hello from 0 x=-1
+769 hello from 0 x=-1
+770 hello from 0 x=-1
+771 hello from 0 x=-1
+772 hello from 0 x=-1
+773 hello from 0 x=-1
+774 hello from 0 x=-1
+775 hello from 0 x=-1
+776 hello from 0 x=-1
+777 hello from 0 x=-1
+778 hello from 0 x=-1
+779 hello from 0 x=-1
+780 hello from 0 x=-1
+781 hello from 0 x=-1
+782 hello from 0 x=-1
+783 hello from 0 x=-1
+784 hello from 0 x=-1
+785 hello from 0 x=-1
+786 hello from 0 x=-1
+787 hello from 0 x=-1
+788 hello from 0 x=-1
+789 hello from 0 x=-1
+790 hello from 0 x=-1
+791 hello from 0 x=-1
+792 hello from 0 x=-1
+793 hello from 0 x=-1
+794 hello from 0 x=-1
+795 hello from 0 x=-1
+796 hello from 0 x=-1
+797 hello from 0 x=-1
+798 hello from 0 x=-1
+799 hello from 0 x=-1
+800 hello from 0 x=-1
+801 hello from 0 x=-1
+802 hello from 0 x=-1
+803 hello from 0 x=-1
+804 hello from 0 x=-1
+805 hello from 0 x=-1
+806 hello from 0 x=-1
+807 hello from 0 x=-1
+808 hello from 0 x=-1
+809 hello from 0 x=-1
+810 hello from 0 x=-1
+811 hello from 0 x=-1
+812 hello from 0 x=-1
+813 hello from 0 x=-1
+814 hello from 0 x=-1
+815 hello from 0 x=-1
+816 hello from 0 x=-1
+817 hello from 0 x=-1
+818 hello from 0 x=-1
+819 hello from 0 x=-1
+820 hello from 0 x=-1
+821 hello from 0 x=-1
+822 hello from 0 x=-1
+823 hello from 0 x=-1
+824 hello from 0 x=-1
+825 hello from 0 x=-1
+826 hello from 0 x=-1
+827 hello from 0 x=-1
+828 hello from 0 x=-1
+829 hello from 0 x=-1
+830 hello from 0 x=-1
+831 hello from 0 x=-1
+832 hello from 0 x=-1
+833 hello from 0 x=-1
+834 hello from 0 x=-1
+835 hello from 0 x=-1
+836 hello from 0 x=-1
+837 hello from 0 x=-1
+838 hello from 0 x=-1
+839 hello from 0 x=-1
+840 hello from 0 x=-1
+841 hello from 0 x=-1
+842 hello from 0 x=-1
+843 hello from 0 x=-1
+844 hello from 0 x=-1
+845 hello from 0 x=-1
+846 hello from 0 x=-1
+847 hello from 0 x=-1
+848 hello from 0 x=-1
+849 hello from 0 x=-1
+850 hello from 0 x=-1
+851 hello from 0 x=-1
+852 hello from 0 x=-1
+853 hello from 0 x=-1
+854 hello from 0 x=-1
+855 hello from 0 x=-1
+856 hello from 0 x=-1
+857 hello from 0 x=-1
+858 hello from 0 x=-1
+859 hello from 0 x=-1
+860 hello from 0 x=-1
+861 hello from 0 x=-1
+862 hello from 0 x=-1
+863 hello from 0 x=-1
+864 hello from 0 x=-1
+865 hello from 0 x=-1
+866 hello from 0 x=-1
+867 hello from 0 x=-1
+868 hello from 0 x=-1
+869 hello from 0 x=-1
+870 hello from 0 x=-1
+871 hello from 0 x=-1
+872 hello from 0 x=-1
+873 hello from 0 x=-1
+874 hello from 0 x=-1
+875 hello from 0 x=-1
+876 hello from 0 x=-1
+877 hello from 0 x=-1
+878 hello from 0 x=-1
+879 hello from 0 x=-1
+880 hello from 0 x=-1
+881 hello from 0 x=-1
+882 hello from 0 x=-1
+883 hello from 0 x=-1
+884 hello from 0 x=-1
+885 hello from 0 x=-1
+886 hello from 0 x=-1
+887 hello from 0 x=-1
+888 hello from 0 x=-1
+889 hello from 0 x=-1
+890 hello from 0 x=-1
+891 hello from 0 x=-1
+892 hello from 0 x=-1
+893 hello from 0 x=-1
+894 hello from 0 x=-1
+895 hello from 0 x=-1
+896 hello from 0 x=-1
+897 hello from 0 x=-1
+898 hello from 0 x=-1
+899 hello from 0 x=-1
+900 hello from 0 x=-1
+901 hello from 0 x=-1
+902 hello from 0 x=-1
+903 hello from 0 x=-1
+904 hello from 0 x=-1
+905 hello from 0 x=-1
+906 hello from 0 x=-1
+907 hello from 0 x=-1
+908 hello from 0 x=-1
+909 hello from 0 x=-1
+910 hello from 0 x=-1
+911 hello from 0 x=-1
+912 hello from 0 x=-1
+913 hello from 0 x=-1
+914 hello from 0 x=-1
+915 hello from 0 x=-1
+916 hello from 0 x=-1
+917 hello from 0 x=-1
+918 hello from 0 x=-1
+919 hello from 0 x=-1
+920 hello from 0 x=-1
+921 hello from 0 x=-1
+922 hello from 0 x=-1
+923 hello from 0 x=-1
+924 hello from 0 x=-1
+925 hello from 0 x=-1
+926 hello from 0 x=-1
+927 hello from 0 x=-1
+928 hello from 0 x=-1
+929 hello from 0 x=-1
+930 hello from 0 x=-1
+931 hello from 0 x=-1
+932 hello from 0 x=-1
+933 hello from 0 x=-1
+934 hello from 0 x=-1
+935 hello from 0 x=-1
+936 hello from 0 x=-1
+937 hello from 0 x=-1
+938 hello from 0 x=-1
+939 hello from 0 x=-1
+940 hello from 0 x=-1
+941 hello from 0 x=-1
+942 hello from 0 x=-1
+943 hello from 0 x=-1
+944 hello from 0 x=-1
+945 hello from 0 x=-1
+946 hello from 0 x=-1
+947 hello from 0 x=-1
+948 hello from 0 x=-1
+949 hello from 0 x=-1
+950 hello from 0 x=-1
+951 hello from 0 x=-1
+952 hello from 0 x=-1
+953 hello from 0 x=-1
+954 hello from 0 x=-1
+955 hello from 0 x=-1
+956 hello from 0 x=-1
+957 hello from 0 x=-1
+958 hello from 0 x=-1
+959 hello from 0 x=-1
+960 hello from 0 x=-1
+961 hello from 0 x=-1
+962 hello from 0 x=-1
+963 hello from 0 x=-1
+964 hello from 0 x=-1
+965 hello from 0 x=-1
+966 hello from 0 x=-1
+967 hello from 0 x=-1
+968 hello from 0 x=-1
+969 hello from 0 x=-1
+970 hello from 0 x=-1
+971 hello from 0 x=-1
+972 hello from 0 x=-1
+973 hello from 0 x=-1
+974 hello from 0 x=-1
+975 hello from 0 x=-1
+976 hello from 0 x=-1
+977 hello from 0 x=-1
+978 hello from 0 x=-1
+979 hello from 0 x=-1
+980 hello from 0 x=-1
+981 hello from 0 x=-1
+982 hello from 0 x=-1
+983 hello from 0 x=-1
+984 hello from 0 x=-1
+985 hello from 0 x=-1
+986 hello from 0 x=-1
+987 hello from 0 x=-1
+988 hello from 0 x=-1
+989 hello from 0 x=-1
+990 hello from 0 x=-1
+991 hello from 0 x=-1
+992 hello from 0 x=-1
+993 hello from 0 x=-1
+994 hello from 0 x=-1
+995 hello from 0 x=-1
+996 hello from 0 x=-1
+997 hello from 0 x=-1
+998 hello from 0 x=-1
+999 hello from 0 x=-1
+1000 hello from 0 x=-1
+1001 hello from 0 x=-1
+1002 hello from 0 x=-1
+1003 hello from 0 x=-1
+1004 hello from 0 x=-1
+1005 hello from 0 x=-1
+1006 hello from 0 x=-1
+1007 hello from 0 x=-1
+1008 hello from 0 x=-1
+1009 hello from 0 x=-1
+1010 hello from 0 x=-1
+1011 hello from 0 x=-1
+1012 hello from 0 x=-1
+1013 hello from 0 x=-1
+1014 hello from 0 x=-1
+1015 hello from 0 x=-1
+1016 hello from 0 x=-1
+1017 hello from 0 x=-1
+1018 hello from 0 x=-1
+1019 hello from 0 x=-1
+1020 hello from 0 x=-1
+1021 hello from 0 x=-1
+1022 hello from 0 x=-1
+1023 hello from 0 x=-1
+1024 hello from 0 x=-1
+1025 hello from 0 x=-1
+1026 hello from 0 x=-1
+1027 hello from 0 x=-1
+1028 hello from 0 x=-1
+1029 hello from 0 x=-1
+1030 hello from 0 x=-1
+1031 hello from 0 x=-1
+1032 hello from 0 x=-1
+1033 hello from 0 x=-1
+1034 hello from 0 x=-1
+1035 hello from 0 x=-1
+1036 hello from 0 x=-1
+1037 hello from 0 x=-1
+1038 hello from 0 x=-1
+1039 hello from 0 x=-1
+1040 hello from 0 x=-1
+1041 hello from 0 x=-1
+1042 hello from 0 x=-1
+1043 hello from 0 x=-1
+1044 hello from 0 x=-1
+1045 hello from 0 x=-1
+1046 hello from 0 x=-1
+1047 hello from 0 x=-1
+1048 hello from 0 x=-1
+1049 hello from 0 x=-1
+1050 hello from 0 x=-1
+1051 hello from 0 x=-1
+1052 hello from 0 x=-1
+1053 hello from 0 x=-1
+1054 hello from 0 x=-1
+1055 hello from 0 x=-1
+1056 hello from 0 x=-1
+1057 hello from 0 x=-1
+1058 hello from 0 x=-1
+1059 hello from 0 x=-1
+1060 hello from 0 x=-1
+1061 hello from 0 x=-1
+1062 hello from 0 x=-1
+1063 hello from 0 x=-1
+1064 hello from 0 x=-1
+1065 hello from 0 x=-1
+1066 hello from 0 x=-1
+1067 hello from 0 x=-1
+1068 hello from 0 x=-1
+1069 hello from 0 x=-1
+1070 hello from 0 x=-1
+1071 hello from 0 x=-1
+1072 hello from 0 x=-1
+1073 hello from 0 x=-1
+1074 hello from 0 x=-1
+1075 hello from 0 x=-1
+1076 hello from 0 x=-1
+1077 hello from 0 x=-1
+1078 hello from 0 x=-1
+1079 hello from 0 x=-1
+1080 hello from 0 x=-1
+1081 hello from 0 x=-1
+1082 hello from 0 x=-1
+1083 hello from 0 x=-1
+1084 hello from 0 x=-1
+1085 hello from 0 x=-1
+1086 hello from 0 x=-1
+1087 hello from 0 x=-1
+1088 hello from 0 x=-1
+1089 hello from 0 x=-1
+1090 hello from 0 x=-1
+1091 hello from 0 x=-1
+1092 hello from 0 x=-1
+1093 hello from 0 x=-1
+1094 hello from 0 x=-1
+1095 hello from 0 x=-1
+1096 hello from 0 x=-1
+1097 hello from 0 x=-1
+1098 hello from 0 x=-1
+1099 hello from 0 x=-1
+1100 hello from 0 x=-1
+1101 hello from 0 x=-1
+1102 hello from 0 x=-1
+1103 hello from 0 x=-1
+1104 hello from 0 x=-1
+1105 hello from 0 x=-1
+1106 hello from 0 x=-1
+1107 hello from 0 x=-1
+1108 hello from 0 x=-1
+1109 hello from 0 x=-1
+1110 hello from 0 x=-1
+1111 hello from 0 x=-1
+1112 hello from 0 x=-1
+1113 hello from 0 x=-1
+1114 hello from 0 x=-1
+1115 hello from 0 x=-1
+1116 hello from 0 x=-1
+1117 hello from 0 x=-1
+1118 hello from 0 x=-1
+1119 hello from 0 x=-1
+1120 hello from 0 x=-1
+1121 hello from 0 x=-1
+1122 hello from 0 x=-1
+1123 hello from 0 x=-1
+1124 hello from 0 x=-1
+1125 hello from 0 x=-1
+1126 hello from 0 x=-1
+1127 hello from 0 x=-1
+1128 hello from 0 x=-1
+1129 hello from 0 x=-1
+1130 hello from 0 x=-1
+1131 hello from 0 x=-1
+1132 hello from 0 x=-1
+1133 hello from 0 x=-1
+1134 hello from 0 x=-1
+1135 hello from 0 x=-1
+1136 hello from 0 x=-1
+1137 hello from 0 x=-1
+1138 hello from 0 x=-1
+1139 hello from 0 x=-1
+1140 hello from 0 x=-1
+1141 hello from 0 x=-1
+1142 hello from 0 x=-1
+1143 hello from 0 x=-1
+1144 hello from 0 x=-1
+1145 hello from 0 x=-1
+1146 hello from 0 x=-1
+1147 hello from 0 x=-1
+1148 hello from 0 x=-1
+1149 hello from 0 x=-1
+1150 hello from 0 x=-1
+1151 hello from 0 x=-1
+1152 hello from 0 x=-1
+1153 hello from 0 x=-1
+1154 hello from 0 x=-1
+1155 hello from 0 x=-1
+1156 hello from 0 x=-1
+1157 hello from 0 x=-1
+1158 hello from 0 x=-1
+1159 hello from 0 x=-1
+1160 hello from 0 x=-1
+1161 hello from 0 x=-1
+1162 hello from 0 x=-1
+1163 hello from 0 x=-1
+1164 hello from 0 x=-1
+1165 hello from 0 x=-1
+1166 hello from 0 x=-1
+1167 hello from 0 x=-1
+1168 hello from 0 x=-1
+1169 hello from 0 x=-1
+1170 hello from 0 x=-1
+1171 hello from 0 x=-1
+1172 hello from 0 x=-1
+1173 hello from 0 x=-1
+1174 hello from 0 x=-1
+1175 hello from 0 x=-1
+1176 hello from 0 x=-1
+1177 hello from 0 x=-1
+1178 hello from 0 x=-1
+1179 hello from 0 x=-1
+1180 hello from 0 x=-1
+1181 hello from 0 x=-1
+1182 hello from 0 x=-1
+1183 hello from 0 x=-1
+1184 hello from 0 x=-1
+1185 hello from 0 x=-1
+1186 hello from 0 x=-1
+1187 hello from 0 x=-1
+1188 hello from 0 x=-1
+1189 hello from 0 x=-1
+1190 hello from 0 x=-1
+1191 hello from 0 x=-1
+1192 hello from 0 x=-1
+1193 hello from 0 x=-1
+1194 hello from 0 x=-1
+1195 hello from 0 x=-1
+1196 hello from 0 x=-1
+1197 hello from 0 x=-1
+1198 hello from 0 x=-1
+1199 hello from 0 x=-1
+1200 hello from 0 x=-1
+1201 hello from 0 x=-1
+1202 hello from 0 x=-1
+1203 hello from 0 x=-1
+1204 hello from 0 x=-1
+1205 hello from 0 x=-1
+1206 hello from 0 x=-1
+1207 hello from 0 x=-1
+1208 hello from 0 x=-1
+1209 hello from 0 x=-1
+1210 hello from 0 x=-1
+1211 hello from 0 x=-1
+1212 hello from 0 x=-1
+1213 hello from 0 x=-1
+1214 hello from 0 x=-1
+1215 hello from 0 x=-1
+1216 hello from 0 x=-1
+1217 hello from 0 x=-1
+1218 hello from 0 x=-1
+1219 hello from 0 x=-1
+1220 hello from 0 x=-1
+1221 hello from 0 x=-1
+1222 hello from 0 x=-1
+1223 hello from 0 x=-1
+1224 hello from 0 x=-1
+1225 hello from 0 x=-1
+1226 hello from 0 x=-1
+1227 hello from 0 x=-1
+1228 hello from 0 x=-1
+1229 hello from 0 x=-1
+1230 hello from 0 x=-1
+1231 hello from 0 x=-1
+1232 hello from 0 x=-1
+1233 hello from 0 x=-1
+1234 hello from 0 x=-1
+1235 hello from 0 x=-1
+1236 hello from 0 x=-1
+1237 hello from 0 x=-1
+1238 hello from 0 x=-1
+1239 hello from 0 x=-1
+1240 hello from 0 x=-1
+1241 hello from 0 x=-1
+1242 hello from 0 x=-1
+1243 hello from 0 x=-1
+1244 hello from 0 x=-1
+1245 hello from 0 x=-1
+1246 hello from 0 x=-1
+1247 hello from 0 x=-1
+1248 hello from 0 x=-1
+1249 hello from 0 x=-1
+1250 hello from 0 x=-1
+1251 hello from 0 x=-1
+1252 hello from 0 x=-1
+1253 hello from 0 x=-1
+1254 hello from 0 x=-1
+1255 hello from 0 x=-1
+1256 hello from 0 x=-1
+1257 hello from 0 x=-1
+1258 hello from 0 x=-1
+1259 hello from 0 x=-1
+1260 hello from 0 x=-1
+1261 hello from 0 x=-1
+1262 hello from 0 x=-1
+1263 hello from 0 x=-1
+1264 hello from 0 x=-1
+1265 hello from 0 x=-1
+1266 hello from 0 x=-1
+1267 hello from 0 x=-1
+1268 hello from 0 x=-1
+1269 hello from 0 x=-1
+1270 hello from 0 x=-1
+1271 hello from 0 x=-1
+1272 hello from 0 x=-1
+1273 hello from 0 x=-1
+1274 hello from 0 x=-1
+1275 hello from 0 x=-1
+1276 hello from 0 x=-1
+1277 hello from 0 x=-1
+1278 hello from 0 x=-1
+1279 hello from 0 x=-1
+1280 hello from 0 x=-1
+1281 hello from 0 x=-1
+1282 hello from 0 x=-1
+1283 hello from 0 x=-1
+1284 hello from 0 x=-1
+1285 hello from 0 x=-1
+1286 hello from 0 x=-1
+1287 hello from 0 x=-1
+1288 hello from 0 x=-1
+1289 hello from 0 x=-1
+1290 hello from 0 x=-1
+1291 hello from 0 x=-1
+1292 hello from 0 x=-1
+1293 hello from 0 x=-1
+1294 hello from 0 x=-1
+1295 hello from 0 x=-1
+1296 hello from 0 x=-1
+1297 hello from 0 x=-1
+1298 hello from 0 x=-1
+1299 hello from 0 x=-1
+1300 hello from 0 x=-1
+1301 hello from 0 x=-1
+1302 hello from 0 x=-1
+1303 hello from 0 x=-1
+1304 hello from 0 x=-1
+1305 hello from 0 x=-1
+1306 hello from 0 x=-1
+1307 hello from 0 x=-1
+1308 hello from 0 x=-1
+1309 hello from 0 x=-1
+1310 hello from 0 x=-1
+1311 hello from 0 x=-1
+1312 hello from 0 x=-1
+1313 hello from 0 x=-1
+1314 hello from 0 x=-1
+1315 hello from 0 x=-1
+1316 hello from 0 x=-1
+1317 hello from 0 x=-1
+1318 hello from 0 x=-1
+1319 hello from 0 x=-1
+1320 hello from 0 x=-1
+1321 hello from 0 x=-1
+1322 hello from 0 x=-1
+1323 hello from 0 x=-1
+1324 hello from 0 x=-1
+1325 hello from 0 x=-1
+1326 hello from 0 x=-1
+1327 hello from 0 x=-1
+1328 hello from 0 x=-1
+1329 hello from 0 x=-1
+1330 hello from 0 x=-1
+1331 hello from 0 x=-1
+1332 hello from 0 x=-1
+1333 hello from 0 x=-1
+1334 hello from 0 x=-1
+1335 hello from 0 x=-1
+1336 hello from 0 x=-1
+1337 hello from 0 x=-1
+1338 hello from 0 x=-1
+1339 hello from 0 x=-1
+1340 hello from 0 x=-1
+1341 hello from 0 x=-1
+1342 hello from 0 x=-1
+1343 hello from 0 x=-1
+1344 hello from 0 x=-1
+1345 hello from 0 x=-1
+1346 hello from 0 x=-1
+1347 hello from 0 x=-1
+1348 hello from 0 x=-1
+1349 hello from 0 x=-1
+1350 hello from 0 x=-1
+1351 hello from 0 x=-1
+1352 hello from 0 x=-1
+1353 hello from 0 x=-1
+1354 hello from 0 x=-1
+1355 hello from 0 x=-1
+1356 hello from 0 x=-1
+1357 hello from 0 x=-1
+1358 hello from 0 x=-1
+1359 hello from 0 x=-1
+1360 hello from 0 x=-1
+1361 hello from 0 x=-1
+1362 hello from 0 x=-1
+1363 hello from 0 x=-1
+1364 hello from 0 x=-1
+1365 hello from 0 x=-1
+1366 hello from 0 x=-1
+1367 hello from 0 x=-1
+1368 hello from 0 x=-1
+1369 hello from 0 x=-1
+1370 hello from 0 x=-1
+1371 hello from 0 x=-1
+1372 hello from 0 x=-1
+1373 hello from 0 x=-1
+1374 hello from 0 x=-1
+1375 hello from 0 x=-1
+1376 hello from 0 x=-1
+1377 hello from 0 x=-1
+1378 hello from 0 x=-1
+1379 hello from 0 x=-1
+1380 hello from 0 x=-1
+1381 hello from 0 x=-1
+1382 hello from 0 x=-1
+1383 hello from 0 x=-1
+1384 hello from 0 x=-1
+1385 hello from 0 x=-1
+1386 hello from 0 x=-1
+1387 hello from 0 x=-1
+1388 hello from 0 x=-1
+1389 hello from 0 x=-1
+1390 hello from 0 x=-1
+1391 hello from 0 x=-1
+1392 hello from 0 x=-1
+1393 hello from 0 x=-1
+1394 hello from 0 x=-1
+1395 hello from 0 x=-1
+1396 hello from 0 x=-1
+1397 hello from 0 x=-1
+1398 hello from 0 x=-1
+1399 hello from 0 x=-1
+1400 hello from 0 x=-1
+1401 hello from 0 x=-1
+1402 hello from 0 x=-1
+1403 hello from 0 x=-1
+1404 hello from 0 x=-1
+1405 hello from 0 x=-1
+1406 hello from 0 x=-1
+1407 hello from 0 x=-1
+1408 hello from 0 x=-1
+1409 hello from 0 x=-1
+1410 hello from 0 x=-1
+1411 hello from 0 x=-1
+1412 hello from 0 x=-1
+1413 hello from 0 x=-1
+1414 hello from 0 x=-1
+1415 hello from 0 x=-1
+1416 hello from 0 x=-1
+1417 hello from 0 x=-1
+1418 hello from 0 x=-1
+1419 hello from 0 x=-1
+1420 hello from 0 x=-1
+1421 hello from 0 x=-1
+1422 hello from 0 x=-1
+1423 hello from 0 x=-1
+1424 hello from 0 x=-1
+1425 hello from 0 x=-1
+1426 hello from 0 x=-1
+1427 hello from 0 x=-1
+1428 hello from 0 x=-1
+1429 hello from 0 x=-1
+1430 hello from 0 x=-1
+1431 hello from 0 x=-1
+1432 hello from 0 x=-1
+1433 hello from 0 x=-1
+1434 hello from 0 x=-1
+1435 hello from 0 x=-1
+1436 hello from 0 x=-1
+1437 hello from 0 x=-1
+1438 hello from 0 x=-1
+1439 hello from 0 x=-1
+1440 hello from 0 x=-1
+1441 hello from 0 x=-1
+1442 hello from 0 x=-1
+1443 hello from 0 x=-1
+1444 hello from 0 x=-1
+1445 hello from 0 x=-1
+1446 hello from 0 x=-1
+1447 hello from 0 x=-1
+1448 hello from 0 x=-1
+1449 hello from 0 x=-1
+1450 hello from 0 x=-1
+1451 hello from 0 x=-1
+1452 hello from 0 x=-1
+1453 hello from 0 x=-1
+1454 hello from 0 x=-1
+1455 hello from 0 x=-1
+1456 hello from 0 x=-1
+1457 hello from 0 x=-1
+1458 hello from 0 x=-1
+1459 hello from 0 x=-1
+1460 hello from 0 x=-1
+1461 hello from 0 x=-1
+1462 hello from 0 x=-1
+1463 hello from 0 x=-1
+1464 hello from 0 x=-1
+1465 hello from 0 x=-1
+1466 hello from 0 x=-1
+1467 hello from 0 x=-1
+1468 hello from 0 x=-1
+1469 hello from 0 x=-1
+1470 hello from 0 x=-1
+1471 hello from 0 x=-1
+1472 hello from 0 x=-1
+1473 hello from 0 x=-1
+1474 hello from 0 x=-1
+1475 hello from 0 x=-1
+1476 hello from 0 x=-1
+1477 hello from 0 x=-1
+1478 hello from 0 x=-1
+1479 hello from 0 x=-1
+1480 hello from 0 x=-1
+1481 hello from 0 x=-1
+1482 hello from 0 x=-1
+1483 hello from 0 x=-1
+1484 hello from 0 x=-1
+1485 hello from 0 x=-1
+1486 hello from 0 x=-1
+1487 hello from 0 x=-1
+1488 hello from 0 x=-1
+1489 hello from 0 x=-1
+1490 hello from 0 x=-1
+1491 hello from 0 x=-1
+1492 hello from 0 x=-1
+1493 hello from 0 x=-1
+1494 hello from 0 x=-1
+1495 hello from 0 x=-1
+1496 hello from 0 x=-1
+1497 hello from 0 x=-1
+1498 hello from 0 x=-1
+1499 hello from 0 x=-1
+1500 hello from 0 x=-1
+1501 hello from 0 x=-1
+1502 hello from 0 x=-1
+1503 hello from 0 x=-1
+1504 hello from 0 x=-1
+1505 hello from 0 x=-1
+1506 hello from 0 x=-1
+1507 hello from 0 x=-1
+1508 hello from 0 x=-1
+1509 hello from 0 x=-1
+1510 hello from 0 x=-1
+1511 hello from 0 x=-1
+1512 hello from 0 x=-1
+1513 hello from 0 x=-1
+1514 hello from 0 x=-1
+1515 hello from 0 x=-1
+1516 hello from 0 x=-1
+1517 hello from 0 x=-1
+1518 hello from 0 x=-1
+1519 hello from 0 x=-1
+1520 hello from 0 x=-1
+1521 hello from 0 x=-1
+1522 hello from 0 x=-1
+1523 hello from 0 x=-1
+1524 hello from 0 x=-1
+1525 hello from 0 x=-1
+1526 hello from 0 x=-1
+1527 hello from 0 x=-1
+1528 hello from 0 x=-1
+1529 hello from 0 x=-1
+1530 hello from 0 x=-1
+1531 hello from 0 x=-1
+1532 hello from 0 x=-1
+1533 hello from 0 x=-1
+1534 hello from 0 x=-1
+1535 hello from 0 x=-1
+1536 hello from 0 x=-1
+1537 hello from 0 x=-1
+1538 hello from 0 x=-1
+1539 hello from 0 x=-1
+1540 hello from 0 x=-1
+1541 hello from 0 x=-1
+1542 hello from 0 x=-1
+1543 hello from 0 x=-1
+1544 hello from 0 x=-1
+1545 hello from 0 x=-1
+1546 hello from 0 x=-1
+1547 hello from 0 x=-1
+1548 hello from 0 x=-1
+1549 hello from 0 x=-1
+1550 hello from 0 x=-1
+1551 hello from 0 x=-1
+1552 hello from 0 x=-1
+1553 hello from 0 x=-1
+1554 hello from 0 x=-1
+1555 hello from 0 x=-1
+1556 hello from 0 x=-1
+1557 hello from 0 x=-1
+1558 hello from 0 x=-1
+1559 hello from 0 x=-1
+1560 hello from 0 x=-1
+1561 hello from 0 x=-1
+1562 hello from 0 x=-1
+1563 hello from 0 x=-1
+1564 hello from 0 x=-1
+1565 hello from 0 x=-1
+1566 hello from 0 x=-1
+1567 hello from 0 x=-1
+1568 hello from 0 x=-1
+1569 hello from 0 x=-1
+1570 hello from 0 x=-1
+1571 hello from 0 x=-1
+1572 hello from 0 x=-1
+1573 hello from 0 x=-1
+1574 hello from 0 x=-1
+1575 hello from 0 x=-1
+1576 hello from 0 x=-1
+1577 hello from 0 x=-1
+1578 hello from 0 x=-1
+1579 hello from 0 x=-1
+1580 hello from 0 x=-1
+1581 hello from 0 x=-1
+1582 hello from 0 x=-1
+1583 hello from 0 x=-1
+1584 hello from 0 x=-1
+1585 hello from 0 x=-1
+1586 hello from 0 x=-1
+1587 hello from 0 x=-1
+1588 hello from 0 x=-1
+1589 hello from 0 x=-1
+1590 hello from 0 x=-1
+1591 hello from 0 x=-1
+1592 hello from 0 x=-1
+1593 hello from 0 x=-1
+1594 hello from 0 x=-1
+1595 hello from 0 x=-1
+1596 hello from 0 x=-1
+1597 hello from 0 x=-1
+1598 hello from 0 x=-1
+1599 hello from 0 x=-1
+1600 hello from 0 x=-1
+1601 hello from 0 x=-1
+1602 hello from 0 x=-1
+1603 hello from 0 x=-1
+1604 hello from 0 x=-1
+1605 hello from 0 x=-1
+1606 hello from 0 x=-1
+1607 hello from 0 x=-1
+1608 hello from 0 x=-1
+1609 hello from 0 x=-1
+1610 hello from 0 x=-1
+1611 hello from 0 x=-1
+1612 hello from 0 x=-1
+1613 hello from 0 x=-1
+1614 hello from 0 x=-1
+1615 hello from 0 x=-1
+1616 hello from 0 x=-1
+1617 hello from 0 x=-1
+1618 hello from 0 x=-1
+1619 hello from 0 x=-1
+1620 hello from 0 x=-1
+1621 hello from 0 x=-1
+1622 hello from 0 x=-1
+1623 hello from 0 x=-1
+1624 hello from 0 x=-1
+1625 hello from 0 x=-1
+1626 hello from 0 x=-1
+1627 hello from 0 x=-1
+1628 hello from 0 x=-1
+1629 hello from 0 x=-1
+1630 hello from 0 x=-1
+1631 hello from 0 x=-1
+1632 hello from 0 x=-1
+1633 hello from 0 x=-1
+1634 hello from 0 x=-1
+1635 hello from 0 x=-1
+1636 hello from 0 x=-1
+1637 hello from 0 x=-1
+1638 hello from 0 x=-1
+1639 hello from 0 x=-1
+1640 hello from 0 x=-1
+1641 hello from 0 x=-1
+1642 hello from 0 x=-1
+1643 hello from 0 x=-1
+1644 hello from 0 x=-1
+1645 hello from 0 x=-1
+1646 hello from 0 x=-1
+1647 hello from 0 x=-1
+1648 hello from 0 x=-1
+1649 hello from 0 x=-1
+1650 hello from 0 x=-1
+1651 hello from 0 x=-1
+1652 hello from 0 x=-1
+1653 hello from 0 x=-1
+1654 hello from 0 x=-1
+1655 hello from 0 x=-1
+1656 hello from 0 x=-1
+1657 hello from 0 x=-1
+1658 hello from 0 x=-1
+1659 hello from 0 x=-1
+1660 hello from 0 x=-1
+1661 hello from 0 x=-1
+1662 hello from 0 x=-1
+1663 hello from 0 x=-1
+1664 hello from 0 x=-1
+1665 hello from 0 x=-1
+1666 hello from 0 x=-1
+1667 hello from 0 x=-1
+1668 hello from 0 x=-1
+1669 hello from 0 x=-1
+1670 hello from 0 x=-1
+1671 hello from 0 x=-1
+1672 hello from 0 x=-1
+1673 hello from 0 x=-1
+1674 hello from 0 x=-1
+1675 hello from 0 x=-1
+1676 hello from 0 x=-1
+1677 hello from 0 x=-1
+1678 hello from 0 x=-1
+1679 hello from 0 x=-1
+1680 hello from 0 x=-1
+1681 hello from 0 x=-1
+1682 hello from 0 x=-1
+1683 hello from 0 x=-1
+1684 hello from 0 x=-1
+1685 hello from 0 x=-1
+1686 hello from 0 x=-1
+1687 hello from 0 x=-1
+1688 hello from 0 x=-1
+1689 hello from 0 x=-1
+1690 hello from 0 x=-1
+1691 hello from 0 x=-1
+1692 hello from 0 x=-1
+1693 hello from 0 x=-1
+1694 hello from 0 x=-1
+1695 hello from 0 x=-1
+1696 hello from 0 x=-1
+1697 hello from 0 x=-1
+1698 hello from 0 x=-1
+1699 hello from 0 x=-1
+1700 hello from 0 x=-1
+1701 hello from 0 x=-1
+1702 hello from 0 x=-1
+1703 hello from 0 x=-1
+1704 hello from 0 x=-1
+1705 hello from 0 x=-1
+1706 hello from 0 x=-1
+1707 hello from 0 x=-1
+1708 hello from 0 x=-1
+1709 hello from 0 x=-1
+1710 hello from 0 x=-1
+1711 hello from 0 x=-1
+1712 hello from 0 x=-1
+1713 hello from 0 x=-1
+1714 hello from 0 x=-1
+1715 hello from 0 x=-1
+1716 hello from 0 x=-1
+1717 hello from 0 x=-1
+1718 hello from 0 x=-1
+1719 hello from 0 x=-1
+1720 hello from 0 x=-1
+1721 hello from 0 x=-1
+1722 hello from 0 x=-1
+1723 hello from 0 x=-1
+1724 hello from 0 x=-1
+1725 hello from 0 x=-1
+1726 hello from 0 x=-1
+1727 hello from 0 x=-1
+1728 hello from 0 x=-1
+1729 hello from 0 x=-1
+1730 hello from 0 x=-1
+1731 hello from 0 x=-1
+1732 hello from 0 x=-1
+1733 hello from 0 x=-1
+1734 hello from 0 x=-1
+1735 hello from 0 x=-1
+1736 hello from 0 x=-1
+1737 hello from 0 x=-1
+1738 hello from 0 x=-1
+1739 hello from 0 x=-1
+1740 hello from 0 x=-1
+1741 hello from 0 x=-1
+1742 hello from 0 x=-1
+1743 hello from 0 x=-1
+1744 hello from 0 x=-1
+1745 hello from 0 x=-1
+1746 hello from 0 x=-1
+1747 hello from 0 x=-1
+1748 hello from 0 x=-1
+1749 hello from 0 x=-1
+1750 hello from 0 x=-1
+1751 hello from 0 x=-1
+1752 hello from 0 x=-1
+1753 hello from 0 x=-1
+1754 hello from 0 x=-1
+1755 hello from 0 x=-1
+1756 hello from 0 x=-1
+1757 hello from 0 x=-1
+1758 hello from 0 x=-1
+1759 hello from 0 x=-1
+1760 hello from 0 x=-1
+1761 hello from 0 x=-1
+1762 hello from 0 x=-1
+1763 hello from 0 x=-1
+1764 hello from 0 x=-1
+1765 hello from 0 x=-1
+1766 hello from 0 x=-1
+1767 hello from 0 x=-1
+1768 hello from 0 x=-1
+1769 hello from 0 x=-1
+1770 hello from 0 x=-1
+1771 hello from 0 x=-1
+1772 hello from 0 x=-1
+1773 hello from 0 x=-1
+1774 hello from 0 x=-1
+1775 hello from 0 x=-1
+1776 hello from 0 x=-1
+1777 hello from 0 x=-1
+1778 hello from 0 x=-1
+1779 hello from 0 x=-1
+1780 hello from 0 x=-1
+1781 hello from 0 x=-1
+1782 hello from 0 x=-1
+1783 hello from 0 x=-1
+1784 hello from 0 x=-1
+1785 hello from 0 x=-1
+1786 hello from 0 x=-1
+1787 hello from 0 x=-1
+1788 hello from 0 x=-1
+1789 hello from 0 x=-1
+1790 hello from 0 x=-1
+1791 hello from 0 x=-1
+1792 hello from 0 x=-1
+1793 hello from 0 x=-1
+1794 hello from 0 x=-1
+1795 hello from 0 x=-1
+1796 hello from 0 x=-1
+1797 hello from 0 x=-1
+1798 hello from 0 x=-1
+1799 hello from 0 x=-1
+1800 hello from 0 x=-1
+1801 hello from 0 x=-1
+1802 hello from 0 x=-1
+1803 hello from 0 x=-1
+1804 hello from 0 x=-1
+1805 hello from 0 x=-1
+1806 hello from 0 x=-1
+1807 hello from 0 x=-1
+1808 hello from 0 x=-1
+1809 hello from 0 x=-1
+1810 hello from 0 x=-1
+1811 hello from 0 x=-1
+1812 hello from 0 x=-1
+1813 hello from 0 x=-1
+1814 hello from 0 x=-1
+1815 hello from 0 x=-1
+1816 hello from 0 x=-1
+1817 hello from 0 x=-1
+1818 hello from 0 x=-1
+1819 hello from 0 x=-1
+1820 hello from 0 x=-1
+1821 hello from 0 x=-1
+1822 hello from 0 x=-1
+1823 hello from 0 x=-1
+1824 hello from 0 x=-1
+1825 hello from 0 x=-1
+1826 hello from 0 x=-1
+1827 hello from 0 x=-1
+1828 hello from 0 x=-1
+1829 hello from 0 x=-1
+1830 hello from 0 x=-1
+1831 hello from 0 x=-1
+1832 hello from 0 x=-1
+1833 hello from 0 x=-1
+1834 hello from 0 x=-1
+1835 hello from 0 x=-1
+1836 hello from 0 x=-1
+1837 hello from 0 x=-1
+1838 hello from 0 x=-1
+1839 hello from 0 x=-1
+1840 hello from 0 x=-1
+1841 hello from 0 x=-1
+1842 hello from 0 x=-1
+1843 hello from 0 x=-1
+1844 hello from 0 x=-1
+1845 hello from 0 x=-1
+1846 hello from 0 x=-1
+1847 hello from 0 x=-1
+1848 hello from 0 x=-1
+1849 hello from 0 x=-1
+1850 hello from 0 x=-1
+1851 hello from 0 x=-1
+1852 hello from 0 x=-1
+1853 hello from 0 x=-1
+1854 hello from 0 x=-1
+1855 hello from 0 x=-1
+1856 hello from 0 x=-1
+1857 hello from 0 x=-1
+1858 hello from 0 x=-1
+1859 hello from 0 x=-1
+1860 hello from 0 x=-1
+1861 hello from 0 x=-1
+1862 hello from 0 x=-1
+1863 hello from 0 x=-1
+1864 hello from 0 x=-1
+1865 hello from 0 x=-1
+1866 hello from 0 x=-1
+1867 hello from 0 x=-1
+1868 hello from 0 x=-1
+1869 hello from 0 x=-1
+1870 hello from 0 x=-1
+1871 hello from 0 x=-1
+1872 hello from 0 x=-1
+1873 hello from 0 x=-1
+1874 hello from 0 x=-1
+1875 hello from 0 x=-1
+1876 hello from 0 x=-1
+1877 hello from 0 x=-1
+1878 hello from 0 x=-1
+1879 hello from 0 x=-1
+1880 hello from 0 x=-1
+1881 hello from 0 x=-1
+1882 hello from 0 x=-1
+1883 hello from 0 x=-1
+1884 hello from 0 x=-1
+1885 hello from 0 x=-1
+1886 hello from 0 x=-1
+1887 hello from 0 x=-1
+1888 hello from 0 x=-1
+1889 hello from 0 x=-1
+1890 hello from 0 x=-1
+1891 hello from 0 x=-1
+1892 hello from 0 x=-1
+1893 hello from 0 x=-1
+1894 hello from 0 x=-1
+1895 hello from 0 x=-1
+1896 hello from 0 x=-1
+1897 hello from 0 x=-1
+1898 hello from 0 x=-1
+1899 hello from 0 x=-1
+1900 hello from 0 x=-1
+1901 hello from 0 x=-1
+1902 hello from 0 x=-1
+1903 hello from 0 x=-1
+1904 hello from 0 x=-1
+1905 hello from 0 x=-1
+1906 hello from 0 x=-1
+1907 hello from 0 x=-1
+1908 hello from 0 x=-1
+1909 hello from 0 x=-1
+1910 hello from 0 x=-1
+1911 hello from 0 x=-1
+1912 hello from 0 x=-1
+1913 hello from 0 x=-1
+1914 hello from 0 x=-1
+1915 hello from 0 x=-1
+1916 hello from 0 x=-1
+1917 hello from 0 x=-1
+1918 hello from 0 x=-1
+1919 hello from 0 x=-1
+1920 hello from 0 x=-1
+1921 hello from 0 x=-1
+1922 hello from 0 x=-1
+1923 hello from 0 x=-1
+1924 hello from 0 x=-1
+1925 hello from 0 x=-1
+1926 hello from 0 x=-1
+1927 hello from 0 x=-1
+1928 hello from 0 x=-1
+1929 hello from 0 x=-1
+1930 hello from 0 x=-1
+1931 hello from 0 x=-1
+1932 hello from 0 x=-1
+1933 hello from 0 x=-1
+1934 hello from 0 x=-1
+1935 hello from 0 x=-1
+1936 hello from 0 x=-1
+1937 hello from 0 x=-1
+1938 hello from 0 x=-1
+1939 hello from 0 x=-1
+1940 hello from 0 x=-1
+1941 hello from 0 x=-1
+1942 hello from 0 x=-1
+1943 hello from 0 x=-1
+1944 hello from 0 x=-1
+1945 hello from 0 x=-1
+1946 hello from 0 x=-1
+1947 hello from 0 x=-1
+1948 hello from 0 x=-1
+1949 hello from 0 x=-1
+1950 hello from 0 x=-1
+1951 hello from 0 x=-1
+1952 hello from 0 x=-1
+1953 hello from 0 x=-1
+1954 hello from 0 x=-1
+1955 hello from 0 x=-1
+1956 hello from 0 x=-1
+1957 hello from 0 x=-1
+1958 hello from 0 x=-1
+1959 hello from 0 x=-1
+1960 hello from 0 x=-1
+1961 hello from 0 x=-1
+1962 hello from 0 x=-1
+1963 hello from 0 x=-1
+1964 hello from 0 x=-1
+1965 hello from 0 x=-1
+1966 hello from 0 x=-1
+1967 hello from 0 x=-1
+1968 hello from 0 x=-1
+1969 hello from 0 x=-1
+1970 hello from 0 x=-1
+1971 hello from 0 x=-1
+1972 hello from 0 x=-1
+1973 hello from 0 x=-1
+1974 hello from 0 x=-1
+1975 hello from 0 x=-1
+1976 hello from 0 x=-1
+1977 hello from 0 x=-1
+1978 hello from 0 x=-1
+1979 hello from 0 x=-1
+1980 hello from 0 x=-1
+1981 hello from 0 x=-1
+1982 hello from 0 x=-1
+1983 hello from 0 x=-1
+1984 hello from 0 x=-1
+1985 hello from 0 x=-1
+1986 hello from 0 x=-1
+1987 hello from 0 x=-1
+1988 hello from 0 x=-1
+1989 hello from 0 x=-1
+1990 hello from 0 x=-1
+1991 hello from 0 x=-1
+1992 hello from 0 x=-1
+1993 hello from 0 x=-1
+1994 hello from 0 x=-1
+1995 hello from 0 x=-1
+1996 hello from 0 x=-1
+1997 hello from 0 x=-1
+1998 hello from 0 x=-1
+1999 hello from 0 x=-1
+Pre_Tracking took 345.927 ms in dhcp-128-82-176-144 (Rank = 0)
+
+gpu_alloc took 1489.91 ms in dhcp-128-82-176-144 (Rank = 0)
+
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 507.662 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:507
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 506.794 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:506
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 505.639 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:505
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 505.789 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:505
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 505.154 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:505
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 506.318 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:506
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 506.083 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:506
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 505.6 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:505
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 506.274 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:506
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 506.234 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:506
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 505.939 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:506
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 505.908 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:505
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 505.582 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:505
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 506.404 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:506
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 505.967 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:506
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 506.895 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:506
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 506.787 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:506
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 507.035 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:507
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 505.832 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:505
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 507.076 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:507
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 506.376 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:506
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 507.066 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:507
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 506.298 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:506
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 507.923 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:507
+POST_COLLIDE:30
+===================================
+ind_col took 0.016096 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:0
+POST_COLLIDE:0
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 507.291 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:507
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 506.067 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:506
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 507.695 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:507
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 506.458 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:506
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 507.195 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:507
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 507.657 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:507
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 507.181 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:507
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 507.206 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:507
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 506.487 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:506
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 506.366 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:506
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 508.951 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:509
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 507.685 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:507
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 507.955 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:508
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 507.749 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:507
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 508.845 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:508
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 508.429 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:508
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 508.631 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:508
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 508.542 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:508
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 507.973 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:508
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 508.844 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:508
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 509.883 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:509
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 508.704 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:508
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 508.379 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:508
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 508.824 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:508
+POST_COLLIDE:30
+===================================
+ind_col took 0.015808 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:0
+POST_COLLIDE:0
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 509.993 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:510
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 508.872 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:508
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 508.468 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:508
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 509.182 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:509
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 509.364 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:509
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 508.8 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:508
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 508.261 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:508
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 509.277 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:509
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 510.016 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:510
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 508.931 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:509
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 507.811 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:507
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 509.006 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:509
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 508.215 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:508
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 508.617 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:508
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 508.587 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:508
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 510.432 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:510
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 508.141 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:508
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 508.673 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:508
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 508.78 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:508
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 510.407 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:510
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 508.124 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:508
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 508.431 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:508
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 508.057 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:508
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 510.065 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:510
+POST_COLLIDE:30
+===================================
+ind_col took 0.017056 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:0
+POST_COLLIDE:0
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 509.047 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:509
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 508.41 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:508
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 509.504 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:509
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 509.299 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:509
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 508.59 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:508
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 507.437 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:507
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 510.126 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:510
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 509.448 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:509
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 508.314 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:508
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 508.109 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:508
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 507.629 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:507
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 507.491 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:507
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 506.867 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:506
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 507.167 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:507
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 506.854 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:506
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 507.455 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:507
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 506.794 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:506
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 506.469 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:506
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 507.723 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:507
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 507.1 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:507
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 507.202 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:507
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 506.982 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:507
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 508.08 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:508
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 506.085 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:506
+POST_COLLIDE:30
+===================================
+ind_col took 0.016 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:0
+POST_COLLIDE:0
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 507.661 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:507
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 507.249 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:507
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 507.935 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:508
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 508.648 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:508
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 506.571 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:506
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 507.571 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:507
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 507.259 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:507
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 508.167 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:508
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 507.062 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:507
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 507.572 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:507
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 507.034 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:507
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 507.29 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:507
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 507.422 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:507
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 507.842 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:507
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 509.069 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:509
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 509.246 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:509
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 508.738 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:508
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 509.268 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:509
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 509.141 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:509
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 508.735 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:508
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 509.632 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:509
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 509.525 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:509
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 508.385 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:508
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 509.14 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:509
+POST_COLLIDE:30
+===================================
+ind_col took 0.015328 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:0
+POST_COLLIDE:0
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 508.333 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:508
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 509.222 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:509
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 508.481 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:508
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 508.567 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:508
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 507.843 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:507
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 509.354 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:509
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 508.089 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:508
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 508.209 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:508
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 508.482 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:508
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 509.521 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:509
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 508.083 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:508
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 508.657 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:508
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 508.282 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:508
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 508.942 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:509
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 509.047 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:509
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 508.102 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:508
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 509.396 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:509
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 508.211 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:508
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 508.453 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:508
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 507.891 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:507
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 510.002 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:510
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 508.641 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:508
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 508.535 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:508
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 508.37 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:508
+POST_COLLIDE:30
+===================================
+ind_col took 0.015808 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:0
+POST_COLLIDE:0
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 510.773 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:510
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 509.722 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:509
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 509.017 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:509
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 510.099 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:510
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 510.058 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:510
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 510.225 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:510
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 508.546 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:508
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 509.292 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:509
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 509.752 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:509
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 509.947 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:510
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 508.458 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:508
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 509.903 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:509
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 508.603 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:508
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 507.762 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:507
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 509.397 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:509
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 510.35 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:510
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 509.904 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:509
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 508.842 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:508
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 509.998 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:510
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 510.839 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:510
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 509.415 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:509
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 509.22 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:509
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 509.526 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:509
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 511.547 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:511
+POST_COLLIDE:30
+===================================
+ind_col took 0.01584 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:0
+POST_COLLIDE:0
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 507.858 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:507
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 508.1 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:508
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 508.34 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:508
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 509.276 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:509
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 507.623 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:507
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 508.768 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:508
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 509.04 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:509
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 509.106 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:509
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 508.003 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:508
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 509.136 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:509
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 510.252 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:510
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 507.535 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:507
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 508.055 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:508
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 508.347 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:508
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 508.481 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:508
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 508.238 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:508
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 509.333 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:509
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 509.621 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:509
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 509.392 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:509
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 507.997 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:508
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+ind_col took 509.105 ms in dhcp-128-82-176-144 (Rank = 0)
+
+GPU_COLLIDE:509
+POST_COLLIDE:30
+===================================
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954
+blocks:1954

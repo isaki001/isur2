@@ -1,0 +1,633 @@
+t error:10
+t error:10
+t error:10
+t error:10
+Before QuadDebug Rank:0
+QuadDebug:0
+node id0 bufdhcp-128-82-176-144 nodemap[buf]0
+Before QuadDebug Rank:1
+QuadDebug:0
+node id1 bufdhcp-128-82-176-144 nodemap[buf]1
+Before QuadDebug Rank:2
+QuadDebug:0
+node id2 bufdhcp-128-82-176-144 nodemap[buf]2
+Before QuadDebug Rank:3
+QuadDebug:0
+node id3 bufdhcp-128-82-176-144 nodemap[buf]3
+Num Devices: 4
+Device MPI RANK:2 GPU Rank:2, name:Tesla K40c
+Max Block Size:1559201664
+Num Devices: 4
+Device MPI RANK:3 GPU Rank:3, name:Tesla K40c
+Max Block Size:-74781840
+Num Devices: 4
+Device MPI RANK:1 GPU Rank:1, name:Tesla K40c
+Max Block Size:-1676364704
+Num Devices: 4
+Device MPI RANK:0 GPU Rank:0, name:Tesla K40c
+Max Block Size:1711680320
+Pre_Tracking took 10.6404 ms in dhcp-128-82-176-144 (Rank = 1)
+
+Pre_Tracking took 10.3468 ms in dhcp-128-82-176-144 (Rank = 3)
+
+Pre_Tracking took 16.0386 ms in dhcp-128-82-176-144 (Rank = 2)
+
+Pre_Tracking took 956.204 ms in dhcp-128-82-176-144 (Rank = 0)
+
+gpu_alloc took 248.47 ms in dhcp-128-82-176-144 (Rank = 1)
+
+gpu_alloc took 248.46 ms in dhcp-128-82-176-144 (Rank = 3)
+
+gpu_alloc took 248.486 ms in dhcp-128-82-176-144 (Rank = 2)
+
+gpu_alloc took 243.685 ms in dhcp-128-82-176-144 (Rank = 0)
+
+ind_col took 72.0723 ms in dhcp-128-82-176-144 (Rank = 3)
+
+ind_col took 74.1419 ms in dhcp-128-82-176-144 (Rank = 1)
+
+ind_col took 82.7711 ms in dhcp-128-82-176-144 (Rank = 2)
+
+ind_col took 46684.8 ms in dhcp-128-82-176-144 (Rank = 0)
+
+xbar RMS:0.000000
+xbar RMS:0.000000
+xbar RMS:0.000000
+xbar RMS:0.000000
+xbar RMS:0.000000
+xbar RMS:0.000000
+xbar RMS:-0.000000
+xbar RMS:0.000000
+GPU_COLLIDE:46684
+POST_COLLIDE:24
+POST_COLLIDE 2:24
+===================================
+ind_col took 68.185 ms in dhcp-128-82-176-144 (Rank = 3)
+
+ind_col took 70.0689 ms in dhcp-128-82-176-144 (Rank = 1)
+
+ind_col took 76.7633 ms in dhcp-128-82-176-144 (Rank = 2)
+
+ind_col took 52726.2 ms in dhcp-128-82-176-144 (Rank = 0)
+
+xbar RMS:0.000000
+xbar RMS:-0.000000
+xbar RMS:-0.000000
+xbar RMS:-0.000000
+xbar RMS:0.000000
+xbar RMS:0.000000
+xbar RMS:0.000000
+xbar RMS:0.000000
+GPU_COLLIDE:52726
+POST_COLLIDE:17281
+POST_COLLIDE 2:17281
+===================================
+ind_col took 0.042784 ms in dhcp-128-82-176-144 (Rank = 3)
+
+ind_col took 0.054144 ms in dhcp-128-82-176-144 (Rank = 2)
+
+ind_col took 11715.4 ms in dhcp-128-82-176-144 (Rank = 1)
+
+ind_col took 21182.4 ms in dhcp-128-82-176-144 (Rank = 0)
+
+xbar RMS:-0.000000
+xbar RMS:0.000000
+GPU_COLLIDE:21497
+POST_COLLIDE:9157
+POST_COLLIDE 2:9157
+===================================
+Lum Turn:1
+Lum Turn:1
+Lum Turn:1
+Lum Turn:1
+ind_col took 39.9969 ms in dhcp-128-82-176-144 (Rank = 3)
+
+ind_col took 41.3232 ms in dhcp-128-82-176-144 (Rank = 2)
+
+ind_col took 65.1625 ms in dhcp-128-82-176-144 (Rank = 1)
+
+ind_col took 33875.5 ms in dhcp-128-82-176-144 (Rank = 0)
+
+xbar RMS:0.000000
+xbar RMS:-0.000000
+xbar RMS:-0.000000
+xbar RMS:0.000000
+xbar RMS:-0.000000
+xbar RMS:0.000000
+GPU_COLLIDE:34186
+POST_COLLIDE:18764
+POST_COLLIDE 2:18764
+===================================
+ind_col took 41.3107 ms in dhcp-128-82-176-144 (Rank = 1)
+
+ind_col took 42.5245 ms in dhcp-128-82-176-144 (Rank = 2)
+
+ind_col took 63.7251 ms in dhcp-128-82-176-144 (Rank = 3)
+
+ind_col took 35359.5 ms in dhcp-128-82-176-144 (Rank = 0)
+
+xbar RMS:-0.000000
+xbar RMS:0.000000
+xbar RMS:0.000000
+xbar RMS:-0.000000
+xbar RMS:0.000000
+xbar RMS:0.000000
+GPU_COLLIDE:35359
+POST_COLLIDE:19892
+POST_COLLIDE 2:19892
+===================================
+ind_col took 0.044448 ms in dhcp-128-82-176-144 (Rank = 3)
+
+ind_col took 65.236 ms in dhcp-128-82-176-144 (Rank = 1)
+
+ind_col took 72.2798 ms in dhcp-128-82-176-144 (Rank = 2)
+
+ind_col took 40733.4 ms in dhcp-128-82-176-144 (Rank = 0)
+
+xbar RMS:0.000000
+xbar RMS:-0.000000
+xbar RMS:0.000000
+xbar RMS:0.000000
+xbar RMS:0.000000
+xbar RMS:0.000000
+GPU_COLLIDE:40733
+POST_COLLIDE:17100
+POST_COLLIDE 2:17100
+===================================
+Lum Turn:2
+Lum Turn:2
+Lum Turn:2
+Lum Turn:2
+ind_col took 18649.2 ms in dhcp-128-82-176-144 (Rank = 1)
+
+ind_col took 18649.5 ms in dhcp-128-82-176-144 (Rank = 3)
+
+ind_col took 18653.2 ms in dhcp-128-82-176-144 (Rank = 2)
+
+ind_col took 21910.6 ms in dhcp-128-82-176-144 (Rank = 0)
+
+xbar RMS:-0.000000
+xbar RMS:-0.000000
+xbar RMS:-0.000000
+xbar RMS:0.000000
+xbar RMS:-0.000000
+xbar RMS:0.000000
+xbar RMS:-0.000000
+xbar RMS:-0.000000
+GPU_COLLIDE:22001
+POST_COLLIDE:5821
+POST_COLLIDE 2:5821
+===================================
+ind_col took 44.7046 ms in dhcp-128-82-176-144 (Rank = 3)
+
+ind_col took 45.7984 ms in dhcp-128-82-176-144 (Rank = 2)
+
+ind_col took 67.3626 ms in dhcp-128-82-176-144 (Rank = 1)
+
+ind_col took 13086.7 ms in dhcp-128-82-176-144 (Rank = 0)
+
+xbar RMS:0.000000
+xbar RMS:-0.000000
+xbar RMS:-0.000000
+xbar RMS:-0.000000
+xbar RMS:0.000000
+xbar RMS:-0.000000
+GPU_COLLIDE:13086
+POST_COLLIDE:3098
+POST_COLLIDE 2:3098
+===================================
+ind_col took 0.038752 ms in dhcp-128-82-176-144 (Rank = 3)
+
+ind_col took 40.2964 ms in dhcp-128-82-176-144 (Rank = 1)
+
+ind_col took 41.5576 ms in dhcp-128-82-176-144 (Rank = 2)
+
+ind_col took 16567.6 ms in dhcp-128-82-176-144 (Rank = 0)
+
+xbar RMS:-0.000000
+xbar RMS:-0.000000
+xbar RMS:0.000000
+xbar RMS:0.000000
+GPU_COLLIDE:16567
+POST_COLLIDE:4800
+POST_COLLIDE 2:4799
+===================================
+Lum Turn:3
+Lum Turn:3
+Lum Turn:3
+Lum Turn:3
+ind_col took 15620.9 ms in dhcp-128-82-176-144 (Rank = 2)
+
+ind_col took 16594.6 ms in dhcp-128-82-176-144 (Rank = 3)
+
+ind_col took 16599.8 ms in dhcp-128-82-176-144 (Rank = 1)
+
+ind_col took 19601.7 ms in dhcp-128-82-176-144 (Rank = 0)
+
+xbar RMS:-0.000000
+xbar RMS:-0.000000
+xbar RMS:0.000000
+xbar RMS:-0.000000
+xbar RMS:0.000000
+xbar RMS:-0.000000
+GPU_COLLIDE:19601
+POST_COLLIDE:4832
+POST_COLLIDE 2:4832
+===================================
+ind_col took 0.047968 ms in dhcp-128-82-176-144 (Rank = 2)
+
+ind_col took 16871.5 ms in dhcp-128-82-176-144 (Rank = 3)
+
+ind_col took 16871.6 ms in dhcp-128-82-176-144 (Rank = 1)
+
+ind_col took 19904.9 ms in dhcp-128-82-176-144 (Rank = 0)
+
+xbar RMS:0.000000
+xbar RMS:-0.000000
+xbar RMS:-0.000000
+xbar RMS:-0.000000
+xbar RMS:0.000000
+xbar RMS:-0.000000
+GPU_COLLIDE:19904
+POST_COLLIDE:4871
+POST_COLLIDE 2:4871
+===================================
+ind_col took 65.7237 ms in dhcp-128-82-176-144 (Rank = 3)
+
+ind_col took 65.9025 ms in dhcp-128-82-176-144 (Rank = 1)
+
+ind_col took 74.3884 ms in dhcp-128-82-176-144 (Rank = 2)
+
+ind_col took 20020.3 ms in dhcp-128-82-176-144 (Rank = 0)
+
+xbar RMS:-0.000000
+xbar RMS:-0.000000
+xbar RMS:0.000000
+xbar RMS:0.000000
+xbar RMS:-0.000000
+xbar RMS:-0.000000
+Lum Turn:4
+Lum Turn:4
+GPU_COLLIDE:20020
+POST_COLLIDE:4910
+POST_COLLIDE 2:4910
+===================================
+Lum Turn:4
+Lum Turn:4
+ind_col took 16054.3 ms in dhcp-128-82-176-144 (Rank = 3)
+
+ind_col took 17061.9 ms in dhcp-128-82-176-144 (Rank = 2)
+
+ind_col took 17066 ms in dhcp-128-82-176-144 (Rank = 1)
+
+ind_col took 20158.1 ms in dhcp-128-82-176-144 (Rank = 0)
+
+xbar RMS:0.000000
+xbar RMS:0.000000
+xbar RMS:0.000000
+xbar RMS:0.000000
+xbar RMS:-0.000000
+xbar RMS:-0.000000
+GPU_COLLIDE:20158
+POST_COLLIDE:4962
+POST_COLLIDE 2:4962
+===================================
+ind_col took 16290.4 ms in dhcp-128-82-176-144 (Rank = 1)
+
+ind_col took 17302.8 ms in dhcp-128-82-176-144 (Rank = 2)
+
+ind_col took 17306.6 ms in dhcp-128-82-176-144 (Rank = 3)
+
+ind_col took 20440.6 ms in dhcp-128-82-176-144 (Rank = 0)
+
+xbar RMS:0.000000
+xbar RMS:-0.000000
+xbar RMS:-0.000000
+xbar RMS:0.000000
+xbar RMS:0.000000
+xbar RMS:0.000000
+GPU_COLLIDE:20440
+POST_COLLIDE:4989
+POST_COLLIDE 2:4989
+===================================
+ind_col took 16509 ms in dhcp-128-82-176-144 (Rank = 2)
+
+ind_col took 17529.9 ms in dhcp-128-82-176-144 (Rank = 3)
+
+ind_col took 17535.2 ms in dhcp-128-82-176-144 (Rank = 1)
+
+ind_col took 20705.6 ms in dhcp-128-82-176-144 (Rank = 0)
+
+xbar RMS:0.000000
+xbar RMS:-0.000000
+xbar RMS:0.000000
+xbar RMS:-0.000000
+xbar RMS:-0.000000
+xbar RMS:-0.000000
+GPU_COLLIDE:20705
+POST_COLLIDE:5036
+POST_COLLIDE 2:5036
+===================================
+Lum Turn:5
+Lum Turn:5
+Lum Turn:5
+Lum Turn:5
+ind_col took 68.2306 ms in dhcp-128-82-176-144 (Rank = 3)
+
+ind_col took 68.3435 ms in dhcp-128-82-176-144 (Rank = 1)
+
+ind_col took 17587.4 ms in dhcp-128-82-176-144 (Rank = 2)
+
+ind_col took 20799.1 ms in dhcp-128-82-176-144 (Rank = 0)
+
+xbar RMS:-0.000000
+xbar RMS:0.000000
+xbar RMS:-0.000000
+xbar RMS:0.000000
+xbar RMS:0.000000
+xbar RMS:-0.000000
+xbar RMS:-0.000000
+xbar RMS:0.000000
+GPU_COLLIDE:20799
+POST_COLLIDE:5086
+POST_COLLIDE 2:5086
+===================================
+ind_col took 16765.9 ms in dhcp-128-82-176-144 (Rank = 3)
+
+ind_col took 17812 ms in dhcp-128-82-176-144 (Rank = 2)
+
+ind_col took 17816.2 ms in dhcp-128-82-176-144 (Rank = 1)
+
+ind_col took 21071.5 ms in dhcp-128-82-176-144 (Rank = 0)
+
+xbar RMS:0.000000
+xbar RMS:0.000000
+xbar RMS:0.000000
+xbar RMS:0.000000
+xbar RMS:0.000000
+xbar RMS:0.000000
+GPU_COLLIDE:21071
+POST_COLLIDE:5164
+POST_COLLIDE 2:5164
+===================================
+ind_col took 0.033472 ms in dhcp-128-82-176-144 (Rank = 1)
+
+ind_col took 18231.9 ms in dhcp-128-82-176-144 (Rank = 3)
+
+ind_col took 18233.7 ms in dhcp-128-82-176-144 (Rank = 2)
+
+ind_col took 21540.9 ms in dhcp-128-82-176-144 (Rank = 0)
+
+xbar RMS:0.000000
+xbar RMS:-0.000000
+xbar RMS:-0.000000
+xbar RMS:0.000000
+Lum Turn:6
+Lum Turn:6
+GPU_COLLIDE:21541
+POST_COLLIDE:5232
+POST_COLLIDE 2:5232
+===================================
+Lum Turn:6
+Lum Turn:6
+ind_col took 17316.7 ms in dhcp-128-82-176-144 (Rank = 3)
+
+ind_col took 18388.2 ms in dhcp-128-82-176-144 (Rank = 2)
+
+ind_col took 18394.4 ms in dhcp-128-82-176-144 (Rank = 1)
+
+ind_col took 21749.8 ms in dhcp-128-82-176-144 (Rank = 0)
+
+xbar RMS:0.000000
+xbar RMS:-0.000000
+xbar RMS:-0.000000
+xbar RMS:-0.000000
+xbar RMS:-0.000000
+xbar RMS:0.000000
+GPU_COLLIDE:21749
+POST_COLLIDE:5309
+POST_COLLIDE 2:5309
+===================================
+ind_col took 17467.8 ms in dhcp-128-82-176-144 (Rank = 1)
+
+ind_col took 18554.9 ms in dhcp-128-82-176-144 (Rank = 2)
+
+ind_col took 18561 ms in dhcp-128-82-176-144 (Rank = 3)
+
+ind_col took 21956.8 ms in dhcp-128-82-176-144 (Rank = 0)
+
+xbar RMS:-0.000000
+xbar RMS:0.000000
+xbar RMS:0.000000
+xbar RMS:0.000000
+xbar RMS:0.000000
+xbar RMS:-0.000000
+GPU_COLLIDE:21956
+POST_COLLIDE:5380
+POST_COLLIDE 2:5380
+===================================
+ind_col took 38.2392 ms in dhcp-128-82-176-144 (Rank = 3)
+
+ind_col took 38.4182 ms in dhcp-128-82-176-144 (Rank = 1)
+
+ind_col took 18905.5 ms in dhcp-128-82-176-144 (Rank = 2)
+
+ind_col took 22339.6 ms in dhcp-128-82-176-144 (Rank = 0)
+
+xbar RMS:0.000000
+xbar RMS:0.000000
+xbar RMS:-0.000000
+xbar RMS:0.000000
+xbar RMS:-0.000000
+xbar RMS:0.000000
+Lum Turn:7
+Lum Turn:7
+GPU_COLLIDE:22339
+POST_COLLIDE:5462
+POST_COLLIDE 2:5462
+===================================
+Lum Turn:7
+Lum Turn:7
+ind_col took 18123 ms in dhcp-128-82-176-144 (Rank = 2)
+
+ind_col took 19237.4 ms in dhcp-128-82-176-144 (Rank = 3)
+
+ind_col took 19237.5 ms in dhcp-128-82-176-144 (Rank = 1)
+
+ind_col took 22721.8 ms in dhcp-128-82-176-144 (Rank = 0)
+
+xbar RMS:0.000000
+xbar RMS:-0.000000
+xbar RMS:-0.000000
+xbar RMS:-0.000000
+xbar RMS:-0.000000
+xbar RMS:0.000000
+xbar RMS:-0.000000
+xbar RMS:-0.000000
+GPU_COLLIDE:22721
+POST_COLLIDE:5531
+POST_COLLIDE 2:5531
+===================================
+ind_col took 18181.9 ms in dhcp-128-82-176-144 (Rank = 3)
+
+ind_col took 19311.4 ms in dhcp-128-82-176-144 (Rank = 2)
+
+ind_col took 19316.8 ms in dhcp-128-82-176-144 (Rank = 1)
+
+ind_col took 22844.7 ms in dhcp-128-82-176-144 (Rank = 0)
+
+xbar RMS:-0.000000
+xbar RMS:-0.000000
+xbar RMS:0.000000
+xbar RMS:0.000000
+xbar RMS:-0.000000
+xbar RMS:-0.000000
+GPU_COLLIDE:22844
+POST_COLLIDE:5599
+POST_COLLIDE 2:5599
+===================================
+ind_col took 0.033408 ms in dhcp-128-82-176-144 (Rank = 1)
+
+ind_col took 19545.7 ms in dhcp-128-82-176-144 (Rank = 3)
+
+ind_col took 19547.1 ms in dhcp-128-82-176-144 (Rank = 2)
+
+ind_col took 23120.4 ms in dhcp-128-82-176-144 (Rank = 0)
+
+xbar RMS:-0.000000
+xbar RMS:0.000000
+xbar RMS:-0.000000
+xbar RMS:-0.000000
+Lum Turn:8
+Lum Turn:8
+GPU_COLLIDE:23120
+POST_COLLIDE:5664
+POST_COLLIDE 2:5664
+===================================
+Lum Turn:8
+Lum Turn:8
+ind_col took 18795.4 ms in dhcp-128-82-176-144 (Rank = 2)
+
+ind_col took 19949.8 ms in dhcp-128-82-176-144 (Rank = 3)
+
+ind_col took 19949.9 ms in dhcp-128-82-176-144 (Rank = 1)
+
+ind_col took 23560 ms in dhcp-128-82-176-144 (Rank = 0)
+
+xbar RMS:-0.000000
+xbar RMS:0.000000
+xbar RMS:0.000000
+xbar RMS:0.000000
+xbar RMS:0.000000
+xbar RMS:-0.000000
+xbar RMS:-0.000000
+xbar RMS:-0.000000
+GPU_COLLIDE:23560
+POST_COLLIDE:5743
+POST_COLLIDE 2:5743
+===================================
+ind_col took 18943.6 ms in dhcp-128-82-176-144 (Rank = 2)
+
+ind_col took 20113.1 ms in dhcp-128-82-176-144 (Rank = 3)
+
+ind_col took 20113.2 ms in dhcp-128-82-176-144 (Rank = 1)
+
+ind_col took 23763.8 ms in dhcp-128-82-176-144 (Rank = 0)
+
+xbar RMS:-0.000000
+xbar RMS:-0.000000
+xbar RMS:-0.000000
+xbar RMS:-0.000000
+xbar RMS:-0.000000
+xbar RMS:-0.000000
+xbar RMS:-0.000000
+xbar RMS:-0.000000
+GPU_COLLIDE:23763
+POST_COLLIDE:5811
+POST_COLLIDE 2:5811
+===================================
+ind_col took 0.031168 ms in dhcp-128-82-176-144 (Rank = 3)
+
+ind_col took 0.046144 ms in dhcp-128-82-176-144 (Rank = 2)
+
+ind_col took 11161.9 ms in dhcp-128-82-176-144 (Rank = 1)
+
+ind_col took 14078.4 ms in dhcp-128-82-176-144 (Rank = 0)
+
+xbar RMS:0.000000
+xbar RMS:0.000000
+GPU_COLLIDE:14078
+POST_COLLIDE:6
+POST_COLLIDE 2:6
+===================================
+Lum Turn:9
+Lum Turn:9
+Lum Turn:9
+Lum Turn:9
+ind_col took 68.5812 ms in dhcp-128-82-176-144 (Rank = 3)
+
+ind_col took 69.4505 ms in dhcp-128-82-176-144 (Rank = 1)
+
+ind_col took 74.5205 ms in dhcp-128-82-176-144 (Rank = 2)
+
+ind_col took 30577 ms in dhcp-128-82-176-144 (Rank = 0)
+
+xbar RMS:0.000000
+xbar RMS:0.000000
+xbar RMS:-0.000000
+xbar RMS:0.000000
+xbar RMS:0.000000
+xbar RMS:0.000000
+xbar RMS:0.000000
+xbar RMS:-0.000000
+GPU_COLLIDE:30577
+POST_COLLIDE:5885
+POST_COLLIDE 2:5885
+===================================
+ind_col took 19462.6 ms in dhcp-128-82-176-144 (Rank = 2)
+
+ind_col took 20663.2 ms in dhcp-128-82-176-144 (Rank = 3)
+
+ind_col took 20663.3 ms in dhcp-128-82-176-144 (Rank = 1)
+
+ind_col took 24394.6 ms in dhcp-128-82-176-144 (Rank = 0)
+
+xbar RMS:0.000000
+xbar RMS:0.000000
+xbar RMS:-0.000000
+xbar RMS:-0.000000
+xbar RMS:0.000000
+xbar RMS:-0.000000
+xbar RMS:-0.000000
+xbar RMS:0.000000
+GPU_COLLIDE:24394
+POST_COLLIDE:5926
+POST_COLLIDE 2:5926
+===================================
+ind_col took 0.035776 ms in dhcp-128-82-176-144 (Rank = 3)
+
+ind_col took 0.045984 ms in dhcp-128-82-176-144 (Rank = 2)
+
+ind_col took 11478.5 ms in dhcp-128-82-176-144 (Rank = 1)
+
+ind_col took 14463.8 ms in dhcp-128-82-176-144 (Rank = 0)
+
+xbar RMS:-0.000000
+xbar RMS:0.000000
+GPU_COLLIDE:14463
+POST_COLLIDE:6
+POST_COLLIDE 2:6
+===================================
+Lum Turn:10
+Lum Turn:10
+Lum Turn:10
+Lum Turn:10
+TOTAL GPU_COLLIDE:732642
+TOTAL POST_COLLIDE:197341
+TOTAL POST_COLLIDE2:197340
+Done simulation
+Done simulation
+Done simulation
+Total Time took 957560 ms in dhcp-128-82-176-144 (Rank = 0)
+
+Done simulation

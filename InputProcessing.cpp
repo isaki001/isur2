@@ -139,11 +139,7 @@ InputProcessing::ReadInput(BeamParams* bParams){
   beamInput >> bParams->ICpf;getline(beamInput, line);
   beamInput >> bParams->Niter;getline(beamInput, line);
   beamInput >> bParams->ebunches;getline(beamInput, line);
-  
-  beamInput >> bParams->pbunches;
- 
-  getline(beamInput, line);
-  
+  beamInput >> bParams->pbunches;getline(beamInput, line);
   beamInput >> bParams->NdumpOffset;getline(beamInput, line);
   beamInput >> bParams->Nfreq;getline(beamInput, line);
   beamInput >> bParams->NfreqLum;getline(beamInput, line);
@@ -175,13 +171,9 @@ InputProcessing::ReadInput(BeamParams* bParams){
   beamInput >> bParams->nu_px;getline(beamInput, line);
   beamInput >> bParams->nu_py;getline(beamInput, line);
   beamInput >> bParams->nu_pz;getline(beamInput, line);
-  cout<<"Beam input nu_pz:"<<bParams->nu_pz<<endl;
-beamInput >> bParams->N;
-  getline(beamInput, line);
-  cout<<"beam Input's N:"<<bParams->N<<endl;
-  beamInput >> bParams->gfEqns_file_e;
-  getline(beamInput, line);
-  cout<<"this is what beamInput gets:"<<bParams->gfEqns_file_e<<std::endl;
+  beamInput >> bParams->N;getline(beamInput, line);
+  
+  beamInput >> bParams->gfEqns_file_e;getline(beamInput, line);
   beamInput >> bParams->gfEqns_file_p;getline(beamInput, line);
 
   beamInput >> bParams->x_bound;getline(beamInput, line);
@@ -215,10 +207,7 @@ beamInput >> bParams->N;
 
 void 
 InputProcessing::ReadMap(std::string mapFileName, int *Nrow, double *M, int *it, int Norder, int &jmaxOrd){
-  
   std::string mapFilePath = paths["input"] + mapFileName;
-  std::cout<<"mapFilePath:"<< mapFilePath<<"\n";
-  std::cout<<"Map file name:"<<mapFileName<<"\n";
   std::ifstream mapFile(mapFilePath.c_str());
   if (!mapFile.is_open()){
     std::string msg = "Cannot open file " + mapFileName;
@@ -229,28 +218,8 @@ InputProcessing::ReadMap(std::string mapFileName, int *Nrow, double *M, int *it,
   double Mtmp1;
   int ittmp[6];
   int j = 0, i = 1;
-  printf("about to read map\n");
-  while(!mapFile.eof())
-  {
-    //printf("read iteration\n");
-    mapFile >> iTmp ;
-    //printf("1\n");
-    mapFile>>  Mtmp1;
-    //printf("2\n");
-    mapFile >> iOrder;
-    //printf("3\n");
-    mapFile>>  ittmp[0];
-    //printf("4\n");
-    mapFile>>  ittmp[1];
-    //printf("5\n");
-    mapFile>> ittmp[2];
-    //printf("6\n");
-    mapFile>>  ittmp[3];
-    //printf("7\n");
-    mapFile>>  ittmp[4];
-    //printf("8\n");
-    mapFile>>  ittmp[5];
-    //printf("9\n");
+  while(!mapFile.eof()){
+    mapFile >> iTmp >> Mtmp1 >> iOrder >> ittmp[0] >> ittmp[1] >> ittmp[2] >> ittmp[3] >> ittmp[4] >> ittmp[5];
     if(!mapFile) {
       Nrow[i - 1] = j;
       break;
@@ -258,8 +227,7 @@ InputProcessing::ReadMap(std::string mapFileName, int *Nrow, double *M, int *it,
     if (iTmp > iTmp_prev){
       j = j + 1;
       iTmp_prev = iTmp;
-    }
-    else{
+    }else{
       Nrow[i - 1] = j;
       i = i + 1;
       j = 1;
@@ -462,10 +430,9 @@ void InputProcessing::dumpParticles(int Nbunches, double *x, int Npart, int Ncol
   str << "PID_" << pid << ".Turn_" << iTurn;
   std::string filename = outputConfig[ic] + "." + str.str();
   std::ofstream file(filename.c_str(), mode);
-  // cout<<"IOS mode:"<<mode<<endl;
   cout<<"DP: Outputting dump in:"<<filename<<endl;
-  // cout<<"DP: Npart:"<<Npart<<endl;
-  // cout<<"DP: Bunches:"<<Nbunches<<endl;
+  cout<<"DP: Npart:"<<Npart<<endl;
+  cout<<"DP: Bunches:"<<Nbunches<<endl;
   if (!file.is_open()){
     std::string msg = "Cannot open file " + outputConfig[ic];
     __Abort(msg.c_str());
@@ -475,16 +442,16 @@ void InputProcessing::dumpParticles(int Nbunches, double *x, int Npart, int Ncol
   ss << std::scientific;
   for(int bunch = 0; bunch < Nbunches; bunch++) 
   {
-    int offset_bunch = bunch * Npart * (Ncol + 2);
-    for(int i = 0; i < Npart; ++i)
-      {
-        //ss << iTurn ;
-        for(int j = 0; j < Ncol; ++j)
-        {
-            ss << "\t" << x[offset_bunch + j * Npart + i];
-        }
-        ss << "\n";
-      }
+	int offset_bunch = bunch * Npart * (Ncol + 2);
+	for(int i = 0; i < Npart; ++i)
+	{
+    //ss << iTurn ;
+		for(int j = 0; j < Ncol; ++j)
+		{
+			ss << "\t" << x[offset_bunch + j * Npart + i];
+		}
+		ss << "\n";
+	}
   }
   file << ss.str();
   file.close();
@@ -521,8 +488,8 @@ void InputProcessing::dumpLum(int iTurn, double Lum_total, double Lc, double Lsl
 	std::ofstream file(outputConfig[sFile].c_str(), mode);
 	if (!file.is_open())
 	{
-          std::string msg = "Cannot open file " + outputConfig[sFile];
-          __Abort(msg.c_str());
+		std::string msg = "Cannot open file " + outputConfig[sFile];
+		__Abort(msg.c_str());
 	}
 
 	std::stringstream ss;

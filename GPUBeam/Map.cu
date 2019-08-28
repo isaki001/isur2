@@ -8,10 +8,6 @@
 #define META_TAG 1
 
 #include <stdio.h>
-#include <iostream>
-
-using namespace std;
-
 //x,2
 __device__
 double
@@ -753,10 +749,9 @@ computeRMS(double *dx, int Npart,
 				   Npart);
   ptr = thrust::device_pointer_cast(dx0);
   sig_x = sqrt(thrust::reduce(ptr, ptr + Npart, (double) 0, thrust::plus<double>())/(double)Npart_inbound);
-  //cout<<"Within Compute rms sig_x:"<<sig_x<<endl;
+  
   ptr = thrust::device_pointer_cast(dy0);
   sig_y = sqrt(thrust::reduce(ptr, ptr + Npart, (double) 0, thrust::plus<double>())/(double)Npart_inbound);
-  //cout<<"Within Compute rms sig_y:"<<sig_y<<endl;
   ptr = thrust::device_pointer_cast(dz0);
   sig_z = sqrt(thrust::reduce(ptr, ptr + Npart, (double) 0, thrust::plus<double>())/(double)Npart_inbound);
   ptr = thrust::device_pointer_cast(dx1);
@@ -838,6 +833,8 @@ gf2EqnsJac(int const* __restrict__ itM, double *xi, int *dflag,
     jac[3*Npart + ie] = (f3 - f_xi_xf[3*Npart + ie])/delta;
     jac[4*Npart + ie] = (f4 - f_xi_xf[4*Npart + ie])/delta;
     jac[5*Npart + ie] = (f5 - f_xi_xf[5*Npart + ie])/delta;
+
+
   }
 }
 

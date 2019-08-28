@@ -3,24 +3,24 @@ map_e.dat       ! map file for the e-beam
 1               ! map file for the e-beam flag: 1: create lin <>1: read in
 1               ! order of the map for the e-beam
 1024000          ! # of particles in the e-beam
-IC.ebeam        ! ICs for the e-beam
+IC1.ebeam        ! ICs for the e-beam
 1               ! ICs for the e-beam flag: 1: create <>1: read in
 map_p.dat       ! map file for the p-beam
 1               ! map file for the p-beam flag: 1: create lin <>1: read in
 1               ! order of the map for the p-beam
 1024000          ! # of particles in the p-beam
-IC.pbeam        ! ICs for the p-beam
+IC1.pbeam        ! ICs for the p-beam
 1              ! ICs for the p-beam flag: 1: create <>1: read in
-5               ! number of iterations
+1000               ! number of iterations
 3               ! no. of ebunches
 4               ! no. of pbunches
 0               ! offset - start dumping after "offset" turns
-200000          ! frequency of dumping data
+1          ! frequency of dumping data
 1               ! frequency of dumping luminosity
-1               ! type of beam-beam effect: 1:W-S 2:S-S 3,4: no collision
+2               ! type of beam-beam effect: 1:W-S 2:S-S 3,4: no collision
 21.77e-6        ! rms horizontal size of the e-beam [m] MEIC params
-4.33e-6        ! rms vertical size of the e-beam [m]
-8.0e-3         ! rms of the e-beam [m]
+4.33e-6         ! rms vertical size of the e-beam [m]
+8e-3         ! rms of the e-beam [m]
 4.5e-4          ! rms energy spread of the e-beam
 0.0             ! offset of the e-beam in x
 0.0             ! offset of the e-beam in y
@@ -28,7 +28,7 @@ IC.pbeam        ! ICs for the p-beam
 1.0e-2          ! vertical beta* at IP for the e-beam [m]
 21.77e-6        ! rms horizontal size of the p-beam [m]
 4.33e-6         ! rms vertical size of the p-beam [m]
-12.0e-3          ! rms of the p-beam [m]
+12e-3         ! rms of the p-beam [m]
 3.0e-4          ! rms energy spread of the p-beam
 0.0             ! offset of the p-beam in x
 0.0             ! offset of the p-beam in y
@@ -51,7 +51,7 @@ eq_p.dat        ! GF equations file for p-beam
 0.01            ! Bound of particles distribution in X-direction
 0.01            ! Bound of particles distribution in Y-direction
 1               ! frequency of sympletic tracking
-1               ! Background logging 0:Inline data logging and 1: Enable background loggin
+1               ! Background logging 0:Inline data logging and 1: Enable background logging
 1               ! Strict background logging 0:false, 1:true
 1               ! IC generation method: 0: random 1: uniform lattice
 1               ! First uniform lattice coordinate: 1: x 2: a 3: y 4: b 5: l 6: delta
